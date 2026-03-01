@@ -1,0 +1,1890 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting API
+  description: >-
+    The Adobe Illustrator Scripting API provides programmatic access to
+    Illustrator's functionality through JavaScript, AppleScript, and VBScript.
+    It allows developers to automate repetitive tasks, manipulate documents,
+    select and edit text, generate art from data, and batch process files.
+    Scripts can control nearly every aspect of Illustrator, from creating and
+    modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/
+servers:
+  - url: https://localhost
+    description: Local Illustrator Application
+tags:
+  - name: Application
+    description: >-
+      Access to the Illustrator application object, including preferences,
+      version information, and global settings.
+  - name: Documents
+    description: >-
+      Manage Illustrator documents, including opening, creating, saving,
+      closing, and exporting documents in various formats.
+  - name: Layers
+    description: >-
+      Create, manage, and manipulate layers within an Illustrator document,
+      including visibility, locking, and ordering.
+  - name: Artboards
+    description: >-
+      Manage artboards within an Illustrator document, including creating,
+      resizing, reordering, and removing artboards.
+  - name: Path Items
+    description: >-
+      Create and manipulate vector path items, including shapes, lines,
+      and complex paths with anchor points and control handles.
+  - name: Text Frames
+    description: >-
+      Create and manipulate text frames, including point text, area text,
+      and text on a path, with full typography control.
+  - name: Symbols
+    description: >-
+      Manage symbol definitions and symbol instances, enabling reuse of
+      artwork across documents.
+  - name: Swatches
+    description: >-
+      Manage color swatches, including spot colors, process colors,
+      gradients, and patterns stored in the document.
+  - name: Graphic Styles
+    description: >-
+      Manage graphic styles that can be applied to artwork for consistent
+      appearance across multiple objects.
+paths:
+  /application:
+    get:
+      operationId: getApplication
+      summary: Get application information
+      description: >-
+        Returns information about the Illustrator application, including the
+        version, build number, locale, and current preferences.
+      tags:
+        - Application
+      responses:
+        '200':
+          description: Application information retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+  /application/preferences:
+    get:
+      operationId: getPreferences
+      summary: Get application preferences
+      description: >-
+        Returns the current application preferences, including general, type,
+        units, guides, and smart guides preferences.
+      tags:
+        - Application
+      responses:
+        '200':
+          description: Preferences retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preferences'
+    put:
+      operationId: updatePreferences
+      summary: Update application preferences
+      description: >-
+        Updates the application preferences with the provided values.
+      tags:
+        - Application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Preferences'
+      responses:
+        '200':
+          description: Preferences updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preferences'
+  /documents:
+    get:
+      operationId: listDocuments
+      summary: List open documents
+      description: >-
+        Returns a list of all currently open Illustrator documents.
+      tags:
+        - Documents
+      responses:
+        '200':
+          description: List of open documents retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Document'
+    post:
+      operationId: createDocument
+      summary: Create a new document
+      description: >-
+        Creates a new Illustrator document with the specified settings,
+        including document color mode, dimensions, and artboard configuration.
+      tags:
+        - Documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreate'
+      responses:
+        '201':
+          description: Document created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+  /documents/{documentId}:
+    get:
+      operationId: getDocument
+      summary: Get a document
+      description: >-
+        Returns detailed information about a specific open document,
+        including its layers, artboards, and document properties.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Document retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          description: Document not found.
+    delete:
+      operationId: closeDocument
+      summary: Close a document
+      description: >-
+        Closes the specified document. Optionally saves changes before closing.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: saveChanges
+          in: query
+          description: Whether to save changes before closing.
+          schema:
+            type: string
+            enum:
+              - save
+              - discard
+              - prompt
+            default: prompt
+      responses:
+        '204':
+          description: Document closed successfully.
+        '404':
+          description: Document not found.
+  /documents/{documentId}/save:
+    post:
+      operationId: saveDocument
+      summary: Save a document
+      description: >-
+        Saves the specified document. If the document has not been saved
+        before, a file path must be provided.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filePath:
+                  type: string
+                  description: File path to save to.
+                format:
+                  type: string
+                  description: File format for saving.
+                  enum:
+                    - ai
+                    - eps
+                    - pdf
+                    - svg
+      responses:
+        '200':
+          description: Document saved successfully.
+        '404':
+          description: Document not found.
+  /documents/{documentId}/export:
+    post:
+      operationId: exportDocument
+      summary: Export a document
+      description: >-
+        Exports the document to a specified format, including PNG, JPEG,
+        SVG, PDF, TIFF, and other supported formats.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportOptions'
+      responses:
+        '200':
+          description: Document exported successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filePath:
+                    type: string
+                    description: Path to the exported file.
+                  format:
+                    type: string
+                    description: Format of the exported file.
+        '404':
+          description: Document not found.
+  /documents/{documentId}/layers:
+    get:
+      operationId: listLayers
+      summary: List layers in a document
+      description: >-
+        Returns all layers in the specified document, including nested
+        sublayers, with their properties and ordering.
+      tags:
+        - Layers
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Layers retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Layer'
+    post:
+      operationId: createLayer
+      summary: Create a new layer
+      description: >-
+        Creates a new layer in the specified document with the provided
+        name, color, visibility, and other properties.
+      tags:
+        - Layers
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LayerCreate'
+      responses:
+        '201':
+          description: Layer created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer'
+  /documents/{documentId}/layers/{layerId}:
+    get:
+      operationId: getLayer
+      summary: Get a layer
+      description: >-
+        Returns detailed information about a specific layer, including its
+        contents, visibility, lock state, and sublayers.
+      tags:
+        - Layers
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/layerId'
+      responses:
+        '200':
+          description: Layer retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer'
+        '404':
+          description: Layer not found.
+    put:
+      operationId: updateLayer
+      summary: Update a layer
+      description: >-
+        Updates the properties of a specific layer, including name,
+        visibility, lock state, opacity, and blend mode.
+      tags:
+        - Layers
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/layerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LayerCreate'
+      responses:
+        '200':
+          description: Layer updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer'
+        '404':
+          description: Layer not found.
+    delete:
+      operationId: deleteLayer
+      summary: Delete a layer
+      description: >-
+        Removes the specified layer and all of its contents from the document.
+      tags:
+        - Layers
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/layerId'
+      responses:
+        '204':
+          description: Layer deleted successfully.
+        '404':
+          description: Layer not found.
+  /documents/{documentId}/artboards:
+    get:
+      operationId: listArtboards
+      summary: List artboards in a document
+      description: >-
+        Returns all artboards in the specified document with their
+        dimensions, positions, and names.
+      tags:
+        - Artboards
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Artboards retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Artboard'
+    post:
+      operationId: createArtboard
+      summary: Create a new artboard
+      description: >-
+        Adds a new artboard to the document with the specified dimensions
+        and position.
+      tags:
+        - Artboards
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtboardCreate'
+      responses:
+        '201':
+          description: Artboard created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artboard'
+  /documents/{documentId}/artboards/{artboardIndex}:
+    get:
+      operationId: getArtboard
+      summary: Get an artboard
+      description: >-
+        Returns detailed information about a specific artboard, including
+        its bounds, name, and ruler origin.
+      tags:
+        - Artboards
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/artboardIndex'
+      responses:
+        '200':
+          description: Artboard retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artboard'
+        '404':
+          description: Artboard not found.
+    put:
+      operationId: updateArtboard
+      summary: Update an artboard
+      description: >-
+        Updates the properties of a specific artboard, including name,
+        bounds, and ruler origin.
+      tags:
+        - Artboards
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/artboardIndex'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtboardCreate'
+      responses:
+        '200':
+          description: Artboard updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artboard'
+        '404':
+          description: Artboard not found.
+    delete:
+      operationId: deleteArtboard
+      summary: Delete an artboard
+      description: >-
+        Removes the specified artboard from the document.
+      tags:
+        - Artboards
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/artboardIndex'
+      responses:
+        '204':
+          description: Artboard deleted successfully.
+        '404':
+          description: Artboard not found.
+  /documents/{documentId}/pathItems:
+    get:
+      operationId: listPathItems
+      summary: List path items
+      description: >-
+        Returns all path items in the document or a specific layer,
+        including their anchor points, fill, and stroke properties.
+      tags:
+        - Path Items
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: layerId
+          in: query
+          description: Filter path items by layer.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Path items retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PathItem'
+    post:
+      operationId: createPathItem
+      summary: Create a path item
+      description: >-
+        Creates a new path item in the document with the specified anchor
+        points, fill, stroke, and other properties. Supports creating
+        rectangles, ellipses, polygons, stars, and freeform paths.
+      tags:
+        - Path Items
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PathItemCreate'
+      responses:
+        '201':
+          description: Path item created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PathItem'
+  /documents/{documentId}/pathItems/{pathItemId}:
+    get:
+      operationId: getPathItem
+      summary: Get a path item
+      description: >-
+        Returns detailed information about a specific path item, including
+        its anchor points, control handles, fill, stroke, and transform.
+      tags:
+        - Path Items
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/pathItemId'
+      responses:
+        '200':
+          description: Path item retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PathItem'
+        '404':
+          description: Path item not found.
+    put:
+      operationId: updatePathItem
+      summary: Update a path item
+      description: >-
+        Updates the properties of a specific path item, including its
+        anchor points, fill, stroke, opacity, and transform.
+      tags:
+        - Path Items
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/pathItemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PathItemCreate'
+      responses:
+        '200':
+          description: Path item updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PathItem'
+        '404':
+          description: Path item not found.
+    delete:
+      operationId: deletePathItem
+      summary: Delete a path item
+      description: >-
+        Removes the specified path item from the document.
+      tags:
+        - Path Items
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/pathItemId'
+      responses:
+        '204':
+          description: Path item deleted successfully.
+        '404':
+          description: Path item not found.
+  /documents/{documentId}/textFrames:
+    get:
+      operationId: listTextFrames
+      summary: List text frames
+      description: >-
+        Returns all text frames in the document, including point text,
+        area text, and text on a path items.
+      tags:
+        - Text Frames
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: layerId
+          in: query
+          description: Filter text frames by layer.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Text frames retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TextFrame'
+    post:
+      operationId: createTextFrame
+      summary: Create a text frame
+      description: >-
+        Creates a new text frame in the document. Supports point text, area
+        text, and text on a path with full typography settings.
+      tags:
+        - Text Frames
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextFrameCreate'
+      responses:
+        '201':
+          description: Text frame created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextFrame'
+  /documents/{documentId}/textFrames/{textFrameId}:
+    get:
+      operationId: getTextFrame
+      summary: Get a text frame
+      description: >-
+        Returns detailed information about a specific text frame, including
+        its contents, character attributes, paragraph attributes, and bounds.
+      tags:
+        - Text Frames
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/textFrameId'
+      responses:
+        '200':
+          description: Text frame retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextFrame'
+        '404':
+          description: Text frame not found.
+    put:
+      operationId: updateTextFrame
+      summary: Update a text frame
+      description: >-
+        Updates the properties of a specific text frame, including its
+        contents, character attributes, and paragraph attributes.
+      tags:
+        - Text Frames
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/textFrameId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextFrameCreate'
+      responses:
+        '200':
+          description: Text frame updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextFrame'
+        '404':
+          description: Text frame not found.
+    delete:
+      operationId: deleteTextFrame
+      summary: Delete a text frame
+      description: >-
+        Removes the specified text frame from the document.
+      tags:
+        - Text Frames
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/textFrameId'
+      responses:
+        '204':
+          description: Text frame deleted successfully.
+        '404':
+          description: Text frame not found.
+  /documents/{documentId}/symbols:
+    get:
+      operationId: listSymbols
+      summary: List symbols
+      description: >-
+        Returns all symbol definitions in the document that can be
+        instantiated as symbol items.
+      tags:
+        - Symbols
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Symbols retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Symbol'
+    post:
+      operationId: createSymbol
+      summary: Create a symbol
+      description: >-
+        Creates a new symbol definition from the specified artwork in the
+        document. The symbol can then be instantiated multiple times.
+      tags:
+        - Symbols
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SymbolCreate'
+      responses:
+        '201':
+          description: Symbol created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Symbol'
+  /documents/{documentId}/symbols/{symbolId}:
+    get:
+      operationId: getSymbol
+      summary: Get a symbol
+      description: >-
+        Returns detailed information about a specific symbol definition.
+      tags:
+        - Symbols
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/symbolId'
+      responses:
+        '200':
+          description: Symbol retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Symbol'
+        '404':
+          description: Symbol not found.
+    delete:
+      operationId: deleteSymbol
+      summary: Delete a symbol
+      description: >-
+        Removes the specified symbol definition from the document.
+      tags:
+        - Symbols
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/symbolId'
+      responses:
+        '204':
+          description: Symbol deleted successfully.
+        '404':
+          description: Symbol not found.
+  /documents/{documentId}/swatches:
+    get:
+      operationId: listSwatches
+      summary: List swatches
+      description: >-
+        Returns all color swatches defined in the document, including
+        process colors, spot colors, gradients, and patterns.
+      tags:
+        - Swatches
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Swatches retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Swatch'
+    post:
+      operationId: createSwatch
+      summary: Create a swatch
+      description: >-
+        Creates a new color swatch in the document with the specified
+        color values and properties.
+      tags:
+        - Swatches
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SwatchCreate'
+      responses:
+        '201':
+          description: Swatch created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Swatch'
+  /documents/{documentId}/swatches/{swatchName}:
+    get:
+      operationId: getSwatch
+      summary: Get a swatch
+      description: >-
+        Returns detailed information about a specific swatch by name.
+      tags:
+        - Swatches
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: swatchName
+          in: path
+          required: true
+          description: Name of the swatch.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Swatch retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Swatch'
+        '404':
+          description: Swatch not found.
+    delete:
+      operationId: deleteSwatch
+      summary: Delete a swatch
+      description: >-
+        Removes the specified swatch from the document.
+      tags:
+        - Swatches
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: swatchName
+          in: path
+          required: true
+          description: Name of the swatch.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Swatch deleted successfully.
+        '404':
+          description: Swatch not found.
+  /documents/{documentId}/graphicStyles:
+    get:
+      operationId: listGraphicStyles
+      summary: List graphic styles
+      description: >-
+        Returns all graphic styles defined in the document.
+      tags:
+        - Graphic Styles
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Graphic styles retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraphicStyle'
+  /documents/{documentId}/graphicStyles/{graphicStyleName}:
+    get:
+      operationId: getGraphicStyle
+      summary: Get a graphic style
+      description: >-
+        Returns detailed information about a specific graphic style.
+      tags:
+        - Graphic Styles
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: graphicStyleName
+          in: path
+          required: true
+          description: Name of the graphic style.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Graphic style retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphicStyle'
+        '404':
+          description: Graphic style not found.
+    delete:
+      operationId: deleteGraphicStyle
+      summary: Delete a graphic style
+      description: >-
+        Removes the specified graphic style from the document.
+      tags:
+        - Graphic Styles
+      parameters:
+        - $ref: '#/components/parameters/documentId'
+        - name: graphicStyleName
+          in: path
+          required: true
+          description: Name of the graphic style.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Graphic style deleted successfully.
+        '404':
+          description: Graphic style not found.
+components:
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    layerId:
+      name: layerId
+      in: path
+      required: true
+      description: Unique identifier of the layer.
+      schema:
+        type: string
+    artboardIndex:
+      name: artboardIndex
+      in: path
+      required: true
+      description: Zero-based index of the artboard.
+      schema:
+        type: integer
+    pathItemId:
+      name: pathItemId
+      in: path
+      required: true
+      description: Unique identifier of the path item.
+      schema:
+        type: string
+    textFrameId:
+      name: textFrameId
+      in: path
+      required: true
+      description: Unique identifier of the text frame.
+      schema:
+        type: string
+    symbolId:
+      name: symbolId
+      in: path
+      required: true
+      description: Unique identifier of the symbol.
+      schema:
+        type: string
+  schemas:
+    Application:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The application name.
+          examples:
+            - Adobe Illustrator
+        version:
+          type: string
+          description: The version string.
+          examples:
+            - 29.0
+        buildNumber:
+          type: string
+          description: The build number.
+        locale:
+          type: string
+          description: The current locale.
+          examples:
+            - en_US
+        scriptingVersion:
+          type: string
+          description: The scripting API version.
+        freeMemory:
+          type: integer
+          description: Available memory in bytes.
+        activeDocument:
+          type: string
+          description: Name of the currently active document.
+        documents:
+          type: array
+          description: List of open document names.
+          items:
+            type: string
+        userInteractionLevel:
+          type: string
+          description: The level of user interaction allowed.
+          enum:
+            - DISPLAYALERTS
+            - DONTDISPLAYALERTS
+    Preferences:
+      type: object
+      properties:
+        rulerUnits:
+          type: string
+          description: Default ruler units.
+          enum:
+            - Points
+            - Picas
+            - Inches
+            - Millimeters
+            - Centimeters
+            - Pixels
+        generalPreferences:
+          type: object
+          properties:
+            keyboardIncrement:
+              type: number
+              description: Keyboard increment value.
+            constrainAngle:
+              type: number
+              description: Constrain angle in degrees.
+            useAreaSelect:
+              type: boolean
+              description: Whether to use area select.
+        typePreferences:
+          type: object
+          properties:
+            showHiddenCharacters:
+              type: boolean
+              description: Whether to show hidden characters.
+            useSmartQuotes:
+              type: boolean
+              description: Whether to use smart quotes.
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the document.
+        name:
+          type: string
+          description: Name of the document.
+          examples:
+            - Untitled-1
+        fullName:
+          type: string
+          description: Full file path of the document.
+        saved:
+          type: boolean
+          description: Whether the document has been saved.
+        documentColorSpace:
+          type: string
+          description: The document color mode.
+          enum:
+            - CMYK
+            - RGB
+        width:
+          type: number
+          description: Document width in points.
+        height:
+          type: number
+          description: Document height in points.
+        rulerUnits:
+          type: string
+          description: Ruler units used in the document.
+          enum:
+            - Points
+            - Picas
+            - Inches
+            - Millimeters
+            - Centimeters
+            - Pixels
+        rulerOrigin:
+          type: array
+          description: The ruler origin point [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        layerCount:
+          type: integer
+          description: Number of layers in the document.
+        artboardCount:
+          type: integer
+          description: Number of artboards in the document.
+        activeLayer:
+          type: string
+          description: Name of the currently active layer.
+    DocumentCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the new document.
+        documentColorSpace:
+          type: string
+          description: Color mode of the document.
+          enum:
+            - CMYK
+            - RGB
+          default: RGB
+        width:
+          type: number
+          description: Document width in points.
+          default: 612
+        height:
+          type: number
+          description: Document height in points.
+          default: 792
+        numArtboards:
+          type: integer
+          description: Number of artboards to create.
+          default: 1
+        artboardLayout:
+          type: string
+          description: Layout for multiple artboards.
+          enum:
+            - GridByRow
+            - GridByCol
+            - Row
+            - Column
+            - RLGridByRow
+            - RLGridByCol
+            - RLRow
+        rasterResolution:
+          type: string
+          description: Raster effects resolution.
+          enum:
+            - ScreenResolution
+            - MediumResolution
+            - HighResolution
+          default: HighResolution
+    ExportOptions:
+      type: object
+      required:
+        - filePath
+        - format
+      properties:
+        filePath:
+          type: string
+          description: File path for the exported file.
+        format:
+          type: string
+          description: Export format.
+          enum:
+            - PNG8
+            - PNG24
+            - JPEG
+            - SVG
+            - PDF
+            - TIFF
+            - GIF
+            - AutoCAD
+            - Flash
+            - Photoshop
+        artboardRange:
+          type: string
+          description: >-
+            Range of artboards to export (e.g., "1-3" or "1,3,5").
+            Empty string exports all artboards.
+          default: ""
+        horizontalScale:
+          type: number
+          description: Horizontal scaling factor as a percentage.
+          default: 100
+        verticalScale:
+          type: number
+          description: Vertical scaling factor as a percentage.
+          default: 100
+        resolution:
+          type: number
+          description: Export resolution in PPI.
+          default: 72
+        antiAliasing:
+          type: boolean
+          description: Whether to use anti-aliasing.
+          default: true
+        transparency:
+          type: boolean
+          description: Whether to preserve transparency.
+          default: true
+    Layer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the layer.
+        name:
+          type: string
+          description: Name of the layer.
+          examples:
+            - Layer 1
+        visible:
+          type: boolean
+          description: Whether the layer is visible.
+        locked:
+          type: boolean
+          description: Whether the layer is locked.
+        printable:
+          type: boolean
+          description: Whether the layer is printable.
+        preview:
+          type: boolean
+          description: Whether the layer is in preview mode.
+        dimPlacedImages:
+          type: boolean
+          description: Whether to dim placed images.
+        color:
+          type: string
+          description: The layer highlight color.
+          enum:
+            - Red
+            - Orange
+            - Yellow
+            - Green
+            - Blue
+            - Violet
+            - Gray
+            - LightBlue
+            - LightGreen
+            - LightRed
+        opacity:
+          type: number
+          description: Layer opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+        blendingMode:
+          type: string
+          description: Blending mode for the layer.
+          enum:
+            - Normal
+            - Multiply
+            - Screen
+            - Overlay
+            - Darken
+            - Lighten
+            - ColorDodge
+            - ColorBurn
+            - HardLight
+            - SoftLight
+            - Difference
+            - Exclusion
+            - Hue
+            - Saturation
+            - Color
+            - Luminosity
+        isClippingMask:
+          type: boolean
+          description: Whether the layer is a clipping mask.
+        sliced:
+          type: boolean
+          description: Whether the layer is sliced.
+        hasSelectedArtwork:
+          type: boolean
+          description: Whether the layer contains selected artwork.
+        pathItemCount:
+          type: integer
+          description: Number of path items in the layer.
+        textFrameCount:
+          type: integer
+          description: Number of text frames in the layer.
+        sublayerCount:
+          type: integer
+          description: Number of sublayers.
+    LayerCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the layer.
+        visible:
+          type: boolean
+          description: Whether the layer is visible.
+          default: true
+        locked:
+          type: boolean
+          description: Whether the layer is locked.
+          default: false
+        printable:
+          type: boolean
+          description: Whether the layer is printable.
+          default: true
+        preview:
+          type: boolean
+          description: Whether the layer is in preview mode.
+          default: true
+        opacity:
+          type: number
+          description: Layer opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          default: 100
+        blendingMode:
+          type: string
+          description: Blending mode for the layer.
+          enum:
+            - Normal
+            - Multiply
+            - Screen
+            - Overlay
+          default: Normal
+        color:
+          type: string
+          description: Layer highlight color.
+          enum:
+            - Red
+            - Orange
+            - Yellow
+            - Green
+            - Blue
+            - Violet
+    Artboard:
+      type: object
+      properties:
+        index:
+          type: integer
+          description: Zero-based index of the artboard.
+        name:
+          type: string
+          description: Name of the artboard.
+          examples:
+            - Artboard 1
+        artboardRect:
+          type: array
+          description: >-
+            Bounding rectangle [left, top, right, bottom] in points.
+          items:
+            type: number
+          minItems: 4
+          maxItems: 4
+        rulerOrigin:
+          type: array
+          description: Ruler origin point [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        rulerPAR:
+          type: number
+          description: Ruler pixel aspect ratio.
+        showCenter:
+          type: boolean
+          description: Whether to show the center mark.
+        showCrossHairs:
+          type: boolean
+          description: Whether to show cross hairs.
+        showSafeAreas:
+          type: boolean
+          description: Whether to show safe areas.
+    ArtboardCreate:
+      type: object
+      required:
+        - artboardRect
+      properties:
+        name:
+          type: string
+          description: Name of the artboard.
+        artboardRect:
+          type: array
+          description: >-
+            Bounding rectangle [left, top, right, bottom] in points.
+          items:
+            type: number
+          minItems: 4
+          maxItems: 4
+    PathItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the path item.
+        name:
+          type: string
+          description: Name of the path item.
+        closed:
+          type: boolean
+          description: Whether the path is closed.
+        filled:
+          type: boolean
+          description: Whether the path has a fill.
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        stroked:
+          type: boolean
+          description: Whether the path has a stroke.
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWidth:
+          type: number
+          description: Stroke width in points.
+        strokeCap:
+          type: string
+          description: Stroke cap style.
+          enum:
+            - ButtEndCap
+            - RoundEndCap
+            - ProjectingEndCap
+        strokeJoin:
+          type: string
+          description: Stroke join style.
+          enum:
+            - MiterEndJoin
+            - RoundEndJoin
+            - BevelEndJoin
+        strokeDashes:
+          type: array
+          description: Dash pattern for the stroke.
+          items:
+            type: number
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+        blendingMode:
+          type: string
+          description: Blending mode.
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width in points.
+        height:
+          type: number
+          description: Height in points.
+        pathPoints:
+          type: array
+          description: Array of path points defining the path shape.
+          items:
+            $ref: '#/components/schemas/PathPoint'
+        area:
+          type: number
+          description: Area of the path in square points.
+        length:
+          type: number
+          description: Length of the path in points.
+        guides:
+          type: boolean
+          description: Whether this path item is a guide.
+        clipping:
+          type: boolean
+          description: Whether this path item is a clipping path.
+        layer:
+          type: string
+          description: Name of the containing layer.
+    PathItemCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the path item.
+        pathType:
+          type: string
+          description: Type of path to create.
+          enum:
+            - freeform
+            - rectangle
+            - roundedRectangle
+            - ellipse
+            - polygon
+            - star
+            - line
+          default: freeform
+        pathPoints:
+          type: array
+          description: >-
+            Array of path points for freeform paths. Required when
+            pathType is "freeform".
+          items:
+            $ref: '#/components/schemas/PathPoint'
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width in points (for rectangle, ellipse).
+        height:
+          type: number
+          description: Height in points (for rectangle, ellipse).
+        cornerRadius:
+          type: number
+          description: Corner radius for rounded rectangle.
+        sides:
+          type: integer
+          description: Number of sides for polygon.
+          minimum: 3
+        points:
+          type: integer
+          description: Number of points for star.
+          minimum: 3
+        innerRadius:
+          type: number
+          description: Inner radius for star.
+        filled:
+          type: boolean
+          description: Whether the path has a fill.
+          default: true
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        stroked:
+          type: boolean
+          description: Whether the path has a stroke.
+          default: true
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWidth:
+          type: number
+          description: Stroke width in points.
+          default: 1
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          default: 100
+        layer:
+          type: string
+          description: Target layer name.
+    PathPoint:
+      type: object
+      properties:
+        anchor:
+          type: array
+          description: Anchor point coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        leftDirection:
+          type: array
+          description: Left control handle coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        rightDirection:
+          type: array
+          description: Right control handle coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        pointType:
+          type: string
+          description: The type of path point.
+          enum:
+            - Smooth
+            - Corner
+      required:
+        - anchor
+    Color:
+      type: object
+      properties:
+        colorType:
+          type: string
+          description: Type of color specification.
+          enum:
+            - RGB
+            - CMYK
+            - Gray
+            - Spot
+            - Pattern
+            - Gradient
+            - None
+        red:
+          type: number
+          description: Red component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+        green:
+          type: number
+          description: Green component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+        blue:
+          type: number
+          description: Blue component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+        cyan:
+          type: number
+          description: Cyan component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+        magenta:
+          type: number
+          description: Magenta component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+        yellow:
+          type: number
+          description: Yellow component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+        black:
+          type: number
+          description: Black component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+        gray:
+          type: number
+          description: Gray value (0-100) for grayscale colors.
+          minimum: 0
+          maximum: 100
+        spotName:
+          type: string
+          description: Spot color name for spot colors.
+        tint:
+          type: number
+          description: Tint percentage for spot colors.
+          minimum: 0
+          maximum: 100
+    TextFrame:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the text frame.
+        name:
+          type: string
+          description: Name of the text frame.
+        kind:
+          type: string
+          description: Type of text frame.
+          enum:
+            - PointText
+            - AreaText
+            - PathText
+        contents:
+          type: string
+          description: The text content of the frame.
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width of the text frame in points.
+        height:
+          type: number
+          description: Height of the text frame in points.
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+            - Horizontal
+            - Vertical
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+        layer:
+          type: string
+          description: Name of the containing layer.
+    TextFrameCreate:
+      type: object
+      required:
+        - contents
+        - position
+      properties:
+        name:
+          type: string
+          description: Name of the text frame.
+        kind:
+          type: string
+          description: Type of text frame to create.
+          enum:
+            - PointText
+            - AreaText
+            - PathText
+          default: PointText
+        contents:
+          type: string
+          description: The text content.
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width for area text frames.
+        height:
+          type: number
+          description: Height for area text frames.
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+            - Horizontal
+            - Vertical
+          default: Horizontal
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        layer:
+          type: string
+          description: Target layer name.
+    CharacterAttributes:
+      type: object
+      properties:
+        font:
+          type: string
+          description: Font name.
+          examples:
+            - Myriad Pro
+        size:
+          type: number
+          description: Font size in points.
+          examples:
+            - 12
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWeight:
+          type: number
+          description: Character stroke weight.
+        tracking:
+          type: number
+          description: Tracking value.
+        leading:
+          type: number
+          description: Leading (line spacing) in points.
+        kerning:
+          type: number
+          description: Kerning value.
+        horizontalScale:
+          type: number
+          description: Horizontal scale as a percentage.
+          default: 100
+        verticalScale:
+          type: number
+          description: Vertical scale as a percentage.
+          default: 100
+        baselineShift:
+          type: number
+          description: Baseline shift in points.
+        rotation:
+          type: number
+          description: Character rotation in degrees.
+        capitalization:
+          type: string
+          description: Capitalization style.
+          enum:
+            - Normal
+            - AllCaps
+            - SmallCaps
+        underline:
+          type: boolean
+          description: Whether text is underlined.
+        strikethrough:
+          type: boolean
+          description: Whether text has strikethrough.
+    ParagraphAttributes:
+      type: object
+      properties:
+        justification:
+          type: string
+          description: Text justification.
+          enum:
+            - Left
+            - Center
+            - Right
+            - FullJustifyLastLineLeft
+            - FullJustifyLastLineCenter
+            - FullJustifyLastLineRight
+            - FullJustify
+        firstLineIndent:
+          type: number
+          description: First line indent in points.
+        leftIndent:
+          type: number
+          description: Left indent in points.
+        rightIndent:
+          type: number
+          description: Right indent in points.
+        spaceBefore:
+          type: number
+          description: Space before paragraph in points.
+        spaceAfter:
+          type: number
+          description: Space after paragraph in points.
+        hyphenation:
+          type: boolean
+          description: Whether hyphenation is enabled.
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the symbol.
+        name:
+          type: string
+          description: Name of the symbol.
+        registrationPoint:
+          type: string
+          description: Registration point of the symbol.
+          enum:
+            - SymbolTopLeftPoint
+            - SymbolTopMiddlePoint
+            - SymbolTopRightPoint
+            - SymbolMiddleLeftPoint
+            - SymbolCenterPoint
+            - SymbolMiddleRightPoint
+            - SymbolBottomLeftPoint
+            - SymbolBottomMiddlePoint
+            - SymbolBottomRightPoint
+    SymbolCreate:
+      type: object
+      required:
+        - name
+        - sourceArtId
+      properties:
+        name:
+          type: string
+          description: Name of the symbol.
+        sourceArtId:
+          type: string
+          description: ID of the artwork to use as the symbol source.
+        registrationPoint:
+          type: string
+          description: Registration point for the symbol.
+          enum:
+            - SymbolCenterPoint
+            - SymbolTopLeftPoint
+            - SymbolTopMiddlePoint
+            - SymbolTopRightPoint
+            - SymbolMiddleLeftPoint
+            - SymbolMiddleRightPoint
+            - SymbolBottomLeftPoint
+            - SymbolBottomMiddlePoint
+            - SymbolBottomRightPoint
+          default: SymbolCenterPoint
+    Swatch:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+        color:
+          $ref: '#/components/schemas/Color'
+    SwatchCreate:
+      type: object
+      required:
+        - name
+        - color
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+        color:
+          $ref: '#/components/schemas/Color'
+    GraphicStyle:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the graphic style.
