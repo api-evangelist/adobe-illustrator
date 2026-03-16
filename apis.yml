@@ -1,5 +1,21 @@
 aid: adobe-illustrator
-url: https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/apis.yml
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/apis.yml
+name: Adobe Illustrator
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Illustrator
+  - Creative Cloud
+  - Vector Graphics
+  - Design
+description: >-
+  Adobe Illustrator is the industry-standard vector graphics application.
+  Its developer platform offers scripting APIs, UXP plugins, CEP extensions,
+  and a C++ SDK for building custom integrations and automating workflows.
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
   - aid: adobe-illustrator:scripting-api
     name: Adobe Illustrator Scripting API
@@ -185,3 +201,6 @@ common:
     description: >-
       Adobe product licenses and terms including end user license agreements
       for Creative Cloud applications.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
