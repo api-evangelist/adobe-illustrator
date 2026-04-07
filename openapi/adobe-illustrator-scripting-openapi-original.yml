@@ -28,38 +28,38 @@ tags:
     description: >-
       Access to the Illustrator application object, including preferences,
       version information, and global settings.
-  - name: Documents
-    description: >-
-      Manage Illustrator documents, including opening, creating, saving,
-      closing, and exporting documents in various formats.
-  - name: Layers
-    description: >-
-      Create, manage, and manipulate layers within an Illustrator document,
-      including visibility, locking, and ordering.
   - name: Artboards
     description: >-
       Manage artboards within an Illustrator document, including creating,
       resizing, reordering, and removing artboards.
-  - name: Path Items
+  - name: Documents
     description: >-
-      Create and manipulate vector path items, including shapes, lines,
-      and complex paths with anchor points and control handles.
-  - name: Text Frames
-    description: >-
-      Create and manipulate text frames, including point text, area text,
-      and text on a path, with full typography control.
-  - name: Symbols
-    description: >-
-      Manage symbol definitions and symbol instances, enabling reuse of
-      artwork across documents.
-  - name: Swatches
-    description: >-
-      Manage color swatches, including spot colors, process colors,
-      gradients, and patterns stored in the document.
+      Manage Illustrator documents, including opening, creating, saving,
+      closing, and exporting documents in various formats.
   - name: Graphic Styles
     description: >-
       Manage graphic styles that can be applied to artwork for consistent
       appearance across multiple objects.
+  - name: Layers
+    description: >-
+      Create, manage, and manipulate layers within an Illustrator document,
+      including visibility, locking, and ordering.
+  - name: Path Items
+    description: >-
+      Create and manipulate vector path items, including shapes, lines,
+      and complex paths with anchor points and control handles.
+  - name: Swatches
+    description: >-
+      Manage color swatches, including spot colors, process colors,
+      gradients, and patterns stored in the document.
+  - name: Symbols
+    description: >-
+      Manage symbol definitions and symbol instances, enabling reuse of
+      artwork across documents.
+  - name: Text Frames
+    description: >-
+      Create and manipulate text frames, including point text, area text,
+      and text on a path, with full typography control.
 paths:
   /application:
     get:

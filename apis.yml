@@ -5,10 +5,10 @@ name: Adobe Illustrator
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Illustrator
   - Creative Cloud
-  - Vector Graphics
   - Design
+  - Illustrator
+  - Vector Graphics
 description: >-
   Adobe Illustrator is the industry-standard vector graphics application.
   Its developer platform offers scripting APIs, UXP plugins, CEP extensions,
@@ -20,10 +20,10 @@ apis:
   - aid: adobe-illustrator:scripting-api
     name: Adobe Illustrator Scripting API
     tags:
-      - Scripting
+      - AppleScript
       - Automation
       - JavaScript
-      - AppleScript
+      - Scripting
       - VBScript
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
@@ -44,10 +44,10 @@ apis:
   - aid: adobe-illustrator:plugin-sdk
     name: Adobe Illustrator Plugin SDK
     tags:
-      - Plugins
-      - SDK
       - C++
       - Extensions
+      - Plugins
+      - SDK
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/illustrator/
@@ -65,10 +65,10 @@ apis:
   - aid: adobe-illustrator:cep-extensions
     name: Adobe Illustrator CEP Extensions API
     tags:
-      - Extensions
       - CEP
-      - HTML
       - CSS
+      - Extensions
+      - HTML
       - JavaScript
       - Panels
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
