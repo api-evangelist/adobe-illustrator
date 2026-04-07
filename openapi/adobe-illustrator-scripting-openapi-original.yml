@@ -64,7 +64,7 @@ paths:
   /application:
     get:
       operationId: getApplication
-      summary: Get application information
+      summary: Adobe Illustrator Get application information
       description: >-
         Returns information about the Illustrator application, including the
         version, build number, locale, and current preferences.
@@ -80,7 +80,7 @@ paths:
   /application/preferences:
     get:
       operationId: getPreferences
-      summary: Get application preferences
+      summary: Adobe Illustrator Get application preferences
       description: >-
         Returns the current application preferences, including general, type,
         units, guides, and smart guides preferences.
@@ -95,7 +95,7 @@ paths:
                 $ref: '#/components/schemas/Preferences'
     put:
       operationId: updatePreferences
-      summary: Update application preferences
+      summary: Adobe Illustrator Update application preferences
       description: >-
         Updates the application preferences with the provided values.
       tags:
@@ -116,7 +116,7 @@ paths:
   /documents:
     get:
       operationId: listDocuments
-      summary: List open documents
+      summary: Adobe Illustrator List open documents
       description: >-
         Returns a list of all currently open Illustrator documents.
       tags:
@@ -132,7 +132,7 @@ paths:
                   $ref: '#/components/schemas/Document'
     post:
       operationId: createDocument
-      summary: Create a new document
+      summary: Adobe Illustrator Create a new document
       description: >-
         Creates a new Illustrator document with the specified settings,
         including document color mode, dimensions, and artboard configuration.
@@ -154,7 +154,7 @@ paths:
   /documents/{documentId}:
     get:
       operationId: getDocument
-      summary: Get a document
+      summary: Adobe Illustrator Get a document
       description: >-
         Returns detailed information about a specific open document,
         including its layers, artboards, and document properties.
@@ -173,7 +173,7 @@ paths:
           description: Document not found.
     delete:
       operationId: closeDocument
-      summary: Close a document
+      summary: Adobe Illustrator Close a document
       description: >-
         Closes the specified document. Optionally saves changes before closing.
       tags:
@@ -198,7 +198,7 @@ paths:
   /documents/{documentId}/save:
     post:
       operationId: saveDocument
-      summary: Save a document
+      summary: Adobe Illustrator Save a document
       description: >-
         Saves the specified document. If the document has not been saved
         before, a file path must be provided.
@@ -231,7 +231,7 @@ paths:
   /documents/{documentId}/export:
     post:
       operationId: exportDocument
-      summary: Export a document
+      summary: Adobe Illustrator Export a document
       description: >-
         Exports the document to a specified format, including PNG, JPEG,
         SVG, PDF, TIFF, and other supported formats.
@@ -264,7 +264,7 @@ paths:
   /documents/{documentId}/layers:
     get:
       operationId: listLayers
-      summary: List layers in a document
+      summary: Adobe Illustrator List layers in a document
       description: >-
         Returns all layers in the specified document, including nested
         sublayers, with their properties and ordering.
@@ -283,7 +283,7 @@ paths:
                   $ref: '#/components/schemas/Layer'
     post:
       operationId: createLayer
-      summary: Create a new layer
+      summary: Adobe Illustrator Create a new layer
       description: >-
         Creates a new layer in the specified document with the provided
         name, color, visibility, and other properties.
@@ -307,7 +307,7 @@ paths:
   /documents/{documentId}/layers/{layerId}:
     get:
       operationId: getLayer
-      summary: Get a layer
+      summary: Adobe Illustrator Get a layer
       description: >-
         Returns detailed information about a specific layer, including its
         contents, visibility, lock state, and sublayers.
@@ -327,7 +327,7 @@ paths:
           description: Layer not found.
     put:
       operationId: updateLayer
-      summary: Update a layer
+      summary: Adobe Illustrator Update a layer
       description: >-
         Updates the properties of a specific layer, including name,
         visibility, lock state, opacity, and blend mode.
@@ -353,7 +353,7 @@ paths:
           description: Layer not found.
     delete:
       operationId: deleteLayer
-      summary: Delete a layer
+      summary: Adobe Illustrator Delete a layer
       description: >-
         Removes the specified layer and all of its contents from the document.
       tags:
@@ -369,7 +369,7 @@ paths:
   /documents/{documentId}/artboards:
     get:
       operationId: listArtboards
-      summary: List artboards in a document
+      summary: Adobe Illustrator List artboards in a document
       description: >-
         Returns all artboards in the specified document with their
         dimensions, positions, and names.
@@ -388,7 +388,7 @@ paths:
                   $ref: '#/components/schemas/Artboard'
     post:
       operationId: createArtboard
-      summary: Create a new artboard
+      summary: Adobe Illustrator Create a new artboard
       description: >-
         Adds a new artboard to the document with the specified dimensions
         and position.
@@ -412,7 +412,7 @@ paths:
   /documents/{documentId}/artboards/{artboardIndex}:
     get:
       operationId: getArtboard
-      summary: Get an artboard
+      summary: Adobe Illustrator Get an artboard
       description: >-
         Returns detailed information about a specific artboard, including
         its bounds, name, and ruler origin.
@@ -432,7 +432,7 @@ paths:
           description: Artboard not found.
     put:
       operationId: updateArtboard
-      summary: Update an artboard
+      summary: Adobe Illustrator Update an artboard
       description: >-
         Updates the properties of a specific artboard, including name,
         bounds, and ruler origin.
@@ -458,7 +458,7 @@ paths:
           description: Artboard not found.
     delete:
       operationId: deleteArtboard
-      summary: Delete an artboard
+      summary: Adobe Illustrator Delete an artboard
       description: >-
         Removes the specified artboard from the document.
       tags:
@@ -474,7 +474,7 @@ paths:
   /documents/{documentId}/pathItems:
     get:
       operationId: listPathItems
-      summary: List path items
+      summary: Adobe Illustrator List path items
       description: >-
         Returns all path items in the document or a specific layer,
         including their anchor points, fill, and stroke properties.
@@ -498,7 +498,7 @@ paths:
                   $ref: '#/components/schemas/PathItem'
     post:
       operationId: createPathItem
-      summary: Create a path item
+      summary: Adobe Illustrator Create a path item
       description: >-
         Creates a new path item in the document with the specified anchor
         points, fill, stroke, and other properties. Supports creating
@@ -523,7 +523,7 @@ paths:
   /documents/{documentId}/pathItems/{pathItemId}:
     get:
       operationId: getPathItem
-      summary: Get a path item
+      summary: Adobe Illustrator Get a path item
       description: >-
         Returns detailed information about a specific path item, including
         its anchor points, control handles, fill, stroke, and transform.
@@ -543,7 +543,7 @@ paths:
           description: Path item not found.
     put:
       operationId: updatePathItem
-      summary: Update a path item
+      summary: Adobe Illustrator Update a path item
       description: >-
         Updates the properties of a specific path item, including its
         anchor points, fill, stroke, opacity, and transform.
@@ -569,7 +569,7 @@ paths:
           description: Path item not found.
     delete:
       operationId: deletePathItem
-      summary: Delete a path item
+      summary: Adobe Illustrator Delete a path item
       description: >-
         Removes the specified path item from the document.
       tags:
@@ -585,7 +585,7 @@ paths:
   /documents/{documentId}/textFrames:
     get:
       operationId: listTextFrames
-      summary: List text frames
+      summary: Adobe Illustrator List text frames
       description: >-
         Returns all text frames in the document, including point text,
         area text, and text on a path items.
@@ -609,7 +609,7 @@ paths:
                   $ref: '#/components/schemas/TextFrame'
     post:
       operationId: createTextFrame
-      summary: Create a text frame
+      summary: Adobe Illustrator Create a text frame
       description: >-
         Creates a new text frame in the document. Supports point text, area
         text, and text on a path with full typography settings.
@@ -633,7 +633,7 @@ paths:
   /documents/{documentId}/textFrames/{textFrameId}:
     get:
       operationId: getTextFrame
-      summary: Get a text frame
+      summary: Adobe Illustrator Get a text frame
       description: >-
         Returns detailed information about a specific text frame, including
         its contents, character attributes, paragraph attributes, and bounds.
@@ -653,7 +653,7 @@ paths:
           description: Text frame not found.
     put:
       operationId: updateTextFrame
-      summary: Update a text frame
+      summary: Adobe Illustrator Update a text frame
       description: >-
         Updates the properties of a specific text frame, including its
         contents, character attributes, and paragraph attributes.
@@ -679,7 +679,7 @@ paths:
           description: Text frame not found.
     delete:
       operationId: deleteTextFrame
-      summary: Delete a text frame
+      summary: Adobe Illustrator Delete a text frame
       description: >-
         Removes the specified text frame from the document.
       tags:
@@ -695,7 +695,7 @@ paths:
   /documents/{documentId}/symbols:
     get:
       operationId: listSymbols
-      summary: List symbols
+      summary: Adobe Illustrator List symbols
       description: >-
         Returns all symbol definitions in the document that can be
         instantiated as symbol items.
@@ -714,7 +714,7 @@ paths:
                   $ref: '#/components/schemas/Symbol'
     post:
       operationId: createSymbol
-      summary: Create a symbol
+      summary: Adobe Illustrator Create a symbol
       description: >-
         Creates a new symbol definition from the specified artwork in the
         document. The symbol can then be instantiated multiple times.
@@ -738,7 +738,7 @@ paths:
   /documents/{documentId}/symbols/{symbolId}:
     get:
       operationId: getSymbol
-      summary: Get a symbol
+      summary: Adobe Illustrator Get a symbol
       description: >-
         Returns detailed information about a specific symbol definition.
       tags:
@@ -757,7 +757,7 @@ paths:
           description: Symbol not found.
     delete:
       operationId: deleteSymbol
-      summary: Delete a symbol
+      summary: Adobe Illustrator Delete a symbol
       description: >-
         Removes the specified symbol definition from the document.
       tags:
@@ -773,7 +773,7 @@ paths:
   /documents/{documentId}/swatches:
     get:
       operationId: listSwatches
-      summary: List swatches
+      summary: Adobe Illustrator List swatches
       description: >-
         Returns all color swatches defined in the document, including
         process colors, spot colors, gradients, and patterns.
@@ -792,7 +792,7 @@ paths:
                   $ref: '#/components/schemas/Swatch'
     post:
       operationId: createSwatch
-      summary: Create a swatch
+      summary: Adobe Illustrator Create a swatch
       description: >-
         Creates a new color swatch in the document with the specified
         color values and properties.
@@ -816,7 +816,7 @@ paths:
   /documents/{documentId}/swatches/{swatchName}:
     get:
       operationId: getSwatch
-      summary: Get a swatch
+      summary: Adobe Illustrator Get a swatch
       description: >-
         Returns detailed information about a specific swatch by name.
       tags:
@@ -840,7 +840,7 @@ paths:
           description: Swatch not found.
     delete:
       operationId: deleteSwatch
-      summary: Delete a swatch
+      summary: Adobe Illustrator Delete a swatch
       description: >-
         Removes the specified swatch from the document.
       tags:
@@ -861,7 +861,7 @@ paths:
   /documents/{documentId}/graphicStyles:
     get:
       operationId: listGraphicStyles
-      summary: List graphic styles
+      summary: Adobe Illustrator List graphic styles
       description: >-
         Returns all graphic styles defined in the document.
       tags:
@@ -880,7 +880,7 @@ paths:
   /documents/{documentId}/graphicStyles/{graphicStyleName}:
     get:
       operationId: getGraphicStyle
-      summary: Get a graphic style
+      summary: Adobe Illustrator Get a graphic style
       description: >-
         Returns detailed information about a specific graphic style.
       tags:
@@ -904,7 +904,7 @@ paths:
           description: Graphic style not found.
     delete:
       operationId: deleteGraphicStyle
-      summary: Delete a graphic style
+      summary: Adobe Illustrator Delete a graphic style
       description: >-
         Removes the specified graphic style from the document.
       tags:
