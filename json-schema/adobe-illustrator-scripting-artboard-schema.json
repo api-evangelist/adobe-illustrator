@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-schema/adobe-illustrator-scripting-artboard-schema.json",
+  "title": "Artboard",
+  "description": "Artboard from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "index": {
+      "type": "integer",
+      "description": "Zero-based index of the artboard.",
+      "example": 1024
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the artboard.",
+      "examples": [
+        "Artboard 1"
+      ],
+      "example": "Example Artboard"
+    },
+    "artboardRect": {
+      "type": "array",
+      "description": "Bounding rectangle [left, top, right, bottom] in points.",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "rulerOrigin": {
+      "type": "array",
+      "description": "Ruler origin point [x, y].",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "rulerPAR": {
+      "type": "number",
+      "description": "Ruler pixel aspect ratio.",
+      "example": 72.0
+    },
+    "showCenter": {
+      "type": "boolean",
+      "description": "Whether to show the center mark.",
+      "example": true
+    },
+    "showCrossHairs": {
+      "type": "boolean",
+      "description": "Whether to show cross hairs.",
+      "example": true
+    },
+    "showSafeAreas": {
+      "type": "boolean",
+      "description": "Whether to show safe areas.",
+      "example": true
+    }
+  }
+}

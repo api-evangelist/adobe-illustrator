@@ -21,55 +21,55 @@ externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/
 servers:
-  - url: https://localhost
-    description: Local Illustrator Application
+- url: https://localhost
+  description: Local Illustrator Application
 tags:
-  - name: Application
-    description: >-
-      Access to the Illustrator application object, including preferences,
-      version information, and global settings.
-  - name: Artboards
-    description: >-
-      Manage artboards within an Illustrator document, including creating,
-      resizing, reordering, and removing artboards.
-  - name: Documents
-    description: >-
-      Manage Illustrator documents, including opening, creating, saving,
-      closing, and exporting documents in various formats.
-  - name: Graphic Styles
-    description: >-
-      Manage graphic styles that can be applied to artwork for consistent
-      appearance across multiple objects.
-  - name: Layers
-    description: >-
-      Create, manage, and manipulate layers within an Illustrator document,
-      including visibility, locking, and ordering.
-  - name: Path Items
-    description: >-
-      Create and manipulate vector path items, including shapes, lines,
-      and complex paths with anchor points and control handles.
-  - name: Swatches
-    description: >-
-      Manage color swatches, including spot colors, process colors,
-      gradients, and patterns stored in the document.
-  - name: Symbols
-    description: >-
-      Manage symbol definitions and symbol instances, enabling reuse of
-      artwork across documents.
-  - name: Text Frames
-    description: >-
-      Create and manipulate text frames, including point text, area text,
-      and text on a path, with full typography control.
+- name: Application
+  description: >-
+    Access to the Illustrator application object, including preferences,
+    version information, and global settings.
+- name: Artboards
+  description: >-
+    Manage artboards within an Illustrator document, including creating,
+    resizing, reordering, and removing artboards.
+- name: Documents
+  description: >-
+    Manage Illustrator documents, including opening, creating, saving,
+    closing, and exporting documents in various formats.
+- name: Graphic Styles
+  description: >-
+    Manage graphic styles that can be applied to artwork for consistent
+    appearance across multiple objects.
+- name: Layers
+  description: >-
+    Create, manage, and manipulate layers within an Illustrator document,
+    including visibility, locking, and ordering.
+- name: Path Items
+  description: >-
+    Create and manipulate vector path items, including shapes, lines,
+    and complex paths with anchor points and control handles.
+- name: Swatches
+  description: >-
+    Manage color swatches, including spot colors, process colors,
+    gradients, and patterns stored in the document.
+- name: Symbols
+  description: >-
+    Manage symbol definitions and symbol instances, enabling reuse of
+    artwork across documents.
+- name: Text Frames
+  description: >-
+    Create and manipulate text frames, including point text, area text,
+    and text on a path, with full typography control.
 paths:
   /application:
     get:
       operationId: getApplication
-      summary: Adobe Illustrator Get application information
+      summary: Adobe Illustrator Get Application Information
       description: >-
         Returns information about the Illustrator application, including the
         version, build number, locale, and current preferences.
       tags:
-        - Application
+      - Application
       responses:
         '200':
           description: Application information retrieved successfully.
@@ -77,15 +77,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Application'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /application/preferences:
     get:
       operationId: getPreferences
-      summary: Adobe Illustrator Get application preferences
+      summary: Adobe Illustrator Get Application Preferences
       description: >-
         Returns the current application preferences, including general, type,
         units, guides, and smart guides preferences.
       tags:
-        - Application
+      - Application
       responses:
         '200':
           description: Preferences retrieved successfully.
@@ -93,13 +96,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Preferences'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: updatePreferences
-      summary: Adobe Illustrator Update application preferences
+      summary: Adobe Illustrator Update Application Preferences
       description: >-
         Updates the application preferences with the provided values.
       tags:
-        - Application
+      - Application
       requestBody:
         required: true
         content:
@@ -113,14 +119,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Preferences'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents:
     get:
       operationId: listDocuments
-      summary: Adobe Illustrator List open documents
+      summary: Adobe Illustrator List Open Documents
       description: >-
         Returns a list of all currently open Illustrator documents.
       tags:
-        - Documents
+      - Documents
       responses:
         '200':
           description: List of open documents retrieved successfully.
@@ -130,14 +139,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Document'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createDocument
-      summary: Adobe Illustrator Create a new document
+      summary: Adobe Illustrator Create a New Document
       description: >-
         Creates a new Illustrator document with the specified settings,
         including document color mode, dimensions, and artboard configuration.
       tags:
-        - Documents
+      - Documents
       requestBody:
         required: true
         content:
@@ -151,17 +163,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Document'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}:
     get:
       operationId: getDocument
-      summary: Adobe Illustrator Get a document
+      summary: Adobe Illustrator Get a Document
       description: >-
         Returns detailed information about a specific open document,
         including its layers, artboards, and document properties.
       tags:
-        - Documents
+      - Documents
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       responses:
         '200':
           description: Document retrieved successfully.
@@ -171,41 +186,48 @@ paths:
                 $ref: '#/components/schemas/Document'
         '404':
           description: Document not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: closeDocument
-      summary: Adobe Illustrator Close a document
+      summary: Adobe Illustrator Close a Document
       description: >-
         Closes the specified document. Optionally saves changes before closing.
       tags:
-        - Documents
+      - Documents
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: saveChanges
-          in: query
-          description: Whether to save changes before closing.
-          schema:
-            type: string
-            enum:
-              - save
-              - discard
-              - prompt
-            default: prompt
+      - $ref: '#/components/parameters/documentId'
+      - name: saveChanges
+        in: query
+        description: Whether to save changes before closing.
+        schema:
+          type: string
+          enum:
+          - save
+          - discard
+          - prompt
+          default: prompt
+        example: save
       responses:
         '204':
           description: Document closed successfully.
         '404':
           description: Document not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/save:
     post:
       operationId: saveDocument
-      summary: Adobe Illustrator Save a document
+      summary: Adobe Illustrator Save a Document
       description: >-
         Saves the specified document. If the document has not been saved
         before, a file path must be provided.
       tags:
-        - Documents
+      - Documents
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         content:
           application/json:
@@ -219,26 +241,29 @@ paths:
                   type: string
                   description: File format for saving.
                   enum:
-                    - ai
-                    - eps
-                    - pdf
-                    - svg
+                  - ai
+                  - eps
+                  - pdf
+                  - svg
       responses:
         '200':
           description: Document saved successfully.
         '404':
           description: Document not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/export:
     post:
       operationId: exportDocument
-      summary: Adobe Illustrator Export a document
+      summary: Adobe Illustrator Export a Document
       description: >-
         Exports the document to a specified format, including PNG, JPEG,
         SVG, PDF, TIFF, and other supported formats.
       tags:
-        - Documents
+      - Documents
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -261,17 +286,20 @@ paths:
                     description: Format of the exported file.
         '404':
           description: Document not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/layers:
     get:
       operationId: listLayers
-      summary: Adobe Illustrator List layers in a document
+      summary: Adobe Illustrator List Layers in a Document
       description: >-
         Returns all layers in the specified document, including nested
         sublayers, with their properties and ordering.
       tags:
-        - Layers
+      - Layers
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       responses:
         '200':
           description: Layers retrieved successfully.
@@ -281,16 +309,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Layer'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createLayer
-      summary: Adobe Illustrator Create a new layer
+      summary: Adobe Illustrator Create a New Layer
       description: >-
         Creates a new layer in the specified document with the provided
         name, color, visibility, and other properties.
       tags:
-        - Layers
+      - Layers
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -304,18 +335,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Layer'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/layers/{layerId}:
     get:
       operationId: getLayer
-      summary: Adobe Illustrator Get a layer
+      summary: Adobe Illustrator Get a Layer
       description: >-
         Returns detailed information about a specific layer, including its
         contents, visibility, lock state, and sublayers.
       tags:
-        - Layers
+      - Layers
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/layerId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/layerId'
       responses:
         '200':
           description: Layer retrieved successfully.
@@ -325,17 +359,20 @@ paths:
                 $ref: '#/components/schemas/Layer'
         '404':
           description: Layer not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: updateLayer
-      summary: Adobe Illustrator Update a layer
+      summary: Adobe Illustrator Update a Layer
       description: >-
         Updates the properties of a specific layer, including name,
         visibility, lock state, opacity, and blend mode.
       tags:
-        - Layers
+      - Layers
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/layerId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/layerId'
       requestBody:
         required: true
         content:
@@ -351,32 +388,38 @@ paths:
                 $ref: '#/components/schemas/Layer'
         '404':
           description: Layer not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteLayer
-      summary: Adobe Illustrator Delete a layer
+      summary: Adobe Illustrator Delete a Layer
       description: >-
         Removes the specified layer and all of its contents from the document.
       tags:
-        - Layers
+      - Layers
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/layerId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/layerId'
       responses:
         '204':
           description: Layer deleted successfully.
         '404':
           description: Layer not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/artboards:
     get:
       operationId: listArtboards
-      summary: Adobe Illustrator List artboards in a document
+      summary: Adobe Illustrator List Artboards in a Document
       description: >-
         Returns all artboards in the specified document with their
         dimensions, positions, and names.
       tags:
-        - Artboards
+      - Artboards
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       responses:
         '200':
           description: Artboards retrieved successfully.
@@ -386,16 +429,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Artboard'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createArtboard
-      summary: Adobe Illustrator Create a new artboard
+      summary: Adobe Illustrator Create a New Artboard
       description: >-
         Adds a new artboard to the document with the specified dimensions
         and position.
       tags:
-        - Artboards
+      - Artboards
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -409,18 +455,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Artboard'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/artboards/{artboardIndex}:
     get:
       operationId: getArtboard
-      summary: Adobe Illustrator Get an artboard
+      summary: Adobe Illustrator Get an Artboard
       description: >-
         Returns detailed information about a specific artboard, including
         its bounds, name, and ruler origin.
       tags:
-        - Artboards
+      - Artboards
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/artboardIndex'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/artboardIndex'
       responses:
         '200':
           description: Artboard retrieved successfully.
@@ -430,17 +479,20 @@ paths:
                 $ref: '#/components/schemas/Artboard'
         '404':
           description: Artboard not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: updateArtboard
-      summary: Adobe Illustrator Update an artboard
+      summary: Adobe Illustrator Update an Artboard
       description: >-
         Updates the properties of a specific artboard, including name,
         bounds, and ruler origin.
       tags:
-        - Artboards
+      - Artboards
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/artboardIndex'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/artboardIndex'
       requestBody:
         required: true
         content:
@@ -456,37 +508,44 @@ paths:
                 $ref: '#/components/schemas/Artboard'
         '404':
           description: Artboard not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteArtboard
-      summary: Adobe Illustrator Delete an artboard
+      summary: Adobe Illustrator Delete an Artboard
       description: >-
         Removes the specified artboard from the document.
       tags:
-        - Artboards
+      - Artboards
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/artboardIndex'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/artboardIndex'
       responses:
         '204':
           description: Artboard deleted successfully.
         '404':
           description: Artboard not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/pathItems:
     get:
       operationId: listPathItems
-      summary: Adobe Illustrator List path items
+      summary: Adobe Illustrator List Path Items
       description: >-
         Returns all path items in the document or a specific layer,
         including their anchor points, fill, and stroke properties.
       tags:
-        - Path Items
+      - Path Items
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: layerId
-          in: query
-          description: Filter path items by layer.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/documentId'
+      - name: layerId
+        in: query
+        description: Filter path items by layer.
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Path items retrieved successfully.
@@ -496,17 +555,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PathItem'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createPathItem
-      summary: Adobe Illustrator Create a path item
+      summary: Adobe Illustrator Create a Path Item
       description: >-
         Creates a new path item in the document with the specified anchor
         points, fill, stroke, and other properties. Supports creating
         rectangles, ellipses, polygons, stars, and freeform paths.
       tags:
-        - Path Items
+      - Path Items
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -520,18 +582,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PathItem'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/pathItems/{pathItemId}:
     get:
       operationId: getPathItem
-      summary: Adobe Illustrator Get a path item
+      summary: Adobe Illustrator Get a Path Item
       description: >-
         Returns detailed information about a specific path item, including
         its anchor points, control handles, fill, stroke, and transform.
       tags:
-        - Path Items
+      - Path Items
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/pathItemId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/pathItemId'
       responses:
         '200':
           description: Path item retrieved successfully.
@@ -541,17 +606,20 @@ paths:
                 $ref: '#/components/schemas/PathItem'
         '404':
           description: Path item not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: updatePathItem
-      summary: Adobe Illustrator Update a path item
+      summary: Adobe Illustrator Update a Path Item
       description: >-
         Updates the properties of a specific path item, including its
         anchor points, fill, stroke, opacity, and transform.
       tags:
-        - Path Items
+      - Path Items
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/pathItemId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/pathItemId'
       requestBody:
         required: true
         content:
@@ -567,37 +635,44 @@ paths:
                 $ref: '#/components/schemas/PathItem'
         '404':
           description: Path item not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deletePathItem
-      summary: Adobe Illustrator Delete a path item
+      summary: Adobe Illustrator Delete a Path Item
       description: >-
         Removes the specified path item from the document.
       tags:
-        - Path Items
+      - Path Items
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/pathItemId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/pathItemId'
       responses:
         '204':
           description: Path item deleted successfully.
         '404':
           description: Path item not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/textFrames:
     get:
       operationId: listTextFrames
-      summary: Adobe Illustrator List text frames
+      summary: Adobe Illustrator List Text Frames
       description: >-
         Returns all text frames in the document, including point text,
         area text, and text on a path items.
       tags:
-        - Text Frames
+      - Text Frames
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: layerId
-          in: query
-          description: Filter text frames by layer.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/documentId'
+      - name: layerId
+        in: query
+        description: Filter text frames by layer.
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Text frames retrieved successfully.
@@ -607,16 +682,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TextFrame'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createTextFrame
-      summary: Adobe Illustrator Create a text frame
+      summary: Adobe Illustrator Create a Text Frame
       description: >-
         Creates a new text frame in the document. Supports point text, area
         text, and text on a path with full typography settings.
       tags:
-        - Text Frames
+      - Text Frames
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -630,18 +708,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TextFrame'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/textFrames/{textFrameId}:
     get:
       operationId: getTextFrame
-      summary: Adobe Illustrator Get a text frame
+      summary: Adobe Illustrator Get a Text Frame
       description: >-
         Returns detailed information about a specific text frame, including
         its contents, character attributes, paragraph attributes, and bounds.
       tags:
-        - Text Frames
+      - Text Frames
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/textFrameId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/textFrameId'
       responses:
         '200':
           description: Text frame retrieved successfully.
@@ -651,17 +732,20 @@ paths:
                 $ref: '#/components/schemas/TextFrame'
         '404':
           description: Text frame not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: updateTextFrame
-      summary: Adobe Illustrator Update a text frame
+      summary: Adobe Illustrator Update a Text Frame
       description: >-
         Updates the properties of a specific text frame, including its
         contents, character attributes, and paragraph attributes.
       tags:
-        - Text Frames
+      - Text Frames
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/textFrameId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/textFrameId'
       requestBody:
         required: true
         content:
@@ -677,32 +761,38 @@ paths:
                 $ref: '#/components/schemas/TextFrame'
         '404':
           description: Text frame not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteTextFrame
-      summary: Adobe Illustrator Delete a text frame
+      summary: Adobe Illustrator Delete a Text Frame
       description: >-
         Removes the specified text frame from the document.
       tags:
-        - Text Frames
+      - Text Frames
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/textFrameId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/textFrameId'
       responses:
         '204':
           description: Text frame deleted successfully.
         '404':
           description: Text frame not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/symbols:
     get:
       operationId: listSymbols
-      summary: Adobe Illustrator List symbols
+      summary: Adobe Illustrator List Symbols
       description: >-
         Returns all symbol definitions in the document that can be
         instantiated as symbol items.
       tags:
-        - Symbols
+      - Symbols
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       responses:
         '200':
           description: Symbols retrieved successfully.
@@ -712,16 +802,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Symbol'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createSymbol
-      summary: Adobe Illustrator Create a symbol
+      summary: Adobe Illustrator Create a Symbol
       description: >-
         Creates a new symbol definition from the specified artwork in the
         document. The symbol can then be instantiated multiple times.
       tags:
-        - Symbols
+      - Symbols
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -735,17 +828,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Symbol'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/symbols/{symbolId}:
     get:
       operationId: getSymbol
-      summary: Adobe Illustrator Get a symbol
+      summary: Adobe Illustrator Get a Symbol
       description: >-
         Returns detailed information about a specific symbol definition.
       tags:
-        - Symbols
+      - Symbols
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/symbolId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/symbolId'
       responses:
         '200':
           description: Symbol retrieved successfully.
@@ -755,32 +851,38 @@ paths:
                 $ref: '#/components/schemas/Symbol'
         '404':
           description: Symbol not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteSymbol
-      summary: Adobe Illustrator Delete a symbol
+      summary: Adobe Illustrator Delete a Symbol
       description: >-
         Removes the specified symbol definition from the document.
       tags:
-        - Symbols
+      - Symbols
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - $ref: '#/components/parameters/symbolId'
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/symbolId'
       responses:
         '204':
           description: Symbol deleted successfully.
         '404':
           description: Symbol not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/swatches:
     get:
       operationId: listSwatches
-      summary: Adobe Illustrator List swatches
+      summary: Adobe Illustrator List Swatches
       description: >-
         Returns all color swatches defined in the document, including
         process colors, spot colors, gradients, and patterns.
       tags:
-        - Swatches
+      - Swatches
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       responses:
         '200':
           description: Swatches retrieved successfully.
@@ -790,16 +892,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Swatch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createSwatch
-      summary: Adobe Illustrator Create a swatch
+      summary: Adobe Illustrator Create a Swatch
       description: >-
         Creates a new color swatch in the document with the specified
         color values and properties.
       tags:
-        - Swatches
+      - Swatches
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       requestBody:
         required: true
         content:
@@ -813,22 +918,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Swatch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/swatches/{swatchName}:
     get:
       operationId: getSwatch
-      summary: Adobe Illustrator Get a swatch
+      summary: Adobe Illustrator Get a Swatch
       description: >-
         Returns detailed information about a specific swatch by name.
       tags:
-        - Swatches
+      - Swatches
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: swatchName
-          in: path
-          required: true
-          description: Name of the swatch.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/documentId'
+      - name: swatchName
+        in: path
+        required: true
+        description: Name of the swatch.
+        schema:
+          type: string
+        example: Example Artboard
       responses:
         '200':
           description: Swatch retrieved successfully.
@@ -838,36 +947,43 @@ paths:
                 $ref: '#/components/schemas/Swatch'
         '404':
           description: Swatch not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteSwatch
-      summary: Adobe Illustrator Delete a swatch
+      summary: Adobe Illustrator Delete a Swatch
       description: >-
         Removes the specified swatch from the document.
       tags:
-        - Swatches
+      - Swatches
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: swatchName
-          in: path
-          required: true
-          description: Name of the swatch.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/documentId'
+      - name: swatchName
+        in: path
+        required: true
+        description: Name of the swatch.
+        schema:
+          type: string
+        example: Example Artboard
       responses:
         '204':
           description: Swatch deleted successfully.
         '404':
           description: Swatch not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/graphicStyles:
     get:
       operationId: listGraphicStyles
-      summary: Adobe Illustrator List graphic styles
+      summary: Adobe Illustrator List Graphic Styles
       description: >-
         Returns all graphic styles defined in the document.
       tags:
-        - Graphic Styles
+      - Graphic Styles
       parameters:
-        - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/documentId'
       responses:
         '200':
           description: Graphic styles retrieved successfully.
@@ -877,22 +993,26 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/GraphicStyle'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /documents/{documentId}/graphicStyles/{graphicStyleName}:
     get:
       operationId: getGraphicStyle
-      summary: Adobe Illustrator Get a graphic style
+      summary: Adobe Illustrator Get a Graphic Style
       description: >-
         Returns detailed information about a specific graphic style.
       tags:
-        - Graphic Styles
+      - Graphic Styles
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: graphicStyleName
-          in: path
-          required: true
-          description: Name of the graphic style.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/documentId'
+      - name: graphicStyleName
+        in: path
+        required: true
+        description: Name of the graphic style.
+        schema:
+          type: string
+        example: Example Artboard
       responses:
         '200':
           description: Graphic style retrieved successfully.
@@ -902,26 +1022,33 @@ paths:
                 $ref: '#/components/schemas/GraphicStyle'
         '404':
           description: Graphic style not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteGraphicStyle
-      summary: Adobe Illustrator Delete a graphic style
+      summary: Adobe Illustrator Delete a Graphic Style
       description: >-
         Removes the specified graphic style from the document.
       tags:
-        - Graphic Styles
+      - Graphic Styles
       parameters:
-        - $ref: '#/components/parameters/documentId'
-        - name: graphicStyleName
-          in: path
-          required: true
-          description: Name of the graphic style.
-          schema:
-            type: string
+      - $ref: '#/components/parameters/documentId'
+      - name: graphicStyleName
+        in: path
+        required: true
+        description: Name of the graphic style.
+        schema:
+          type: string
+        example: Example Artboard
       responses:
         '204':
           description: Graphic style deleted successfully.
         '404':
           description: Graphic style not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   parameters:
     documentId:
@@ -974,29 +1101,36 @@ components:
           type: string
           description: The application name.
           examples:
-            - Adobe Illustrator
+          - Adobe Illustrator
+          example: Example Artboard
         version:
           type: string
           description: The version string.
           examples:
-            - 29.0
+          - 29.0
+          example: example_value
         buildNumber:
           type: string
           description: The build number.
+          example: example_value
         locale:
           type: string
           description: The current locale.
           examples:
-            - en_US
+          - en_US
+          example: example_value
         scriptingVersion:
           type: string
           description: The scripting API version.
+          example: example_value
         freeMemory:
           type: integer
           description: Available memory in bytes.
+          example: 1024
         activeDocument:
           type: string
           description: Name of the currently active document.
+          example: example_value
         documents:
           type: array
           description: List of open document names.
@@ -1006,8 +1140,9 @@ components:
           type: string
           description: The level of user interaction allowed.
           enum:
-            - DISPLAYALERTS
-            - DONTDISPLAYALERTS
+          - DISPLAYALERTS
+          - DONTDISPLAYALERTS
+          example: DISPLAYALERTS
     Preferences:
       type: object
       properties:
@@ -1015,12 +1150,13 @@ components:
           type: string
           description: Default ruler units.
           enum:
-            - Points
-            - Picas
-            - Inches
-            - Millimeters
-            - Centimeters
-            - Pixels
+          - Points
+          - Picas
+          - Inches
+          - Millimeters
+          - Centimeters
+          - Pixels
+          example: Points
         generalPreferences:
           type: object
           properties:
@@ -1048,39 +1184,47 @@ components:
         id:
           type: string
           description: Unique identifier of the document.
+          example: example_value
         name:
           type: string
           description: Name of the document.
           examples:
-            - Untitled-1
+          - Untitled-1
+          example: Example Artboard
         fullName:
           type: string
           description: Full file path of the document.
+          example: Example Artboard
         saved:
           type: boolean
           description: Whether the document has been saved.
+          example: true
         documentColorSpace:
           type: string
           description: The document color mode.
           enum:
-            - CMYK
-            - RGB
+          - CMYK
+          - RGB
+          example: CMYK
         width:
           type: number
           description: Document width in points.
+          example: 72.0
         height:
           type: number
           description: Document height in points.
+          example: 72.0
         rulerUnits:
           type: string
           description: Ruler units used in the document.
           enum:
-            - Points
-            - Picas
-            - Inches
-            - Millimeters
-            - Centimeters
-            - Pixels
+          - Points
+          - Picas
+          - Inches
+          - Millimeters
+          - Centimeters
+          - Pixels
+          example: Points
         rulerOrigin:
           type: array
           description: The ruler origin point [x, y].
@@ -1091,246 +1235,290 @@ components:
         layerCount:
           type: integer
           description: Number of layers in the document.
+          example: 1024
         artboardCount:
           type: integer
           description: Number of artboards in the document.
+          example: 1024
         activeLayer:
           type: string
           description: Name of the currently active layer.
+          example: example_value
     DocumentCreate:
       type: object
       properties:
         name:
           type: string
           description: Name of the new document.
+          example: Example Artboard
         documentColorSpace:
           type: string
           description: Color mode of the document.
           enum:
-            - CMYK
-            - RGB
+          - CMYK
+          - RGB
           default: RGB
+          example: CMYK
         width:
           type: number
           description: Document width in points.
           default: 612
+          example: 72.0
         height:
           type: number
           description: Document height in points.
           default: 792
+          example: 72.0
         numArtboards:
           type: integer
           description: Number of artboards to create.
           default: 1
+          example: 1024
         artboardLayout:
           type: string
           description: Layout for multiple artboards.
           enum:
-            - GridByRow
-            - GridByCol
-            - Row
-            - Column
-            - RLGridByRow
-            - RLGridByCol
-            - RLRow
+          - GridByRow
+          - GridByCol
+          - Row
+          - Column
+          - RLGridByRow
+          - RLGridByCol
+          - RLRow
+          example: GridByRow
         rasterResolution:
           type: string
           description: Raster effects resolution.
           enum:
-            - ScreenResolution
-            - MediumResolution
-            - HighResolution
+          - ScreenResolution
+          - MediumResolution
+          - HighResolution
           default: HighResolution
+          example: ScreenResolution
     ExportOptions:
       type: object
       required:
-        - filePath
-        - format
+      - filePath
+      - format
       properties:
         filePath:
           type: string
           description: File path for the exported file.
+          example: /path/to/file.ai
         format:
           type: string
           description: Export format.
           enum:
-            - PNG8
-            - PNG24
-            - JPEG
-            - SVG
-            - PDF
-            - TIFF
-            - GIF
-            - AutoCAD
-            - Flash
-            - Photoshop
+          - PNG8
+          - PNG24
+          - JPEG
+          - SVG
+          - PDF
+          - TIFF
+          - GIF
+          - AutoCAD
+          - Flash
+          - Photoshop
+          example: PNG8
         artboardRange:
           type: string
           description: >-
             Range of artboards to export (e.g., "1-3" or "1,3,5").
             Empty string exports all artboards.
           default: ""
+          example: example_value
         horizontalScale:
           type: number
           description: Horizontal scaling factor as a percentage.
           default: 100
+          example: 72.0
         verticalScale:
           type: number
           description: Vertical scaling factor as a percentage.
           default: 100
+          example: 72.0
         resolution:
           type: number
           description: Export resolution in PPI.
           default: 72
+          example: 72.0
         antiAliasing:
           type: boolean
           description: Whether to use anti-aliasing.
           default: true
+          example: true
         transparency:
           type: boolean
           description: Whether to preserve transparency.
           default: true
+          example: true
     Layer:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier of the layer.
+          example: example_value
         name:
           type: string
           description: Name of the layer.
           examples:
-            - Layer 1
+          - Layer 1
+          example: Example Artboard
         visible:
           type: boolean
           description: Whether the layer is visible.
+          example: true
         locked:
           type: boolean
           description: Whether the layer is locked.
+          example: true
         printable:
           type: boolean
           description: Whether the layer is printable.
+          example: true
         preview:
           type: boolean
           description: Whether the layer is in preview mode.
+          example: true
         dimPlacedImages:
           type: boolean
           description: Whether to dim placed images.
+          example: true
         color:
           type: string
           description: The layer highlight color.
           enum:
-            - Red
-            - Orange
-            - Yellow
-            - Green
-            - Blue
-            - Violet
-            - Gray
-            - LightBlue
-            - LightGreen
-            - LightRed
+          - Red
+          - Orange
+          - Yellow
+          - Green
+          - Blue
+          - Violet
+          - Gray
+          - LightBlue
+          - LightGreen
+          - LightRed
+          example: Red
         opacity:
           type: number
           description: Layer opacity as a percentage (0-100).
           minimum: 0
           maximum: 100
+          example: 72.0
         blendingMode:
           type: string
           description: Blending mode for the layer.
           enum:
-            - Normal
-            - Multiply
-            - Screen
-            - Overlay
-            - Darken
-            - Lighten
-            - ColorDodge
-            - ColorBurn
-            - HardLight
-            - SoftLight
-            - Difference
-            - Exclusion
-            - Hue
-            - Saturation
-            - Color
-            - Luminosity
+          - Normal
+          - Multiply
+          - Screen
+          - Overlay
+          - Darken
+          - Lighten
+          - ColorDodge
+          - ColorBurn
+          - HardLight
+          - SoftLight
+          - Difference
+          - Exclusion
+          - Hue
+          - Saturation
+          - Color
+          - Luminosity
+          example: Normal
         isClippingMask:
           type: boolean
           description: Whether the layer is a clipping mask.
+          example: true
         sliced:
           type: boolean
           description: Whether the layer is sliced.
+          example: true
         hasSelectedArtwork:
           type: boolean
           description: Whether the layer contains selected artwork.
+          example: true
         pathItemCount:
           type: integer
           description: Number of path items in the layer.
+          example: 1024
         textFrameCount:
           type: integer
           description: Number of text frames in the layer.
+          example: 1024
         sublayerCount:
           type: integer
           description: Number of sublayers.
+          example: 1024
     LayerCreate:
       type: object
       properties:
         name:
           type: string
           description: Name of the layer.
+          example: Example Artboard
         visible:
           type: boolean
           description: Whether the layer is visible.
           default: true
+          example: true
         locked:
           type: boolean
           description: Whether the layer is locked.
           default: false
+          example: true
         printable:
           type: boolean
           description: Whether the layer is printable.
           default: true
+          example: true
         preview:
           type: boolean
           description: Whether the layer is in preview mode.
           default: true
+          example: true
         opacity:
           type: number
           description: Layer opacity as a percentage (0-100).
           minimum: 0
           maximum: 100
           default: 100
+          example: 72.0
         blendingMode:
           type: string
           description: Blending mode for the layer.
           enum:
-            - Normal
-            - Multiply
-            - Screen
-            - Overlay
+          - Normal
+          - Multiply
+          - Screen
+          - Overlay
           default: Normal
+          example: Normal
         color:
           type: string
           description: Layer highlight color.
           enum:
-            - Red
-            - Orange
-            - Yellow
-            - Green
-            - Blue
-            - Violet
+          - Red
+          - Orange
+          - Yellow
+          - Green
+          - Blue
+          - Violet
+          example: Red
     Artboard:
       type: object
       properties:
         index:
           type: integer
           description: Zero-based index of the artboard.
+          example: 1024
         name:
           type: string
           description: Name of the artboard.
           examples:
-            - Artboard 1
+          - Artboard 1
+          example: Example Artboard
         artboardRect:
           type: array
           description: >-
@@ -1349,23 +1537,28 @@ components:
         rulerPAR:
           type: number
           description: Ruler pixel aspect ratio.
+          example: 72.0
         showCenter:
           type: boolean
           description: Whether to show the center mark.
+          example: true
         showCrossHairs:
           type: boolean
           description: Whether to show cross hairs.
+          example: true
         showSafeAreas:
           type: boolean
           description: Whether to show safe areas.
+          example: true
     ArtboardCreate:
       type: object
       required:
-        - artboardRect
+      - artboardRect
       properties:
         name:
           type: string
           description: Name of the artboard.
+          example: Example Artboard
         artboardRect:
           type: array
           description: >-
@@ -1380,39 +1573,47 @@ components:
         id:
           type: string
           description: Unique identifier of the path item.
+          example: example_value
         name:
           type: string
           description: Name of the path item.
+          example: Example Artboard
         closed:
           type: boolean
           description: Whether the path is closed.
+          example: true
         filled:
           type: boolean
           description: Whether the path has a fill.
+          example: true
         fillColor:
           $ref: '#/components/schemas/Color'
         stroked:
           type: boolean
           description: Whether the path has a stroke.
+          example: true
         strokeColor:
           $ref: '#/components/schemas/Color'
         strokeWidth:
           type: number
           description: Stroke width in points.
+          example: 72.0
         strokeCap:
           type: string
           description: Stroke cap style.
           enum:
-            - ButtEndCap
-            - RoundEndCap
-            - ProjectingEndCap
+          - ButtEndCap
+          - RoundEndCap
+          - ProjectingEndCap
+          example: ButtEndCap
         strokeJoin:
           type: string
           description: Stroke join style.
           enum:
-            - MiterEndJoin
-            - RoundEndJoin
-            - BevelEndJoin
+          - MiterEndJoin
+          - RoundEndJoin
+          - BevelEndJoin
+          example: MiterEndJoin
         strokeDashes:
           type: array
           description: Dash pattern for the stroke.
@@ -1423,9 +1624,11 @@ components:
           description: Opacity as a percentage (0-100).
           minimum: 0
           maximum: 100
+          example: 72.0
         blendingMode:
           type: string
           description: Blending mode.
+          example: example_value
         position:
           type: array
           description: Position [x, y] in points.
@@ -1436,9 +1639,11 @@ components:
         width:
           type: number
           description: Width in points.
+          example: 72.0
         height:
           type: number
           description: Height in points.
+          example: 72.0
         pathPoints:
           type: array
           description: Array of path points defining the path shape.
@@ -1447,36 +1652,43 @@ components:
         area:
           type: number
           description: Area of the path in square points.
+          example: 72.0
         length:
           type: number
           description: Length of the path in points.
+          example: 72.0
         guides:
           type: boolean
           description: Whether this path item is a guide.
+          example: true
         clipping:
           type: boolean
           description: Whether this path item is a clipping path.
+          example: true
         layer:
           type: string
           description: Name of the containing layer.
+          example: example_value
     PathItemCreate:
       type: object
       properties:
         name:
           type: string
           description: Name of the path item.
+          example: Example Artboard
         pathType:
           type: string
           description: Type of path to create.
           enum:
-            - freeform
-            - rectangle
-            - roundedRectangle
-            - ellipse
-            - polygon
-            - star
-            - line
+          - freeform
+          - rectangle
+          - roundedRectangle
+          - ellipse
+          - polygon
+          - star
+          - line
           default: freeform
+          example: freeform
         pathPoints:
           type: array
           description: >-
@@ -1494,48 +1706,59 @@ components:
         width:
           type: number
           description: Width in points (for rectangle, ellipse).
+          example: 72.0
         height:
           type: number
           description: Height in points (for rectangle, ellipse).
+          example: 72.0
         cornerRadius:
           type: number
           description: Corner radius for rounded rectangle.
+          example: 72.0
         sides:
           type: integer
           description: Number of sides for polygon.
           minimum: 3
+          example: 1024
         points:
           type: integer
           description: Number of points for star.
           minimum: 3
+          example: 1024
         innerRadius:
           type: number
           description: Inner radius for star.
+          example: 72.0
         filled:
           type: boolean
           description: Whether the path has a fill.
           default: true
+          example: true
         fillColor:
           $ref: '#/components/schemas/Color'
         stroked:
           type: boolean
           description: Whether the path has a stroke.
           default: true
+          example: true
         strokeColor:
           $ref: '#/components/schemas/Color'
         strokeWidth:
           type: number
           description: Stroke width in points.
           default: 1
+          example: 72.0
         opacity:
           type: number
           description: Opacity as a percentage (0-100).
           minimum: 0
           maximum: 100
           default: 100
+          example: 72.0
         layer:
           type: string
           description: Target layer name.
+          example: example_value
     PathPoint:
       type: object
       properties:
@@ -1564,10 +1787,11 @@ components:
           type: string
           description: The type of path point.
           enum:
-            - Smooth
-            - Corner
+          - Smooth
+          - Corner
+          example: Smooth
       required:
-        - anchor
+      - anchor
     Color:
       type: object
       properties:
@@ -1575,80 +1799,95 @@ components:
           type: string
           description: Type of color specification.
           enum:
-            - RGB
-            - CMYK
-            - Gray
-            - Spot
-            - Pattern
-            - Gradient
-            - None
+          - RGB
+          - CMYK
+          - Gray
+          - Spot
+          - Pattern
+          - Gradient
+          - None
+          example: RGB
         red:
           type: number
           description: Red component (0-255) for RGB colors.
           minimum: 0
           maximum: 255
+          example: 72.0
         green:
           type: number
           description: Green component (0-255) for RGB colors.
           minimum: 0
           maximum: 255
+          example: 72.0
         blue:
           type: number
           description: Blue component (0-255) for RGB colors.
           minimum: 0
           maximum: 255
+          example: 72.0
         cyan:
           type: number
           description: Cyan component (0-100) for CMYK colors.
           minimum: 0
           maximum: 100
+          example: 72.0
         magenta:
           type: number
           description: Magenta component (0-100) for CMYK colors.
           minimum: 0
           maximum: 100
+          example: 72.0
         yellow:
           type: number
           description: Yellow component (0-100) for CMYK colors.
           minimum: 0
           maximum: 100
+          example: 72.0
         black:
           type: number
           description: Black component (0-100) for CMYK colors.
           minimum: 0
           maximum: 100
+          example: 72.0
         gray:
           type: number
           description: Gray value (0-100) for grayscale colors.
           minimum: 0
           maximum: 100
+          example: 72.0
         spotName:
           type: string
           description: Spot color name for spot colors.
+          example: Example Artboard
         tint:
           type: number
           description: Tint percentage for spot colors.
           minimum: 0
           maximum: 100
+          example: 72.0
     TextFrame:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier of the text frame.
+          example: example_value
         name:
           type: string
           description: Name of the text frame.
+          example: Example Artboard
         kind:
           type: string
           description: Type of text frame.
           enum:
-            - PointText
-            - AreaText
-            - PathText
+          - PointText
+          - AreaText
+          - PathText
+          example: PointText
         contents:
           type: string
           description: The text content of the frame.
+          example: example_value
         position:
           type: array
           description: Position [x, y] in points.
@@ -1659,15 +1898,18 @@ components:
         width:
           type: number
           description: Width of the text frame in points.
+          example: 72.0
         height:
           type: number
           description: Height of the text frame in points.
+          example: 72.0
         orientation:
           type: string
           description: Text orientation.
           enum:
-            - Horizontal
-            - Vertical
+          - Horizontal
+          - Vertical
+          example: Horizontal
         characterAttributes:
           $ref: '#/components/schemas/CharacterAttributes'
         paragraphAttributes:
@@ -1677,29 +1919,34 @@ components:
           description: Opacity as a percentage (0-100).
           minimum: 0
           maximum: 100
+          example: 72.0
         layer:
           type: string
           description: Name of the containing layer.
+          example: example_value
     TextFrameCreate:
       type: object
       required:
-        - contents
-        - position
+      - contents
+      - position
       properties:
         name:
           type: string
           description: Name of the text frame.
+          example: Example Artboard
         kind:
           type: string
           description: Type of text frame to create.
           enum:
-            - PointText
-            - AreaText
-            - PathText
+          - PointText
+          - AreaText
+          - PathText
           default: PointText
+          example: PointText
         contents:
           type: string
           description: The text content.
+          example: example_value
         position:
           type: array
           description: Position [x, y] in points.
@@ -1710,16 +1957,19 @@ components:
         width:
           type: number
           description: Width for area text frames.
+          example: 72.0
         height:
           type: number
           description: Height for area text frames.
+          example: 72.0
         orientation:
           type: string
           description: Text orientation.
           enum:
-            - Horizontal
-            - Vertical
+          - Horizontal
+          - Vertical
           default: Horizontal
+          example: Horizontal
         characterAttributes:
           $ref: '#/components/schemas/CharacterAttributes'
         paragraphAttributes:
@@ -1727,6 +1977,7 @@ components:
         layer:
           type: string
           description: Target layer name.
+          example: example_value
     CharacterAttributes:
       type: object
       properties:
@@ -1734,12 +1985,14 @@ components:
           type: string
           description: Font name.
           examples:
-            - Myriad Pro
+          - Myriad Pro
+          example: example_value
         size:
           type: number
           description: Font size in points.
           examples:
-            - 12
+          - 12
+          example: 72.0
         fillColor:
           $ref: '#/components/schemas/Color'
         strokeColor:
@@ -1747,42 +2000,53 @@ components:
         strokeWeight:
           type: number
           description: Character stroke weight.
+          example: 72.0
         tracking:
           type: number
           description: Tracking value.
+          example: 72.0
         leading:
           type: number
           description: Leading (line spacing) in points.
+          example: 72.0
         kerning:
           type: number
           description: Kerning value.
+          example: 72.0
         horizontalScale:
           type: number
           description: Horizontal scale as a percentage.
           default: 100
+          example: 72.0
         verticalScale:
           type: number
           description: Vertical scale as a percentage.
           default: 100
+          example: 72.0
         baselineShift:
           type: number
           description: Baseline shift in points.
+          example: 72.0
         rotation:
           type: number
           description: Character rotation in degrees.
+          example: 72.0
         capitalization:
           type: string
           description: Capitalization style.
           enum:
-            - Normal
-            - AllCaps
-            - SmallCaps
+          - Normal
+          - AllCaps
+          - SmallCaps
+          example: Normal
         underline:
           type: boolean
           description: Whether text is underlined.
+          example: true
         strikethrough:
           type: boolean
           description: Whether text has strikethrough.
+          example: true
     ParagraphAttributes:
       type: object
       properties:
@@ -1790,96 +2054,111 @@ components:
           type: string
           description: Text justification.
           enum:
-            - Left
-            - Center
-            - Right
-            - FullJustifyLastLineLeft
-            - FullJustifyLastLineCenter
-            - FullJustifyLastLineRight
-            - FullJustify
+          - Left
+          - Center
+          - Right
+          - FullJustifyLastLineLeft
+          - FullJustifyLastLineCenter
+          - FullJustifyLastLineRight
+          - FullJustify
+          example: Left
         firstLineIndent:
           type: number
           description: First line indent in points.
+          example: 72.0
         leftIndent:
           type: number
           description: Left indent in points.
+          example: 72.0
         rightIndent:
           type: number
           description: Right indent in points.
+          example: 72.0
         spaceBefore:
           type: number
           description: Space before paragraph in points.
+          example: 72.0
         spaceAfter:
           type: number
           description: Space after paragraph in points.
+          example: 72.0
         hyphenation:
           type: boolean
           description: Whether hyphenation is enabled.
+          example: true
     Symbol:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier of the symbol.
+          example: example_value
         name:
           type: string
           description: Name of the symbol.
+          example: Example Artboard
         registrationPoint:
           type: string
           description: Registration point of the symbol.
           enum:
-            - SymbolTopLeftPoint
-            - SymbolTopMiddlePoint
-            - SymbolTopRightPoint
-            - SymbolMiddleLeftPoint
-            - SymbolCenterPoint
-            - SymbolMiddleRightPoint
-            - SymbolBottomLeftPoint
-            - SymbolBottomMiddlePoint
-            - SymbolBottomRightPoint
+          - SymbolTopLeftPoint
+          - SymbolTopMiddlePoint
+          - SymbolTopRightPoint
+          - SymbolMiddleLeftPoint
+          - SymbolCenterPoint
+          - SymbolMiddleRightPoint
+          - SymbolBottomLeftPoint
+          - SymbolBottomMiddlePoint
+          - SymbolBottomRightPoint
+          example: SymbolTopLeftPoint
     SymbolCreate:
       type: object
       required:
-        - name
-        - sourceArtId
+      - name
+      - sourceArtId
       properties:
         name:
           type: string
           description: Name of the symbol.
+          example: Example Artboard
         sourceArtId:
           type: string
           description: ID of the artwork to use as the symbol source.
+          example: example_value
         registrationPoint:
           type: string
           description: Registration point for the symbol.
           enum:
-            - SymbolCenterPoint
-            - SymbolTopLeftPoint
-            - SymbolTopMiddlePoint
-            - SymbolTopRightPoint
-            - SymbolMiddleLeftPoint
-            - SymbolMiddleRightPoint
-            - SymbolBottomLeftPoint
-            - SymbolBottomMiddlePoint
-            - SymbolBottomRightPoint
+          - SymbolCenterPoint
+          - SymbolTopLeftPoint
+          - SymbolTopMiddlePoint
+          - SymbolTopRightPoint
+          - SymbolMiddleLeftPoint
+          - SymbolMiddleRightPoint
+          - SymbolBottomLeftPoint
+          - SymbolBottomMiddlePoint
+          - SymbolBottomRightPoint
           default: SymbolCenterPoint
+          example: SymbolCenterPoint
     Swatch:
       type: object
       properties:
         name:
           type: string
           description: Name of the swatch.
+          example: Example Artboard
         color:
           $ref: '#/components/schemas/Color'
     SwatchCreate:
       type: object
       required:
-        - name
-        - color
+      - name
+      - color
       properties:
         name:
           type: string
           description: Name of the swatch.
+          example: Example Artboard
         color:
           $ref: '#/components/schemas/Color'
     GraphicStyle:
@@ -1888,3 +2167,4 @@ components:
         name:
           type: string
           description: Name of the graphic style.
+          example: Example Artboard

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-structure/adobe-illustrator-scripting-layer-create-structure.json",
+  "name": "LayerCreate",
+  "description": "LayerCreate from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the layer.",
+      "example": "Example Artboard"
+    },
+    "visible": {
+      "type": "boolean",
+      "description": "Whether the layer is visible.",
+      "default": true,
+      "example": true
+    },
+    "locked": {
+      "type": "boolean",
+      "description": "Whether the layer is locked.",
+      "default": false,
+      "example": true
+    },
+    "printable": {
+      "type": "boolean",
+      "description": "Whether the layer is printable.",
+      "default": true,
+      "example": true
+    },
+    "preview": {
+      "type": "boolean",
+      "description": "Whether the layer is in preview mode.",
+      "default": true,
+      "example": true
+    },
+    "opacity": {
+      "type": "double",
+      "description": "Layer opacity as a percentage (0-100).",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 100,
+      "example": 72.0
+    },
+    "blendingMode": {
+      "type": "string",
+      "description": "Blending mode for the layer.",
+      "enum": [
+        "Normal",
+        "Multiply",
+        "Screen",
+        "Overlay"
+      ],
+      "default": "Normal",
+      "example": "Normal"
+    },
+    "color": {
+      "type": "string",
+      "description": "Layer highlight color.",
+      "enum": [
+        "Red",
+        "Orange",
+        "Yellow",
+        "Green",
+        "Blue",
+        "Violet"
+      ],
+      "example": "Red"
+    }
+  }
+}

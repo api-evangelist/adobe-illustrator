@@ -1,0 +1,16 @@
+{
+  "name": "Example Artboard",
+  "pathType": "freeform",
+  "pathPoints": [
+    "/artwork/logo.ai"
+  ],
+  "position": [
+    72.0
+  ],
+  "width": 72.0,
+  "height": 72.0,
+  "cornerRadius": 72.0,
+  "sides": 1024,
+  "points": 1024,
+  "innerRadius": 72.0
+}

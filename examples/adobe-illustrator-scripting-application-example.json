@@ -1,0 +1,13 @@
+{
+  "name": "Example Artboard",
+  "version": "example_value",
+  "buildNumber": "example_value",
+  "locale": "example_value",
+  "scriptingVersion": "example_value",
+  "freeMemory": 1024,
+  "activeDocument": "example_value",
+  "documents": [
+    "example_value"
+  ],
+  "userInteractionLevel": "DISPLAYALERTS"
+}

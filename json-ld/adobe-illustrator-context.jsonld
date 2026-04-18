@@ -1,0 +1,408 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "ai": "https://developer.adobe.com/illustrator/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Application": "ai:Application",
+    "Artboard": "ai:Artboard",
+    "ArtboardCreate": "ai:ArtboardCreate",
+    "Color": "ai:Color",
+    "Document": "ai:Document",
+    "DocumentCreate": "ai:DocumentCreate",
+    "ExportOptions": "ai:ExportOptions",
+    "Layer": "ai:Layer",
+    "LayerCreate": "ai:LayerCreate",
+    "PathItem": "ai:PathItem",
+    "PathItemCreate": "ai:PathItemCreate",
+    "PathPoint": "ai:PathPoint",
+    "Preferences": "ai:Preferences",
+    "TextFrame": "ai:TextFrame",
+    "TextFrameCreate": "ai:TextFrameCreate",
+    "activeDocument": {
+      "@id": "ai:activeDocument",
+      "@type": "xsd:string"
+    },
+    "activeLayer": {
+      "@id": "ai:activeLayer",
+      "@type": "xsd:string"
+    },
+    "anchor": {
+      "@id": "ai:anchor",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "antiAliasing": {
+      "@id": "ai:antiAliasing",
+      "@type": "xsd:boolean"
+    },
+    "area": {
+      "@id": "ai:area",
+      "@type": "xsd:decimal"
+    },
+    "artboardCount": {
+      "@id": "ai:artboardCount",
+      "@type": "xsd:integer"
+    },
+    "artboardLayout": {
+      "@id": "ai:artboardLayout",
+      "@type": "xsd:string"
+    },
+    "artboardRange": {
+      "@id": "ai:artboardRange",
+      "@type": "xsd:string"
+    },
+    "artboardRect": {
+      "@id": "ai:artboardRect",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "black": {
+      "@id": "ai:black",
+      "@type": "xsd:decimal"
+    },
+    "blendingMode": {
+      "@id": "ai:blendingMode",
+      "@type": "xsd:string"
+    },
+    "blue": {
+      "@id": "ai:blue",
+      "@type": "xsd:decimal"
+    },
+    "buildNumber": {
+      "@id": "ai:buildNumber",
+      "@type": "xsd:string"
+    },
+    "characterAttributes": {
+      "@id": "ai:characterAttributes",
+      "@type": "xsd:string"
+    },
+    "clipping": {
+      "@id": "ai:clipping",
+      "@type": "xsd:boolean"
+    },
+    "closed": {
+      "@id": "ai:closed",
+      "@type": "xsd:boolean"
+    },
+    "color": {
+      "@id": "ai:color",
+      "@type": "xsd:string"
+    },
+    "colorType": {
+      "@id": "ai:colorType",
+      "@type": "xsd:string"
+    },
+    "contents": {
+      "@id": "ai:contents",
+      "@type": "xsd:string"
+    },
+    "cornerRadius": {
+      "@id": "ai:cornerRadius",
+      "@type": "xsd:decimal"
+    },
+    "cyan": {
+      "@id": "ai:cyan",
+      "@type": "xsd:decimal"
+    },
+    "dimPlacedImages": {
+      "@id": "ai:dimPlacedImages",
+      "@type": "xsd:boolean"
+    },
+    "documentColorSpace": {
+      "@id": "ai:documentColorSpace",
+      "@type": "xsd:string"
+    },
+    "documents": {
+      "@id": "ai:documents",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "filePath": {
+      "@id": "ai:filePath",
+      "@type": "xsd:string"
+    },
+    "fillColor": {
+      "@id": "ai:fillColor",
+      "@type": "xsd:string"
+    },
+    "filled": {
+      "@id": "ai:filled",
+      "@type": "xsd:boolean"
+    },
+    "format": {
+      "@id": "ai:format",
+      "@type": "xsd:string"
+    },
+    "freeMemory": {
+      "@id": "ai:freeMemory",
+      "@type": "xsd:integer"
+    },
+    "fullName": {
+      "@id": "ai:fullName",
+      "@type": "xsd:string"
+    },
+    "generalPreferences": {
+      "@id": "ai:generalPreferences",
+      "@type": "@id"
+    },
+    "gray": {
+      "@id": "ai:gray",
+      "@type": "xsd:decimal"
+    },
+    "green": {
+      "@id": "ai:green",
+      "@type": "xsd:decimal"
+    },
+    "guides": {
+      "@id": "ai:guides",
+      "@type": "xsd:boolean"
+    },
+    "hasSelectedArtwork": {
+      "@id": "ai:hasSelectedArtwork",
+      "@type": "xsd:boolean"
+    },
+    "height": {
+      "@id": "ai:height",
+      "@type": "xsd:decimal"
+    },
+    "horizontalScale": {
+      "@id": "ai:horizontalScale",
+      "@type": "xsd:decimal"
+    },
+    "id": {
+      "@id": "ai:id",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "ai:index",
+      "@type": "xsd:integer"
+    },
+    "innerRadius": {
+      "@id": "ai:innerRadius",
+      "@type": "xsd:decimal"
+    },
+    "isClippingMask": {
+      "@id": "ai:isClippingMask",
+      "@type": "xsd:boolean"
+    },
+    "kind": {
+      "@id": "ai:kind",
+      "@type": "xsd:string"
+    },
+    "layer": {
+      "@id": "ai:layer",
+      "@type": "xsd:string"
+    },
+    "layerCount": {
+      "@id": "ai:layerCount",
+      "@type": "xsd:integer"
+    },
+    "leftDirection": {
+      "@id": "ai:leftDirection",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "length": {
+      "@id": "ai:length",
+      "@type": "xsd:decimal"
+    },
+    "locale": {
+      "@id": "ai:locale",
+      "@type": "xsd:string"
+    },
+    "locked": {
+      "@id": "ai:locked",
+      "@type": "xsd:boolean"
+    },
+    "magenta": {
+      "@id": "ai:magenta",
+      "@type": "xsd:decimal"
+    },
+    "name": {
+      "@id": "ai:name",
+      "@type": "xsd:string"
+    },
+    "numArtboards": {
+      "@id": "ai:numArtboards",
+      "@type": "xsd:integer"
+    },
+    "opacity": {
+      "@id": "ai:opacity",
+      "@type": "xsd:decimal"
+    },
+    "orientation": {
+      "@id": "ai:orientation",
+      "@type": "xsd:string"
+    },
+    "paragraphAttributes": {
+      "@id": "ai:paragraphAttributes",
+      "@type": "xsd:string"
+    },
+    "pathItemCount": {
+      "@id": "ai:pathItemCount",
+      "@type": "xsd:integer"
+    },
+    "pathPoints": {
+      "@id": "ai:pathPoints",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pathType": {
+      "@id": "ai:pathType",
+      "@type": "xsd:string"
+    },
+    "pointType": {
+      "@id": "ai:pointType",
+      "@type": "xsd:string"
+    },
+    "points": {
+      "@id": "ai:points",
+      "@type": "xsd:integer"
+    },
+    "position": {
+      "@id": "ai:position",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "preview": {
+      "@id": "ai:preview",
+      "@type": "xsd:boolean"
+    },
+    "printable": {
+      "@id": "ai:printable",
+      "@type": "xsd:boolean"
+    },
+    "rasterResolution": {
+      "@id": "ai:rasterResolution",
+      "@type": "xsd:string"
+    },
+    "red": {
+      "@id": "ai:red",
+      "@type": "xsd:decimal"
+    },
+    "resolution": {
+      "@id": "ai:resolution",
+      "@type": "xsd:decimal"
+    },
+    "rightDirection": {
+      "@id": "ai:rightDirection",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "rulerOrigin": {
+      "@id": "ai:rulerOrigin",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "rulerPAR": {
+      "@id": "ai:rulerPAR",
+      "@type": "xsd:decimal"
+    },
+    "rulerUnits": {
+      "@id": "ai:rulerUnits",
+      "@type": "xsd:string"
+    },
+    "saved": {
+      "@id": "ai:saved",
+      "@type": "xsd:boolean"
+    },
+    "scriptingVersion": {
+      "@id": "ai:scriptingVersion",
+      "@type": "xsd:string"
+    },
+    "showCenter": {
+      "@id": "ai:showCenter",
+      "@type": "xsd:boolean"
+    },
+    "showCrossHairs": {
+      "@id": "ai:showCrossHairs",
+      "@type": "xsd:boolean"
+    },
+    "showSafeAreas": {
+      "@id": "ai:showSafeAreas",
+      "@type": "xsd:boolean"
+    },
+    "sides": {
+      "@id": "ai:sides",
+      "@type": "xsd:integer"
+    },
+    "sliced": {
+      "@id": "ai:sliced",
+      "@type": "xsd:boolean"
+    },
+    "spotName": {
+      "@id": "ai:spotName",
+      "@type": "xsd:string"
+    },
+    "strokeCap": {
+      "@id": "ai:strokeCap",
+      "@type": "xsd:string"
+    },
+    "strokeColor": {
+      "@id": "ai:strokeColor",
+      "@type": "xsd:string"
+    },
+    "strokeDashes": {
+      "@id": "ai:strokeDashes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "strokeJoin": {
+      "@id": "ai:strokeJoin",
+      "@type": "xsd:string"
+    },
+    "strokeWidth": {
+      "@id": "ai:strokeWidth",
+      "@type": "xsd:decimal"
+    },
+    "stroked": {
+      "@id": "ai:stroked",
+      "@type": "xsd:boolean"
+    },
+    "sublayerCount": {
+      "@id": "ai:sublayerCount",
+      "@type": "xsd:integer"
+    },
+    "textFrameCount": {
+      "@id": "ai:textFrameCount",
+      "@type": "xsd:integer"
+    },
+    "tint": {
+      "@id": "ai:tint",
+      "@type": "xsd:decimal"
+    },
+    "transparency": {
+      "@id": "ai:transparency",
+      "@type": "xsd:boolean"
+    },
+    "typePreferences": {
+      "@id": "ai:typePreferences",
+      "@type": "@id"
+    },
+    "userInteractionLevel": {
+      "@id": "ai:userInteractionLevel",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "ai:version",
+      "@type": "xsd:string"
+    },
+    "verticalScale": {
+      "@id": "ai:verticalScale",
+      "@type": "xsd:decimal"
+    },
+    "visible": {
+      "@id": "ai:visible",
+      "@type": "xsd:boolean"
+    },
+    "width": {
+      "@id": "ai:width",
+      "@type": "xsd:decimal"
+    },
+    "yellow": {
+      "@id": "ai:yellow",
+      "@type": "xsd:decimal"
+    }
+  }
+}

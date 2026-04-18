@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-schema/adobe-illustrator-scripting-path-point-schema.json",
+  "title": "PathPoint",
+  "description": "PathPoint from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "anchor": {
+      "type": "array",
+      "description": "Anchor point coordinates [x, y].",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "leftDirection": {
+      "type": "array",
+      "description": "Left control handle coordinates [x, y].",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "rightDirection": {
+      "type": "array",
+      "description": "Right control handle coordinates [x, y].",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "pointType": {
+      "type": "string",
+      "description": "The type of path point.",
+      "enum": [
+        "Smooth",
+        "Corner"
+      ],
+      "example": "Smooth"
+    }
+  },
+  "required": [
+    "anchor"
+  ]
+}

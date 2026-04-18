@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-schema/adobe-illustrator-scripting-artboard-create-schema.json",
+  "title": "ArtboardCreate",
+  "description": "ArtboardCreate from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the artboard.",
+      "example": "Example Artboard"
+    },
+    "artboardRect": {
+      "type": "array",
+      "description": "Bounding rectangle [left, top, right, bottom] in points.",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 4,
+      "maxItems": 4
+    }
+  },
+  "required": [
+    "artboardRect"
+  ]
+}

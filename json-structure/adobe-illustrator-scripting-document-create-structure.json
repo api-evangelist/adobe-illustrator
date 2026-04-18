@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-structure/adobe-illustrator-scripting-document-create-structure.json",
+  "name": "DocumentCreate",
+  "description": "DocumentCreate from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the new document.",
+      "example": "Example Artboard"
+    },
+    "documentColorSpace": {
+      "type": "string",
+      "description": "Color mode of the document.",
+      "enum": [
+        "CMYK",
+        "RGB"
+      ],
+      "default": "RGB",
+      "example": "CMYK"
+    },
+    "width": {
+      "type": "double",
+      "description": "Document width in points.",
+      "default": 612,
+      "example": 72.0
+    },
+    "height": {
+      "type": "double",
+      "description": "Document height in points.",
+      "default": 792,
+      "example": 72.0
+    },
+    "numArtboards": {
+      "type": "int32",
+      "description": "Number of artboards to create.",
+      "default": 1,
+      "example": 1024
+    },
+    "artboardLayout": {
+      "type": "string",
+      "description": "Layout for multiple artboards.",
+      "enum": [
+        "GridByRow",
+        "GridByCol",
+        "Row",
+        "Column",
+        "RLGridByRow",
+        "RLGridByCol",
+        "RLRow"
+      ],
+      "example": "GridByRow"
+    },
+    "rasterResolution": {
+      "type": "string",
+      "description": "Raster effects resolution.",
+      "enum": [
+        "ScreenResolution",
+        "MediumResolution",
+        "HighResolution"
+      ],
+      "default": "HighResolution",
+      "example": "ScreenResolution"
+    }
+  }
+}

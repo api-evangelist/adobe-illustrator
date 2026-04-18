@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-schema/adobe-illustrator-scripting-preferences-schema.json",
+  "title": "Preferences",
+  "description": "Preferences from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "rulerUnits": {
+      "type": "string",
+      "description": "Default ruler units.",
+      "enum": [
+        "Points",
+        "Picas",
+        "Inches",
+        "Millimeters",
+        "Centimeters",
+        "Pixels"
+      ],
+      "example": "Points"
+    },
+    "generalPreferences": {
+      "type": "object",
+      "properties": {
+        "keyboardIncrement": {
+          "type": "number",
+          "description": "Keyboard increment value."
+        },
+        "constrainAngle": {
+          "type": "number",
+          "description": "Constrain angle in degrees."
+        },
+        "useAreaSelect": {
+          "type": "boolean",
+          "description": "Whether to use area select."
+        }
+      }
+    },
+    "typePreferences": {
+      "type": "object",
+      "properties": {
+        "showHiddenCharacters": {
+          "type": "boolean",
+          "description": "Whether to show hidden characters."
+        },
+        "useSmartQuotes": {
+          "type": "boolean",
+          "description": "Whether to use smart quotes."
+        }
+      }
+    }
+  }
+}

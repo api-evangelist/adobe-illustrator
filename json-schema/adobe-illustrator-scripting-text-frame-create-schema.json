@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-schema/adobe-illustrator-scripting-text-frame-create-schema.json",
+  "title": "TextFrameCreate",
+  "description": "TextFrameCreate from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the text frame.",
+      "example": "Example Artboard"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Type of text frame to create.",
+      "enum": [
+        "PointText",
+        "AreaText",
+        "PathText"
+      ],
+      "default": "PointText",
+      "example": "PointText"
+    },
+    "contents": {
+      "type": "string",
+      "description": "The text content.",
+      "example": "example_value"
+    },
+    "position": {
+      "type": "array",
+      "description": "Position [x, y] in points.",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "width": {
+      "type": "number",
+      "description": "Width for area text frames.",
+      "example": 72.0
+    },
+    "height": {
+      "type": "number",
+      "description": "Height for area text frames.",
+      "example": 72.0
+    },
+    "orientation": {
+      "type": "string",
+      "description": "Text orientation.",
+      "enum": [
+        "Horizontal",
+        "Vertical"
+      ],
+      "default": "Horizontal",
+      "example": "Horizontal"
+    },
+    "characterAttributes": {
+      "$ref": "#/components/schemas/CharacterAttributes"
+    },
+    "paragraphAttributes": {
+      "$ref": "#/components/schemas/ParagraphAttributes"
+    },
+    "layer": {
+      "type": "string",
+      "description": "Target layer name.",
+      "example": "example_value"
+    }
+  },
+  "required": [
+    "contents",
+    "position"
+  ]
+}

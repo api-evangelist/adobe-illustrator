@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-schema/adobe-illustrator-scripting-color-schema.json",
+  "title": "Color",
+  "description": "Color from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "colorType": {
+      "type": "string",
+      "description": "Type of color specification.",
+      "enum": [
+        "RGB",
+        "CMYK",
+        "Gray",
+        "Spot",
+        "Pattern",
+        "Gradient",
+        "None"
+      ],
+      "example": "RGB"
+    },
+    "red": {
+      "type": "number",
+      "description": "Red component (0-255) for RGB colors.",
+      "minimum": 0,
+      "maximum": 255,
+      "example": 72.0
+    },
+    "green": {
+      "type": "number",
+      "description": "Green component (0-255) for RGB colors.",
+      "minimum": 0,
+      "maximum": 255,
+      "example": 72.0
+    },
+    "blue": {
+      "type": "number",
+      "description": "Blue component (0-255) for RGB colors.",
+      "minimum": 0,
+      "maximum": 255,
+      "example": 72.0
+    },
+    "cyan": {
+      "type": "number",
+      "description": "Cyan component (0-100) for CMYK colors.",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "magenta": {
+      "type": "number",
+      "description": "Magenta component (0-100) for CMYK colors.",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "yellow": {
+      "type": "number",
+      "description": "Yellow component (0-100) for CMYK colors.",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "black": {
+      "type": "number",
+      "description": "Black component (0-100) for CMYK colors.",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "gray": {
+      "type": "number",
+      "description": "Gray value (0-100) for grayscale colors.",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "spotName": {
+      "type": "string",
+      "description": "Spot color name for spot colors.",
+      "example": "Example Artboard"
+    },
+    "tint": {
+      "type": "number",
+      "description": "Tint percentage for spot colors.",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    }
+  }
+}

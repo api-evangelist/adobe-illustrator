@@ -1,0 +1,12 @@
+{
+  "id": "example_value",
+  "name": "Example Artboard",
+  "closed": true,
+  "filled": true,
+  "fillColor": "#336699",
+  "stroked": true,
+  "strokeColor": "#336699",
+  "strokeWidth": 72.0,
+  "strokeCap": "ButtEndCap",
+  "strokeJoin": "MiterEndJoin"
+}

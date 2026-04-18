@@ -1,0 +1,12 @@
+{
+  "rulerUnits": "Points",
+  "generalPreferences": {
+    "keyboardIncrement": 72.0,
+    "constrainAngle": 72.0,
+    "useAreaSelect": true
+  },
+  "typePreferences": {
+    "showHiddenCharacters": true,
+    "useSmartQuotes": true
+  }
+}

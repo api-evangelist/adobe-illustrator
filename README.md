@@ -1,96 +1,91 @@
 # Adobe Illustrator (adobe-illustrator)
-Adobe Illustrator is a professional vector graphics editor used for creating illustrations, logos, icons, typography, and complex artwork. Its developer platform provides scripting APIs (JavaScript, AppleScript, VBScript), a native C++ plugin SDK, and the Common Extensibility Platform (CEP) for building HTML/CSS/JavaScript extensions, enabling developers to automate workflows, extend application functionality, and integrate with external services.
+Adobe Illustrator is the industry-standard vector graphics application. Its developer platform offers scripting APIs, UXP plugins, CEP extensions, and a C++ SDK for building custom integrations and automating workflows.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/apis.yml)
 
-## Scope
-
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
+**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
 ## Tags:
 
- - Illustrator, Vector Graphics, Creative Cloud, Design, Scripting, Plugins
+ - Creative Cloud, Design, Illustrator, Vector Graphics
 
 ## Timestamps
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-02-28
+- **Created:** 2025-01-01
+- **Modified:** 2026-04-17
 
 ## APIs
 
-### Adobe Illustrator Scripting API
-The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography, enabling efficient workflow automation for designers and developers.
+3 APIs: Illustrator Scripting API, UXP Plugin API, C++ Plugin SDK.
 
-**Human URL:** [https://developer.adobe.com/illustrator/](https://developer.adobe.com/illustrator/)
+See [apis.yml](apis.yml) for the complete API inventory.
 
+## Features
 
-#### Tags:
+| Name | Description |
+|------|-------------|
+| Vector Document Automation | Create, modify, and export vector artwork programmatically. |
+| UXP Plugin Framework | Build modern plugins with JavaScript, HTML, CSS, and Spectrum UI. |
+| Text Manipulation | Create, edit, and format text frames and character styles. |
+| Path and Shape Operations | Create and manipulate vector paths, compound shapes, and bezier curves. |
+| Color Management | Work with swatches, gradients, patterns, and color spaces. |
+| Artboard Management | Create, resize, reorder, and export individual artboards. |
+| SVG Export | Export artwork as optimized SVG for web. |
+| Data-Driven Graphics | Generate artwork variations from data using variables. |
+| Batch Processing | Process multiple files with consistent operations. |
+| Symbol Libraries | Create, manage, and reuse symbol instances. |
 
- - Scripting, Automation, JavaScript, AppleScript, VBScript
+## Use Cases
 
-#### Properties
+| Name | Description |
+|------|-------------|
+| Design System Automation | Generate icon sets, component libraries, and design tokens from data. |
+| Brand Asset Production | Batch produce branded materials with consistent styling. |
+| Print Production | Automate print-ready output with bleed, crop marks, and color separation. |
+| SVG Asset Pipeline | Export optimized SVGs for web applications. |
+| Data Visualization | Create charts, maps, and infographics from data. |
+| Custom Tool Panels | Build UXP plugin panels for specialized workflows. |
 
-- [Documentation](https://developer.adobe.com/illustrator/)
-- [OpenAPI](openapi/adobe-illustrator-scripting-openapi-original.yml)
+## Solutions
 
-### Adobe Illustrator Plugin SDK
-The Adobe Illustrator Plugin SDK enables developers to build native C++ plug-ins for Illustrator on Windows and macOS. The SDK opens the entire application to developer control, allowing extensions to add new functions, automate workflows, parse and manipulate image data, apply custom effects, add custom tools to the toolbar, and extend menu functionality. It provides deep integration with Illustrator's architecture for building high-performance extensions.
+| Name | Description |
+|------|-------------|
+| Illustrator UXP Plugins | Modern plugin platform with JavaScript and HTML. |
+| Illustrator Scripting | Automation via JavaScript, AppleScript, or VBScript. |
+| Illustrator C++ SDK | Native plugin SDK for performance-critical tools. |
 
-**Human URL:** [https://developer.adobe.com/illustrator/](https://developer.adobe.com/illustrator/)
+## Artifacts
 
+### OpenAPI
 
-#### Tags:
+- [Adobe Illustrator Scripting API](openapi/adobe-illustrator-scripting-openapi-original.yml)
 
- - Plugins, SDK, C++, Extensions
+### JSON Schema
 
-#### Properties
+15 standalone JSON Schema files in [json-schema/](json-schema/).
 
-- [Documentation](https://developer.adobe.com/illustrator/)
+### JSON Structure
 
-### Adobe Illustrator CEP Extensions API
-The Adobe Illustrator Common Extensibility Platform (CEP) allows developers to build panels and extensions using HTML, CSS, and JavaScript. CEP extensions run inside Illustrator and can communicate with the application through its scripting interface, enabling developers to create custom user interfaces, integrate with web services, and extend Illustrator's capabilities with modern web technologies. CEP provides a cross-application framework used across Adobe Creative Cloud products.
+15 JSON Structure files in [json-structure/](json-structure/).
 
-**Human URL:** [https://developer.adobe.com/illustrator/](https://developer.adobe.com/illustrator/)
+### JSON-LD
 
+- [Adobe Illustrator Context](json-ld/adobe-illustrator-context.jsonld) — 15 types, 94 properties
 
-#### Tags:
+### Examples
 
- - Extensions, CEP, HTML, CSS, JavaScript, Panels
+15 example JSON files in [examples/](examples/).
 
-#### Properties
+## Vocabulary
 
-- [Documentation](https://developer.adobe.com/illustrator/)
+- [Adobe Illustrator Vocabulary](vocabulary/adobe-illustrator-vocabulary.yaml) — 7 resources, 3 APIs, 4 domains, 4 personas
 
-## Common Properties
+## Rules
 
-- [Website](https://www.adobe.com/products/illustrator.html)
-- [Documentation](https://developer.adobe.com/illustrator/)
-- [WhatsNew](https://helpx.adobe.com/illustrator/desktop/new-features/whats-new.html)
-- [ChangeLog](https://helpx.adobe.com/illustrator/desktop/new-features/release-notes.html)
-- [Support](https://helpx.adobe.com/support/illustrator.html)
-- [Portal](https://developer.adobe.com/developer-console/)
-- [Blog](https://blog.developer.adobe.com/)
-- [GitHubOrganization](https://github.com/adobe)
-- [Forum](https://community.adobe.com/t5/illustrator-discussions/bd-p/illustrator)
-- [Forum](https://forums.creativeclouddeveloper.com)
-- [Tutorials](https://www.adobe.com/learn/illustrator)
-- [Documentation](https://ai-scripting.docsforadobe.dev/)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/adobe-illustrator)
-- [Status](https://status.adobe.com/)
-- [X](https://x.com/Illustrator)
-- [YouTube](https://www.youtube.com/@AdobeCreativeCloud)
-- [LinkedIn](https://www.linkedin.com/company/adobe)
-- [Pricing](https://www.adobe.com/products/illustrator/pricing-info.html)
-- [Security](https://helpx.adobe.com/security/products/illustrator.html)
-- [TrustCenter](https://www.adobe.com/trust.html)
-- [TermsOfService](https://www.adobe.com/legal/terms.html)
-- [PrivacyPolicy](https://www.adobe.com/privacy/policy.html)
-- [License](https://www.adobe.com/legal/licenses-terms.html)
+- [Adobe Illustrator Spectral Rules](rules/adobe-illustrator-spectral-rules.yml) — 17 rules
 
 ## Maintainers
 
-**FN:** API Evangelist
+**FN:** Kin Lane
 
-**Email:** info@apievangelist.com
+**Email:** kin@apievangelist.com

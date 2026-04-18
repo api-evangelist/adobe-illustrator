@@ -1,0 +1,10 @@
+{
+  "filePath": "/path/to/file.ai",
+  "format": "PNG8",
+  "artboardRange": "example_value",
+  "horizontalScale": 72.0,
+  "verticalScale": 72.0,
+  "resolution": 72.0,
+  "antiAliasing": true,
+  "transparency": true
+}

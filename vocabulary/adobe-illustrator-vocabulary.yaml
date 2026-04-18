@@ -1,0 +1,93 @@
+vocabulary: 1.0.0
+info:
+  provider: Adobe Illustrator
+  description: Vocabulary for Adobe Illustrator developer platform covering scripting,
+    UXP plugins, and C++ SDK.
+  created: '2026-04-17'
+  modified: '2026-04-17'
+operational:
+  apis:
+  - name: Illustrator Scripting API
+    namespace: ai-scripting
+    status: active
+  - name: Illustrator UXP Plugin API
+    namespace: ai-uxp
+    status: active
+  - name: Illustrator C++ SDK
+    namespace: ai-cpp
+    status: active
+  resources:
+  - name: documents
+    description: Illustrator documents (.ai files).
+    actions:
+    - create
+    - open
+    - save
+    - close
+    - export
+  - name: artboards
+    description: Artboards within documents.
+    actions:
+    - create
+    - resize
+    - reorder
+    - delete
+  - name: layers
+    description: Document layers.
+    actions:
+    - create
+    - get
+    - rename
+    - delete
+    - reorder
+  - name: paths
+    description: Vector paths and shapes.
+    actions:
+    - create
+    - edit
+    - transform
+  - name: text-frames
+    description: Text frames with paragraphs and characters.
+    actions:
+    - create
+    - edit
+    - format
+  - name: swatches
+    description: Color swatches and gradients.
+    actions:
+    - create
+    - get
+    - apply
+    - delete
+  - name: symbols
+    description: Reusable symbol definitions.
+    actions:
+    - create
+    - instantiate
+    - update
+capability:
+  personas:
+  - id: designer
+    name: Graphic Designer
+  - id: plugin-developer
+    name: Plugin Developer
+  - id: production-artist
+    name: Production Artist
+  - id: web-developer
+    name: Web Developer
+  domains:
+  - name: vector-editing
+    resources:
+    - documents
+    - artboards
+    - layers
+    - paths
+  - name: typography
+    resources:
+    - text-frames
+  - name: color
+    resources:
+    - swatches
+  - name: assets
+    resources:
+    - symbols

@@ -1,0 +1,14 @@
+{
+  "id": "example_value",
+  "name": "Example Artboard",
+  "kind": "PointText",
+  "contents": "example_value",
+  "position": [
+    72.0
+  ],
+  "width": 72.0,
+  "height": 72.0,
+  "orientation": "Horizontal",
+  "characterAttributes": "example_value",
+  "paragraphAttributes": "example_value"
+}

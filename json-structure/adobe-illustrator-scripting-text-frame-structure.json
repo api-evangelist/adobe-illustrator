@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-structure/adobe-illustrator-scripting-text-frame-structure.json",
+  "name": "TextFrame",
+  "description": "TextFrame from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the text frame.",
+      "example": "example_value"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the text frame.",
+      "example": "Example Artboard"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Type of text frame.",
+      "enum": [
+        "PointText",
+        "AreaText",
+        "PathText"
+      ],
+      "example": "PointText"
+    },
+    "contents": {
+      "type": "string",
+      "description": "The text content of the frame.",
+      "example": "example_value"
+    },
+    "position": {
+      "type": "array",
+      "description": "Position [x, y] in points.",
+      "items": {
+        "type": "double"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "width": {
+      "type": "double",
+      "description": "Width of the text frame in points.",
+      "example": 72.0
+    },
+    "height": {
+      "type": "double",
+      "description": "Height of the text frame in points.",
+      "example": 72.0
+    },
+    "orientation": {
+      "type": "string",
+      "description": "Text orientation.",
+      "enum": [
+        "Horizontal",
+        "Vertical"
+      ],
+      "example": "Horizontal"
+    },
+    "characterAttributes": {
+      "$ref": "#/components/schemas/CharacterAttributes"
+    },
+    "paragraphAttributes": {
+      "$ref": "#/components/schemas/ParagraphAttributes"
+    },
+    "opacity": {
+      "type": "double",
+      "description": "Opacity as a percentage (0-100).",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "layer": {
+      "type": "string",
+      "description": "Name of the containing layer.",
+      "example": "example_value"
+    }
+  }
+}

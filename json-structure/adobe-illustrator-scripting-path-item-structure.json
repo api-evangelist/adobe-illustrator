@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-structure/adobe-illustrator-scripting-path-item-structure.json",
+  "name": "PathItem",
+  "description": "PathItem from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the path item.",
+      "example": "example_value"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the path item.",
+      "example": "Example Artboard"
+    },
+    "closed": {
+      "type": "boolean",
+      "description": "Whether the path is closed.",
+      "example": true
+    },
+    "filled": {
+      "type": "boolean",
+      "description": "Whether the path has a fill.",
+      "example": true
+    },
+    "fillColor": {
+      "$ref": "#/components/schemas/Color"
+    },
+    "stroked": {
+      "type": "boolean",
+      "description": "Whether the path has a stroke.",
+      "example": true
+    },
+    "strokeColor": {
+      "$ref": "#/components/schemas/Color"
+    },
+    "strokeWidth": {
+      "type": "double",
+      "description": "Stroke width in points.",
+      "example": 72.0
+    },
+    "strokeCap": {
+      "type": "string",
+      "description": "Stroke cap style.",
+      "enum": [
+        "ButtEndCap",
+        "RoundEndCap",
+        "ProjectingEndCap"
+      ],
+      "example": "ButtEndCap"
+    },
+    "strokeJoin": {
+      "type": "string",
+      "description": "Stroke join style.",
+      "enum": [
+        "MiterEndJoin",
+        "RoundEndJoin",
+        "BevelEndJoin"
+      ],
+      "example": "MiterEndJoin"
+    },
+    "strokeDashes": {
+      "type": "array",
+      "description": "Dash pattern for the stroke.",
+      "items": {
+        "type": "double"
+      }
+    },
+    "opacity": {
+      "type": "double",
+      "description": "Opacity as a percentage (0-100).",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 72.0
+    },
+    "blendingMode": {
+      "type": "string",
+      "description": "Blending mode.",
+      "example": "example_value"
+    },
+    "position": {
+      "type": "array",
+      "description": "Position [x, y] in points.",
+      "items": {
+        "type": "double"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "width": {
+      "type": "double",
+      "description": "Width in points.",
+      "example": 72.0
+    },
+    "height": {
+      "type": "double",
+      "description": "Height in points.",
+      "example": 72.0
+    },
+    "pathPoints": {
+      "type": "array",
+      "description": "Array of path points defining the path shape.",
+      "items": {
+        "$ref": "#/components/schemas/PathPoint"
+      }
+    },
+    "area": {
+      "type": "double",
+      "description": "Area of the path in square points.",
+      "example": 72.0
+    },
+    "length": {
+      "type": "double",
+      "description": "Length of the path in points.",
+      "example": 72.0
+    },
+    "guides": {
+      "type": "boolean",
+      "description": "Whether this path item is a guide.",
+      "example": true
+    },
+    "clipping": {
+      "type": "boolean",
+      "description": "Whether this path item is a clipping path.",
+      "example": true
+    },
+    "layer": {
+      "type": "string",
+      "description": "Name of the containing layer.",
+      "example": "example_value"
+    }
+  }
+}

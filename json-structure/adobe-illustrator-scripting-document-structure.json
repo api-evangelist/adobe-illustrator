@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-structure/adobe-illustrator-scripting-document-structure.json",
+  "name": "Document",
+  "description": "Document from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the document.",
+      "example": "example_value"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the document.",
+      "examples": [
+        "Untitled-1"
+      ],
+      "example": "Example Artboard"
+    },
+    "fullName": {
+      "type": "string",
+      "description": "Full file path of the document.",
+      "example": "Example Artboard"
+    },
+    "saved": {
+      "type": "boolean",
+      "description": "Whether the document has been saved.",
+      "example": true
+    },
+    "documentColorSpace": {
+      "type": "string",
+      "description": "The document color mode.",
+      "enum": [
+        "CMYK",
+        "RGB"
+      ],
+      "example": "CMYK"
+    },
+    "width": {
+      "type": "double",
+      "description": "Document width in points.",
+      "example": 72.0
+    },
+    "height": {
+      "type": "double",
+      "description": "Document height in points.",
+      "example": 72.0
+    },
+    "rulerUnits": {
+      "type": "string",
+      "description": "Ruler units used in the document.",
+      "enum": [
+        "Points",
+        "Picas",
+        "Inches",
+        "Millimeters",
+        "Centimeters",
+        "Pixels"
+      ],
+      "example": "Points"
+    },
+    "rulerOrigin": {
+      "type": "array",
+      "description": "The ruler origin point [x, y].",
+      "items": {
+        "type": "double"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "layerCount": {
+      "type": "int32",
+      "description": "Number of layers in the document.",
+      "example": 1024
+    },
+    "artboardCount": {
+      "type": "int32",
+      "description": "Number of artboards in the document.",
+      "example": 1024
+    },
+    "activeLayer": {
+      "type": "string",
+      "description": "Name of the currently active layer.",
+      "example": "example_value"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/json-structure/adobe-illustrator-scripting-path-item-create-structure.json",
+  "name": "PathItemCreate",
+  "description": "PathItemCreate from Adobe Illustrator API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the path item.",
+      "example": "Example Artboard"
+    },
+    "pathType": {
+      "type": "string",
+      "description": "Type of path to create.",
+      "enum": [
+        "freeform",
+        "rectangle",
+        "roundedRectangle",
+        "ellipse",
+        "polygon",
+        "star",
+        "line"
+      ],
+      "default": "freeform",
+      "example": "freeform"
+    },
+    "pathPoints": {
+      "type": "array",
+      "description": "Array of path points for freeform paths. Required when pathType is \"freeform\".",
+      "items": {
+        "$ref": "#/components/schemas/PathPoint"
+      }
+    },
+    "position": {
+      "type": "array",
+      "description": "Position [x, y] in points.",
+      "items": {
+        "type": "double"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "width": {
+      "type": "double",
+      "description": "Width in points (for rectangle, ellipse).",
+      "example": 72.0
+    },
+    "height": {
+      "type": "double",
+      "description": "Height in points (for rectangle, ellipse).",
+      "example": 72.0
+    },
+    "cornerRadius": {
+      "type": "double",
+      "description": "Corner radius for rounded rectangle.",
+      "example": 72.0
+    },
+    "sides": {
+      "type": "int32",
+      "description": "Number of sides for polygon.",
+      "minimum": 3,
+      "example": 1024
+    },
+    "points": {
+      "type": "int32",
+      "description": "Number of points for star.",
+      "minimum": 3,
+      "example": 1024
+    },
+    "innerRadius": {
+      "type": "double",
+      "description": "Inner radius for star.",
+      "example": 72.0
+    },
+    "filled": {
+      "type": "boolean",
+      "description": "Whether the path has a fill.",
+      "default": true,
+      "example": true
+    },
+    "fillColor": {
+      "$ref": "#/components/schemas/Color"
+    },
+    "stroked": {
+      "type": "boolean",
+      "description": "Whether the path has a stroke.",
+      "default": true,
+      "example": true
+    },
+    "strokeColor": {
+      "$ref": "#/components/schemas/Color"
+    },
+    "strokeWidth": {
+      "type": "double",
+      "description": "Stroke width in points.",
+      "default": 1,
+      "example": 72.0
+    },
+    "opacity": {
+      "type": "double",
+      "description": "Opacity as a percentage (0-100).",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 100,
+      "example": 72.0
+    },
+    "layer": {
+      "type": "string",
+      "description": "Target layer name.",
+      "example": "example_value"
+    }
+  }
+}
