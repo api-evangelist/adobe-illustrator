@@ -1,0 +1,1305 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript,
+    AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text,
+    generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating
+    and modifying paths and shapes to managing layers, colors, and typography.
+  tags:
+  - Adobe
+  - Illustrator
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-illustrator
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API HTTP API.
+    resources:
+    - name: application
+      path: /application
+      operations:
+      - name: getapplication
+        method: GET
+        description: Adobe Illustrator Get Application Information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: application-preferences
+      path: /application/preferences
+      operations:
+      - name: getpreferences
+        method: GET
+        description: Adobe Illustrator Get Application Preferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepreferences
+        method: PUT
+        description: Adobe Illustrator Update Application Preferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents
+      path: /documents
+      operations:
+      - name: listdocuments
+        method: GET
+        description: Adobe Illustrator List Open Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdocument
+        method: POST
+        description: Adobe Illustrator Create a New Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid
+      path: /documents/{documentId}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Adobe Illustrator Get a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: closedocument
+        method: DELETE
+        description: Adobe Illustrator Close a Document
+        inputParameters:
+        - name: saveChanges
+          in: query
+          type: string
+          description: Whether to save changes before closing.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-save
+      path: /documents/{documentId}/save
+      operations:
+      - name: savedocument
+        method: POST
+        description: Adobe Illustrator Save a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-export
+      path: /documents/{documentId}/export
+      operations:
+      - name: exportdocument
+        method: POST
+        description: Adobe Illustrator Export a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-layers
+      path: /documents/{documentId}/layers
+      operations:
+      - name: listlayers
+        method: GET
+        description: Adobe Illustrator List Layers in a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createlayer
+        method: POST
+        description: Adobe Illustrator Create a New Layer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-layers-layerid
+      path: /documents/{documentId}/layers/{layerId}
+      operations:
+      - name: getlayer
+        method: GET
+        description: Adobe Illustrator Get a Layer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatelayer
+        method: PUT
+        description: Adobe Illustrator Update a Layer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletelayer
+        method: DELETE
+        description: Adobe Illustrator Delete a Layer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-artboards
+      path: /documents/{documentId}/artboards
+      operations:
+      - name: listartboards
+        method: GET
+        description: Adobe Illustrator List Artboards in a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createartboard
+        method: POST
+        description: Adobe Illustrator Create a New Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-artboards-artboardindex
+      path: /documents/{documentId}/artboards/{artboardIndex}
+      operations:
+      - name: getartboard
+        method: GET
+        description: Adobe Illustrator Get an Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateartboard
+        method: PUT
+        description: Adobe Illustrator Update an Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteartboard
+        method: DELETE
+        description: Adobe Illustrator Delete an Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-pathitems
+      path: /documents/{documentId}/pathItems
+      operations:
+      - name: listpathitems
+        method: GET
+        description: Adobe Illustrator List Path Items
+        inputParameters:
+        - name: layerId
+          in: query
+          type: string
+          description: Filter path items by layer.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createpathitem
+        method: POST
+        description: Adobe Illustrator Create a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-pathitems-pathitemid
+      path: /documents/{documentId}/pathItems/{pathItemId}
+      operations:
+      - name: getpathitem
+        method: GET
+        description: Adobe Illustrator Get a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepathitem
+        method: PUT
+        description: Adobe Illustrator Update a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletepathitem
+        method: DELETE
+        description: Adobe Illustrator Delete a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-textframes
+      path: /documents/{documentId}/textFrames
+      operations:
+      - name: listtextframes
+        method: GET
+        description: Adobe Illustrator List Text Frames
+        inputParameters:
+        - name: layerId
+          in: query
+          type: string
+          description: Filter text frames by layer.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtextframe
+        method: POST
+        description: Adobe Illustrator Create a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-textframes-textframeid
+      path: /documents/{documentId}/textFrames/{textFrameId}
+      operations:
+      - name: gettextframe
+        method: GET
+        description: Adobe Illustrator Get a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatetextframe
+        method: PUT
+        description: Adobe Illustrator Update a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletetextframe
+        method: DELETE
+        description: Adobe Illustrator Delete a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-symbols
+      path: /documents/{documentId}/symbols
+      operations:
+      - name: listsymbols
+        method: GET
+        description: Adobe Illustrator List Symbols
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsymbol
+        method: POST
+        description: Adobe Illustrator Create a Symbol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-symbols-symbolid
+      path: /documents/{documentId}/symbols/{symbolId}
+      operations:
+      - name: getsymbol
+        method: GET
+        description: Adobe Illustrator Get a Symbol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletesymbol
+        method: DELETE
+        description: Adobe Illustrator Delete a Symbol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-swatches
+      path: /documents/{documentId}/swatches
+      operations:
+      - name: listswatches
+        method: GET
+        description: Adobe Illustrator List Swatches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createswatch
+        method: POST
+        description: Adobe Illustrator Create a Swatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-swatches-swatchname
+      path: /documents/{documentId}/swatches/{swatchName}
+      operations:
+      - name: getswatch
+        method: GET
+        description: Adobe Illustrator Get a Swatch
+        inputParameters:
+        - name: swatchName
+          in: path
+          type: string
+          required: true
+          description: Name of the swatch.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteswatch
+        method: DELETE
+        description: Adobe Illustrator Delete a Swatch
+        inputParameters:
+        - name: swatchName
+          in: path
+          type: string
+          required: true
+          description: Name of the swatch.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-graphicstyles
+      path: /documents/{documentId}/graphicStyles
+      operations:
+      - name: listgraphicstyles
+        method: GET
+        description: Adobe Illustrator List Graphic Styles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentid-graphicstyles-graphicstylen
+      path: /documents/{documentId}/graphicStyles/{graphicStyleName}
+      operations:
+      - name: getgraphicstyle
+        method: GET
+        description: Adobe Illustrator Get a Graphic Style
+        inputParameters:
+        - name: graphicStyleName
+          in: path
+          type: string
+          required: true
+          description: Name of the graphic style.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletegraphicstyle
+        method: DELETE
+        description: Adobe Illustrator Delete a Graphic Style
+        inputParameters:
+        - name: graphicStyleName
+          in: path
+          type: string
+          required: true
+          description: Name of the graphic style.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: adobe-illustrator-rest
+    description: REST adapter for Adobe Illustrator Scripting API.
+    resources:
+    - path: /application
+      name: getapplication
+      operations:
+      - method: GET
+        name: getapplication
+        description: Adobe Illustrator Get Application Information
+        call: adobe-illustrator.getapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /application/preferences
+      name: getpreferences
+      operations:
+      - method: GET
+        name: getpreferences
+        description: Adobe Illustrator Get Application Preferences
+        call: adobe-illustrator.getpreferences
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /application/preferences
+      name: updatepreferences
+      operations:
+      - method: PUT
+        name: updatepreferences
+        description: Adobe Illustrator Update Application Preferences
+        call: adobe-illustrator.updatepreferences
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents
+      name: listdocuments
+      operations:
+      - method: GET
+        name: listdocuments
+        description: Adobe Illustrator List Open Documents
+        call: adobe-illustrator.listdocuments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents
+      name: createdocument
+      operations:
+      - method: POST
+        name: createdocument
+        description: Adobe Illustrator Create a New Document
+        call: adobe-illustrator.createdocument
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}
+      name: getdocument
+      operations:
+      - method: GET
+        name: getdocument
+        description: Adobe Illustrator Get a Document
+        call: adobe-illustrator.getdocument
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}
+      name: closedocument
+      operations:
+      - method: DELETE
+        name: closedocument
+        description: Adobe Illustrator Close a Document
+        call: adobe-illustrator.closedocument
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/save
+      name: savedocument
+      operations:
+      - method: POST
+        name: savedocument
+        description: Adobe Illustrator Save a Document
+        call: adobe-illustrator.savedocument
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/export
+      name: exportdocument
+      operations:
+      - method: POST
+        name: exportdocument
+        description: Adobe Illustrator Export a Document
+        call: adobe-illustrator.exportdocument
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/layers
+      name: listlayers
+      operations:
+      - method: GET
+        name: listlayers
+        description: Adobe Illustrator List Layers in a Document
+        call: adobe-illustrator.listlayers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/layers
+      name: createlayer
+      operations:
+      - method: POST
+        name: createlayer
+        description: Adobe Illustrator Create a New Layer
+        call: adobe-illustrator.createlayer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/layers/{layerId}
+      name: getlayer
+      operations:
+      - method: GET
+        name: getlayer
+        description: Adobe Illustrator Get a Layer
+        call: adobe-illustrator.getlayer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/layers/{layerId}
+      name: updatelayer
+      operations:
+      - method: PUT
+        name: updatelayer
+        description: Adobe Illustrator Update a Layer
+        call: adobe-illustrator.updatelayer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/layers/{layerId}
+      name: deletelayer
+      operations:
+      - method: DELETE
+        name: deletelayer
+        description: Adobe Illustrator Delete a Layer
+        call: adobe-illustrator.deletelayer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/artboards
+      name: listartboards
+      operations:
+      - method: GET
+        name: listartboards
+        description: Adobe Illustrator List Artboards in a Document
+        call: adobe-illustrator.listartboards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/artboards
+      name: createartboard
+      operations:
+      - method: POST
+        name: createartboard
+        description: Adobe Illustrator Create a New Artboard
+        call: adobe-illustrator.createartboard
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/artboards/{artboardIndex}
+      name: getartboard
+      operations:
+      - method: GET
+        name: getartboard
+        description: Adobe Illustrator Get an Artboard
+        call: adobe-illustrator.getartboard
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/artboards/{artboardIndex}
+      name: updateartboard
+      operations:
+      - method: PUT
+        name: updateartboard
+        description: Adobe Illustrator Update an Artboard
+        call: adobe-illustrator.updateartboard
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/artboards/{artboardIndex}
+      name: deleteartboard
+      operations:
+      - method: DELETE
+        name: deleteartboard
+        description: Adobe Illustrator Delete an Artboard
+        call: adobe-illustrator.deleteartboard
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/pathItems
+      name: listpathitems
+      operations:
+      - method: GET
+        name: listpathitems
+        description: Adobe Illustrator List Path Items
+        call: adobe-illustrator.listpathitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/pathItems
+      name: createpathitem
+      operations:
+      - method: POST
+        name: createpathitem
+        description: Adobe Illustrator Create a Path Item
+        call: adobe-illustrator.createpathitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/pathItems/{pathItemId}
+      name: getpathitem
+      operations:
+      - method: GET
+        name: getpathitem
+        description: Adobe Illustrator Get a Path Item
+        call: adobe-illustrator.getpathitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/pathItems/{pathItemId}
+      name: updatepathitem
+      operations:
+      - method: PUT
+        name: updatepathitem
+        description: Adobe Illustrator Update a Path Item
+        call: adobe-illustrator.updatepathitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/pathItems/{pathItemId}
+      name: deletepathitem
+      operations:
+      - method: DELETE
+        name: deletepathitem
+        description: Adobe Illustrator Delete a Path Item
+        call: adobe-illustrator.deletepathitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/textFrames
+      name: listtextframes
+      operations:
+      - method: GET
+        name: listtextframes
+        description: Adobe Illustrator List Text Frames
+        call: adobe-illustrator.listtextframes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/textFrames
+      name: createtextframe
+      operations:
+      - method: POST
+        name: createtextframe
+        description: Adobe Illustrator Create a Text Frame
+        call: adobe-illustrator.createtextframe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/textFrames/{textFrameId}
+      name: gettextframe
+      operations:
+      - method: GET
+        name: gettextframe
+        description: Adobe Illustrator Get a Text Frame
+        call: adobe-illustrator.gettextframe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/textFrames/{textFrameId}
+      name: updatetextframe
+      operations:
+      - method: PUT
+        name: updatetextframe
+        description: Adobe Illustrator Update a Text Frame
+        call: adobe-illustrator.updatetextframe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/textFrames/{textFrameId}
+      name: deletetextframe
+      operations:
+      - method: DELETE
+        name: deletetextframe
+        description: Adobe Illustrator Delete a Text Frame
+        call: adobe-illustrator.deletetextframe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/symbols
+      name: listsymbols
+      operations:
+      - method: GET
+        name: listsymbols
+        description: Adobe Illustrator List Symbols
+        call: adobe-illustrator.listsymbols
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/symbols
+      name: createsymbol
+      operations:
+      - method: POST
+        name: createsymbol
+        description: Adobe Illustrator Create a Symbol
+        call: adobe-illustrator.createsymbol
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/symbols/{symbolId}
+      name: getsymbol
+      operations:
+      - method: GET
+        name: getsymbol
+        description: Adobe Illustrator Get a Symbol
+        call: adobe-illustrator.getsymbol
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/symbols/{symbolId}
+      name: deletesymbol
+      operations:
+      - method: DELETE
+        name: deletesymbol
+        description: Adobe Illustrator Delete a Symbol
+        call: adobe-illustrator.deletesymbol
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/swatches
+      name: listswatches
+      operations:
+      - method: GET
+        name: listswatches
+        description: Adobe Illustrator List Swatches
+        call: adobe-illustrator.listswatches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/swatches
+      name: createswatch
+      operations:
+      - method: POST
+        name: createswatch
+        description: Adobe Illustrator Create a Swatch
+        call: adobe-illustrator.createswatch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/swatches/{swatchName}
+      name: getswatch
+      operations:
+      - method: GET
+        name: getswatch
+        description: Adobe Illustrator Get a Swatch
+        call: adobe-illustrator.getswatch
+        with:
+          swatchName: rest.swatchName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/swatches/{swatchName}
+      name: deleteswatch
+      operations:
+      - method: DELETE
+        name: deleteswatch
+        description: Adobe Illustrator Delete a Swatch
+        call: adobe-illustrator.deleteswatch
+        with:
+          swatchName: rest.swatchName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/graphicStyles
+      name: listgraphicstyles
+      operations:
+      - method: GET
+        name: listgraphicstyles
+        description: Adobe Illustrator List Graphic Styles
+        call: adobe-illustrator.listgraphicstyles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/graphicStyles/{graphicStyleName}
+      name: getgraphicstyle
+      operations:
+      - method: GET
+        name: getgraphicstyle
+        description: Adobe Illustrator Get a Graphic Style
+        call: adobe-illustrator.getgraphicstyle
+        with:
+          graphicStyleName: rest.graphicStyleName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{documentId}/graphicStyles/{graphicStyleName}
+      name: deletegraphicstyle
+      operations:
+      - method: DELETE
+        name: deletegraphicstyle
+        description: Adobe Illustrator Delete a Graphic Style
+        call: adobe-illustrator.deletegraphicstyle
+        with:
+          graphicStyleName: rest.graphicStyleName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: adobe-illustrator-mcp
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API for AI agent use.
+    tools:
+    - name: getapplication
+      description: Adobe Illustrator Get Application Information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpreferences
+      description: Adobe Illustrator Get Application Preferences
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getpreferences
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatepreferences
+      description: Adobe Illustrator Update Application Preferences
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.updatepreferences
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdocuments
+      description: Adobe Illustrator List Open Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listdocuments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createdocument
+      description: Adobe Illustrator Create a New Document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createdocument
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdocument
+      description: Adobe Illustrator Get a Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getdocument
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: closedocument
+      description: Adobe Illustrator Close a Document
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.closedocument
+      with:
+        saveChanges: tools.saveChanges
+      inputParameters:
+      - name: saveChanges
+        type: string
+        description: Whether to save changes before closing.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: savedocument
+      description: Adobe Illustrator Save a Document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.savedocument
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: exportdocument
+      description: Adobe Illustrator Export a Document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.exportdocument
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listlayers
+      description: Adobe Illustrator List Layers in a Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listlayers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createlayer
+      description: Adobe Illustrator Create a New Layer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createlayer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getlayer
+      description: Adobe Illustrator Get a Layer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getlayer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatelayer
+      description: Adobe Illustrator Update a Layer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.updatelayer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletelayer
+      description: Adobe Illustrator Delete a Layer
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deletelayer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listartboards
+      description: Adobe Illustrator List Artboards in a Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listartboards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createartboard
+      description: Adobe Illustrator Create a New Artboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createartboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getartboard
+      description: Adobe Illustrator Get an Artboard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getartboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateartboard
+      description: Adobe Illustrator Update an Artboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.updateartboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteartboard
+      description: Adobe Illustrator Delete an Artboard
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deleteartboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listpathitems
+      description: Adobe Illustrator List Path Items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listpathitems
+      with:
+        layerId: tools.layerId
+      inputParameters:
+      - name: layerId
+        type: string
+        description: Filter path items by layer.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createpathitem
+      description: Adobe Illustrator Create a Path Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createpathitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpathitem
+      description: Adobe Illustrator Get a Path Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getpathitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatepathitem
+      description: Adobe Illustrator Update a Path Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.updatepathitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletepathitem
+      description: Adobe Illustrator Delete a Path Item
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deletepathitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtextframes
+      description: Adobe Illustrator List Text Frames
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listtextframes
+      with:
+        layerId: tools.layerId
+      inputParameters:
+      - name: layerId
+        type: string
+        description: Filter text frames by layer.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createtextframe
+      description: Adobe Illustrator Create a Text Frame
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createtextframe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettextframe
+      description: Adobe Illustrator Get a Text Frame
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.gettextframe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatetextframe
+      description: Adobe Illustrator Update a Text Frame
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.updatetextframe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletetextframe
+      description: Adobe Illustrator Delete a Text Frame
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deletetextframe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsymbols
+      description: Adobe Illustrator List Symbols
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listsymbols
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsymbol
+      description: Adobe Illustrator Create a Symbol
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createsymbol
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsymbol
+      description: Adobe Illustrator Get a Symbol
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getsymbol
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesymbol
+      description: Adobe Illustrator Delete a Symbol
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deletesymbol
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listswatches
+      description: Adobe Illustrator List Swatches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listswatches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createswatch
+      description: Adobe Illustrator Create a Swatch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-illustrator.createswatch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getswatch
+      description: Adobe Illustrator Get a Swatch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getswatch
+      with:
+        swatchName: tools.swatchName
+      inputParameters:
+      - name: swatchName
+        type: string
+        description: Name of the swatch.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteswatch
+      description: Adobe Illustrator Delete a Swatch
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deleteswatch
+      with:
+        swatchName: tools.swatchName
+      inputParameters:
+      - name: swatchName
+        type: string
+        description: Name of the swatch.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listgraphicstyles
+      description: Adobe Illustrator List Graphic Styles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.listgraphicstyles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getgraphicstyle
+      description: Adobe Illustrator Get a Graphic Style
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-illustrator.getgraphicstyle
+      with:
+        graphicStyleName: tools.graphicStyleName
+      inputParameters:
+      - name: graphicStyleName
+        type: string
+        description: Name of the graphic style.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletegraphicstyle
+      description: Adobe Illustrator Delete a Graphic Style
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-illustrator.deletegraphicstyle
+      with:
+        graphicStyleName: tools.graphicStyleName
+      inputParameters:
+      - name: graphicStyleName
+        type: string
+        description: Name of the graphic style.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
