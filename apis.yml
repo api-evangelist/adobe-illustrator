@@ -132,7 +132,7 @@ common:
   description: Stack Overflow questions tagged with adobe-illustrator for developer
     Q&A and troubleshooting.
 - url: https://status.adobe.com/
-  type: Status
+  type: StatusPage
   description: Adobe service status dashboard showing real-time availability and incident
     information for Adobe products and services.
 - url: https://x.com/Illustrator
