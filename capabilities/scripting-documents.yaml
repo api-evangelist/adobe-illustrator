@@ -1,0 +1,252 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Documents
+  description: 'Adobe Illustrator Scripting API — Documents. 6 operations. Lead operation: Adobe Illustrator List Open Documents.
+    Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Documents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-documents
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Documents business capability. Self-contained, no shared references.
+    resources:
+    - name: documents
+      path: /documents
+      operations:
+      - name: listdocuments
+        method: GET
+        description: Adobe Illustrator List Open Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdocument
+        method: POST
+        description: Adobe Illustrator Create a New Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: documents-documentId
+      path: /documents/{documentId}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Adobe Illustrator Get a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: closedocument
+        method: DELETE
+        description: Adobe Illustrator Close a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: saveChanges
+          in: query
+          type: string
+          description: Whether to save changes before closing.
+    - name: documents-documentId-export
+      path: /documents/{documentId}/export
+      operations:
+      - name: exportdocument
+        method: POST
+        description: Adobe Illustrator Export a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: documents-documentId-save
+      path: /documents/{documentId}/save
+      operations:
+      - name: savedocument
+        method: POST
+        description: Adobe Illustrator Save a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: scripting-documents-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Documents. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/documents
+      name: documents
+      description: REST surface for documents.
+      operations:
+      - method: GET
+        name: listdocuments
+        description: Adobe Illustrator List Open Documents
+        call: scripting-documents.listdocuments
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdocument
+        description: Adobe Illustrator Create a New Document
+        call: scripting-documents.createdocument
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}
+      name: documents-documentid
+      description: REST surface for documents-documentId.
+      operations:
+      - method: GET
+        name: getdocument
+        description: Adobe Illustrator Get a Document
+        call: scripting-documents.getdocument
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: closedocument
+        description: Adobe Illustrator Close a Document
+        call: scripting-documents.closedocument
+        with:
+          saveChanges: rest.saveChanges
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/export
+      name: documents-documentid-export
+      description: REST surface for documents-documentId-export.
+      operations:
+      - method: POST
+        name: exportdocument
+        description: Adobe Illustrator Export a Document
+        call: scripting-documents.exportdocument
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/save
+      name: documents-documentid-save
+      description: REST surface for documents-documentId-save.
+      operations:
+      - method: POST
+        name: savedocument
+        description: Adobe Illustrator Save a Document
+        call: scripting-documents.savedocument
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Documents. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-list-open-documents
+      description: Adobe Illustrator List Open Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-documents.listdocuments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-create-new-document
+      description: Adobe Illustrator Create a New Document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-documents.createdocument
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-document
+      description: Adobe Illustrator Get a Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-documents.getdocument
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-close-document
+      description: Adobe Illustrator Close a Document
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scripting-documents.closedocument
+      with:
+        saveChanges: tools.saveChanges
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-export-document
+      description: Adobe Illustrator Export a Document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-documents.exportdocument
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-save-document
+      description: Adobe Illustrator Save a Document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-documents.savedocument
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

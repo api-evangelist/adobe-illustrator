@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Artboards
+  description: 'Adobe Illustrator Scripting API — Artboards. 5 operations. Lead operation: Adobe Illustrator List Artboards
+    in a Document. Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Artboards
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-artboards
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Artboards business capability. Self-contained, no shared references.
+    resources:
+    - name: documents-documentId-artboards
+      path: /documents/{documentId}/artboards
+      operations:
+      - name: listartboards
+        method: GET
+        description: Adobe Illustrator List Artboards in a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createartboard
+        method: POST
+        description: Adobe Illustrator Create a New Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: documents-documentId-artboards-artboardIndex
+      path: /documents/{documentId}/artboards/{artboardIndex}
+      operations:
+      - name: getartboard
+        method: GET
+        description: Adobe Illustrator Get an Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateartboard
+        method: PUT
+        description: Adobe Illustrator Update an Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteartboard
+        method: DELETE
+        description: Adobe Illustrator Delete an Artboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: scripting-artboards-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Artboards. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/documents/{documentid}/artboards
+      name: documents-documentid-artboards
+      description: REST surface for documents-documentId-artboards.
+      operations:
+      - method: GET
+        name: listartboards
+        description: Adobe Illustrator List Artboards in a Document
+        call: scripting-artboards.listartboards
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createartboard
+        description: Adobe Illustrator Create a New Artboard
+        call: scripting-artboards.createartboard
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/artboards/{artboardindex}
+      name: documents-documentid-artboards-artboardindex
+      description: REST surface for documents-documentId-artboards-artboardIndex.
+      operations:
+      - method: GET
+        name: getartboard
+        description: Adobe Illustrator Get an Artboard
+        call: scripting-artboards.getartboard
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateartboard
+        description: Adobe Illustrator Update an Artboard
+        call: scripting-artboards.updateartboard
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteartboard
+        description: Adobe Illustrator Delete an Artboard
+        call: scripting-artboards.deleteartboard
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-artboards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Artboards. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-list-artboards-document
+      description: Adobe Illustrator List Artboards in a Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-artboards.listartboards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-create-new-artboard
+      description: Adobe Illustrator Create a New Artboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-artboards.createartboard
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-artboard
+      description: Adobe Illustrator Get an Artboard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-artboards.getartboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-update-artboard
+      description: Adobe Illustrator Update an Artboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scripting-artboards.updateartboard
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-delete-artboard
+      description: Adobe Illustrator Delete an Artboard
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scripting-artboards.deleteartboard
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Application
+  description: 'Adobe Illustrator Scripting API — Application. 3 operations. Lead operation: Adobe Illustrator Get Application
+    Information. Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Application
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-application
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Application business capability. Self-contained, no shared references.
+    resources:
+    - name: application
+      path: /application
+      operations:
+      - name: getapplication
+        method: GET
+        description: Adobe Illustrator Get Application Information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: application-preferences
+      path: /application/preferences
+      operations:
+      - name: getpreferences
+        method: GET
+        description: Adobe Illustrator Get Application Preferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepreferences
+        method: PUT
+        description: Adobe Illustrator Update Application Preferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: scripting-application-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Application. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/application
+      name: application
+      description: REST surface for application.
+      operations:
+      - method: GET
+        name: getapplication
+        description: Adobe Illustrator Get Application Information
+        call: scripting-application.getapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/application/preferences
+      name: application-preferences
+      description: REST surface for application-preferences.
+      operations:
+      - method: GET
+        name: getpreferences
+        description: Adobe Illustrator Get Application Preferences
+        call: scripting-application.getpreferences
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatepreferences
+        description: Adobe Illustrator Update Application Preferences
+        call: scripting-application.updatepreferences
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-application-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Application. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-get-application-information
+      description: Adobe Illustrator Get Application Information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-application.getapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-application-preferences
+      description: Adobe Illustrator Get Application Preferences
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-application.getpreferences
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-update-application-preferences
+      description: Adobe Illustrator Update Application Preferences
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scripting-application.updatepreferences
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

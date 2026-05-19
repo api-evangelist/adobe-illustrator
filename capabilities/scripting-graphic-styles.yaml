@@ -1,0 +1,144 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Graphic Styles
+  description: 'Adobe Illustrator Scripting API — Graphic Styles. 3 operations. Lead operation: Adobe Illustrator List Graphic
+    Styles. Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Graphic Styles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-graphic-styles
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Graphic Styles business capability. Self-contained, no shared references.
+    resources:
+    - name: documents-documentId-graphicStyles
+      path: /documents/{documentId}/graphicStyles
+      operations:
+      - name: listgraphicstyles
+        method: GET
+        description: Adobe Illustrator List Graphic Styles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-documentId-graphicStyles-graphicStyleName
+      path: /documents/{documentId}/graphicStyles/{graphicStyleName}
+      operations:
+      - name: getgraphicstyle
+        method: GET
+        description: Adobe Illustrator Get a Graphic Style
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: graphicStyleName
+          in: path
+          type: string
+          description: Name of the graphic style.
+          required: true
+      - name: deletegraphicstyle
+        method: DELETE
+        description: Adobe Illustrator Delete a Graphic Style
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: graphicStyleName
+          in: path
+          type: string
+          description: Name of the graphic style.
+          required: true
+  exposes:
+  - type: rest
+    namespace: scripting-graphic-styles-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Graphic Styles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/documents/{documentid}/graphicstyles
+      name: documents-documentid-graphicstyles
+      description: REST surface for documents-documentId-graphicStyles.
+      operations:
+      - method: GET
+        name: listgraphicstyles
+        description: Adobe Illustrator List Graphic Styles
+        call: scripting-graphic-styles.listgraphicstyles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/graphicstyles/{graphicstylename}
+      name: documents-documentid-graphicstyles-graphicstylename
+      description: REST surface for documents-documentId-graphicStyles-graphicStyleName.
+      operations:
+      - method: GET
+        name: getgraphicstyle
+        description: Adobe Illustrator Get a Graphic Style
+        call: scripting-graphic-styles.getgraphicstyle
+        with:
+          graphicStyleName: rest.graphicStyleName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletegraphicstyle
+        description: Adobe Illustrator Delete a Graphic Style
+        call: scripting-graphic-styles.deletegraphicstyle
+        with:
+          graphicStyleName: rest.graphicStyleName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-graphic-styles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Graphic Styles. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-list-graphic-styles
+      description: Adobe Illustrator List Graphic Styles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-graphic-styles.listgraphicstyles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-graphic-style
+      description: Adobe Illustrator Get a Graphic Style
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-graphic-styles.getgraphicstyle
+      with:
+        graphicStyleName: tools.graphicStyleName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-delete-graphic-style
+      description: Adobe Illustrator Delete a Graphic Style
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scripting-graphic-styles.deletegraphicstyle
+      with:
+        graphicStyleName: tools.graphicStyleName
+      outputParameters:
+      - type: object
+        mapping: $.

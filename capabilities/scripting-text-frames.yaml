@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Text Frames
+  description: 'Adobe Illustrator Scripting API — Text Frames. 5 operations. Lead operation: Adobe Illustrator List Text Frames.
+    Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Text Frames
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-text-frames
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Text Frames business capability. Self-contained, no shared references.
+    resources:
+    - name: documents-documentId-textFrames
+      path: /documents/{documentId}/textFrames
+      operations:
+      - name: listtextframes
+        method: GET
+        description: Adobe Illustrator List Text Frames
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: layerId
+          in: query
+          type: string
+          description: Filter text frames by layer.
+      - name: createtextframe
+        method: POST
+        description: Adobe Illustrator Create a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: documents-documentId-textFrames-textFrameId
+      path: /documents/{documentId}/textFrames/{textFrameId}
+      operations:
+      - name: gettextframe
+        method: GET
+        description: Adobe Illustrator Get a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatetextframe
+        method: PUT
+        description: Adobe Illustrator Update a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletetextframe
+        method: DELETE
+        description: Adobe Illustrator Delete a Text Frame
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: scripting-text-frames-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Text Frames. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/documents/{documentid}/textframes
+      name: documents-documentid-textframes
+      description: REST surface for documents-documentId-textFrames.
+      operations:
+      - method: GET
+        name: listtextframes
+        description: Adobe Illustrator List Text Frames
+        call: scripting-text-frames.listtextframes
+        with:
+          layerId: rest.layerId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtextframe
+        description: Adobe Illustrator Create a Text Frame
+        call: scripting-text-frames.createtextframe
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/textframes/{textframeid}
+      name: documents-documentid-textframes-textframeid
+      description: REST surface for documents-documentId-textFrames-textFrameId.
+      operations:
+      - method: GET
+        name: gettextframe
+        description: Adobe Illustrator Get a Text Frame
+        call: scripting-text-frames.gettextframe
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatetextframe
+        description: Adobe Illustrator Update a Text Frame
+        call: scripting-text-frames.updatetextframe
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetextframe
+        description: Adobe Illustrator Delete a Text Frame
+        call: scripting-text-frames.deletetextframe
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-text-frames-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Text Frames. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-list-text-frames
+      description: Adobe Illustrator List Text Frames
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-text-frames.listtextframes
+      with:
+        layerId: tools.layerId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-create-text-frame
+      description: Adobe Illustrator Create a Text Frame
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-text-frames.createtextframe
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-text-frame
+      description: Adobe Illustrator Get a Text Frame
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-text-frames.gettextframe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-update-text-frame
+      description: Adobe Illustrator Update a Text Frame
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scripting-text-frames.updatetextframe
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-delete-text-frame
+      description: Adobe Illustrator Delete a Text Frame
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scripting-text-frames.deletetextframe
+      outputParameters:
+      - type: object
+        mapping: $.

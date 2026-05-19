@@ -1,0 +1,179 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Swatches
+  description: 'Adobe Illustrator Scripting API — Swatches. 4 operations. Lead operation: Adobe Illustrator List Swatches.
+    Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Swatches
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-swatches
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Swatches business capability. Self-contained, no shared references.
+    resources:
+    - name: documents-documentId-swatches
+      path: /documents/{documentId}/swatches
+      operations:
+      - name: listswatches
+        method: GET
+        description: Adobe Illustrator List Swatches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createswatch
+        method: POST
+        description: Adobe Illustrator Create a Swatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: documents-documentId-swatches-swatchName
+      path: /documents/{documentId}/swatches/{swatchName}
+      operations:
+      - name: getswatch
+        method: GET
+        description: Adobe Illustrator Get a Swatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: swatchName
+          in: path
+          type: string
+          description: Name of the swatch.
+          required: true
+      - name: deleteswatch
+        method: DELETE
+        description: Adobe Illustrator Delete a Swatch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: swatchName
+          in: path
+          type: string
+          description: Name of the swatch.
+          required: true
+  exposes:
+  - type: rest
+    namespace: scripting-swatches-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Swatches. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/documents/{documentid}/swatches
+      name: documents-documentid-swatches
+      description: REST surface for documents-documentId-swatches.
+      operations:
+      - method: GET
+        name: listswatches
+        description: Adobe Illustrator List Swatches
+        call: scripting-swatches.listswatches
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createswatch
+        description: Adobe Illustrator Create a Swatch
+        call: scripting-swatches.createswatch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/swatches/{swatchname}
+      name: documents-documentid-swatches-swatchname
+      description: REST surface for documents-documentId-swatches-swatchName.
+      operations:
+      - method: GET
+        name: getswatch
+        description: Adobe Illustrator Get a Swatch
+        call: scripting-swatches.getswatch
+        with:
+          swatchName: rest.swatchName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteswatch
+        description: Adobe Illustrator Delete a Swatch
+        call: scripting-swatches.deleteswatch
+        with:
+          swatchName: rest.swatchName
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-swatches-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Swatches. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-list-swatches
+      description: Adobe Illustrator List Swatches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-swatches.listswatches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-create-swatch
+      description: Adobe Illustrator Create a Swatch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-swatches.createswatch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-swatch
+      description: Adobe Illustrator Get a Swatch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-swatches.getswatch
+      with:
+        swatchName: tools.swatchName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-delete-swatch
+      description: Adobe Illustrator Delete a Swatch
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scripting-swatches.deleteswatch
+      with:
+        swatchName: tools.swatchName
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Illustrator Scripting API — Path Items
+  description: 'Adobe Illustrator Scripting API — Path Items. 5 operations. Lead operation: Adobe Illustrator List Path Items.
+    Self-contained Naftiko capability covering one Adobe Illustrator business surface.'
+  tags:
+  - Adobe Illustrator
+  - Path Items
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_ILLUSTRATOR_API_KEY: ADOBE_ILLUSTRATOR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scripting-path-items
+    baseUri: https://localhost
+    description: Adobe Illustrator Scripting API — Path Items business capability. Self-contained, no shared references.
+    resources:
+    - name: documents-documentId-pathItems
+      path: /documents/{documentId}/pathItems
+      operations:
+      - name: listpathitems
+        method: GET
+        description: Adobe Illustrator List Path Items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: layerId
+          in: query
+          type: string
+          description: Filter path items by layer.
+      - name: createpathitem
+        method: POST
+        description: Adobe Illustrator Create a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: documents-documentId-pathItems-pathItemId
+      path: /documents/{documentId}/pathItems/{pathItemId}
+      operations:
+      - name: getpathitem
+        method: GET
+        description: Adobe Illustrator Get a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepathitem
+        method: PUT
+        description: Adobe Illustrator Update a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletepathitem
+        method: DELETE
+        description: Adobe Illustrator Delete a Path Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: scripting-path-items-rest
+    port: 8080
+    description: REST adapter for Adobe Illustrator Scripting API — Path Items. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/documents/{documentid}/pathitems
+      name: documents-documentid-pathitems
+      description: REST surface for documents-documentId-pathItems.
+      operations:
+      - method: GET
+        name: listpathitems
+        description: Adobe Illustrator List Path Items
+        call: scripting-path-items.listpathitems
+        with:
+          layerId: rest.layerId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createpathitem
+        description: Adobe Illustrator Create a Path Item
+        call: scripting-path-items.createpathitem
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documents/{documentid}/pathitems/{pathitemid}
+      name: documents-documentid-pathitems-pathitemid
+      description: REST surface for documents-documentId-pathItems-pathItemId.
+      operations:
+      - method: GET
+        name: getpathitem
+        description: Adobe Illustrator Get a Path Item
+        call: scripting-path-items.getpathitem
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatepathitem
+        description: Adobe Illustrator Update a Path Item
+        call: scripting-path-items.updatepathitem
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletepathitem
+        description: Adobe Illustrator Delete a Path Item
+        call: scripting-path-items.deletepathitem
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scripting-path-items-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Illustrator Scripting API — Path Items. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-illustrator-list-path-items
+      description: Adobe Illustrator List Path Items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-path-items.listpathitems
+      with:
+        layerId: tools.layerId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-create-path-item
+      description: Adobe Illustrator Create a Path Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scripting-path-items.createpathitem
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-get-path-item
+      description: Adobe Illustrator Get a Path Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scripting-path-items.getpathitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-update-path-item
+      description: Adobe Illustrator Update a Path Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scripting-path-items.updatepathitem
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-illustrator-delete-path-item
+      description: Adobe Illustrator Delete a Path Item
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scripting-path-items.deletepathitem
+      outputParameters:
+      - type: object
+        mapping: $.
