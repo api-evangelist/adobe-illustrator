@@ -2,7 +2,7 @@ aid: adobe-illustrator
 url: https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/apis.yml
 name: Adobe Illustrator
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Creative Cloud
 - Design
@@ -22,7 +22,7 @@ apis:
   - JavaScript
   - Scripting
   - VBScript
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/illustrator/
   properties:
@@ -60,7 +60,7 @@ apis:
   - Extensions
   - Plugins
   - SDK
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/illustrator/
   properties:
@@ -79,7 +79,7 @@ apis:
   - HTML
   - JavaScript
   - Panels
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/illustrator/
   properties:
