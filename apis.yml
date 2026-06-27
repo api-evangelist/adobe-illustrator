@@ -30,23 +30,23 @@ apis:
     type: Documentation
   - url: openapi/adobe-illustrator-scripting-openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-application.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-artboards.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-documents.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-graphic-styles.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-layers.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-path-items.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-swatches.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-symbols.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/scripting-text-frames.yaml
   description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript,
     AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text,
@@ -118,10 +118,10 @@ common:
   type: GitHubOrganization
   description: Adobe official GitHub organization with open source projects, SDKs, and developer tools.
 - url: https://community.adobe.com/t5/illustrator-discussions/bd-p/illustrator
-  type: Forum
+  type: Forums
   description: Adobe Community forum for Illustrator discussions, questions, and peer support from designers and developers.
 - url: https://forums.creativeclouddeveloper.com
-  type: Forum
+  type: Forums
   description: Creative Cloud developer forums for extension and plugin development discussions across Adobe products.
 - url: https://www.adobe.com/learn/illustrator
   type: Tutorials
