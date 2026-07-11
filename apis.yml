@@ -91,6 +91,10 @@ apis:
     Illustrator's capabilities with modern web technologies. CEP provides a cross-application framework used across Adobe
     Creative Cloud products.
 common:
+- type: VulnerabilityDisclosure
+  url: security/adobe-illustrator-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/adobe-illustrator-domain-security.yml
 - url: https://www.adobe.com/products/illustrator.html
   type: Website
   description: Adobe Illustrator product page with overview of features, use cases, and plan options for the industry-standard
