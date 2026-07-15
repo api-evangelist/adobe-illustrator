@@ -91,6 +91,8 @@ apis:
     Illustrator's capabilities with modern web technologies. CEP provides a cross-application framework used across Adobe
     Creative Cloud products.
 common:
+- type: AgenticAccess
+  url: agentic-access/adobe-illustrator-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/adobe-illustrator-vulnerability-disclosure.yml
 - type: DomainSecurity
