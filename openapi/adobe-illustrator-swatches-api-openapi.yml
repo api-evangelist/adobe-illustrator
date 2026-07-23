@@ -1,0 +1,223 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Swatches API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Swatches
+  description: Manage color swatches, including spot colors, process colors, gradients, and patterns stored in the document.
+paths:
+  /documents/{documentId}/swatches:
+    get:
+      operationId: listSwatches
+      summary: Adobe Illustrator List Swatches
+      description: Returns all color swatches defined in the document, including process colors, spot colors, gradients, and patterns.
+      tags:
+      - Swatches
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Swatches retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Swatch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createSwatch
+      summary: Adobe Illustrator Create a Swatch
+      description: Creates a new color swatch in the document with the specified color values and properties.
+      tags:
+      - Swatches
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SwatchCreate'
+      responses:
+        '201':
+          description: Swatch created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Swatch'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/swatches/{swatchName}:
+    get:
+      operationId: getSwatch
+      summary: Adobe Illustrator Get a Swatch
+      description: Returns detailed information about a specific swatch by name.
+      tags:
+      - Swatches
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - name: swatchName
+        in: path
+        required: true
+        description: Name of the swatch.
+        schema:
+          type: string
+        example: Example Artboard
+      responses:
+        '200':
+          description: Swatch retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Swatch'
+        '404':
+          description: Swatch not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteSwatch
+      summary: Adobe Illustrator Delete a Swatch
+      description: Removes the specified swatch from the document.
+      tags:
+      - Swatches
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - name: swatchName
+        in: path
+        required: true
+        description: Name of the swatch.
+        schema:
+          type: string
+        example: Example Artboard
+      responses:
+        '204':
+          description: Swatch deleted successfully.
+        '404':
+          description: Swatch not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Swatch:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+          example: Example Artboard
+        color:
+          $ref: '#/components/schemas/Color'
+    Color:
+      type: object
+      properties:
+        colorType:
+          type: string
+          description: Type of color specification.
+          enum:
+          - RGB
+          - CMYK
+          - Gray
+          - Spot
+          - Pattern
+          - Gradient
+          - None
+          example: RGB
+        red:
+          type: number
+          description: Red component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        green:
+          type: number
+          description: Green component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        blue:
+          type: number
+          description: Blue component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        cyan:
+          type: number
+          description: Cyan component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        magenta:
+          type: number
+          description: Magenta component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        yellow:
+          type: number
+          description: Yellow component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        black:
+          type: number
+          description: Black component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        gray:
+          type: number
+          description: Gray value (0-100) for grayscale colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        spotName:
+          type: string
+          description: Spot color name for spot colors.
+          example: Example Artboard
+        tint:
+          type: number
+          description: Tint percentage for spot colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+    SwatchCreate:
+      type: object
+      required:
+      - name
+      - color
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+          example: Example Artboard
+        color:
+          $ref: '#/components/schemas/Color'
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/

@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Graphic Styles API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Graphic Styles
+  description: Manage graphic styles that can be applied to artwork for consistent appearance across multiple objects.
+paths:
+  /documents/{documentId}/graphicStyles:
+    get:
+      operationId: listGraphicStyles
+      summary: Adobe Illustrator List Graphic Styles
+      description: Returns all graphic styles defined in the document.
+      tags:
+      - Graphic Styles
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Graphic styles retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GraphicStyle'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/graphicStyles/{graphicStyleName}:
+    get:
+      operationId: getGraphicStyle
+      summary: Adobe Illustrator Get a Graphic Style
+      description: Returns detailed information about a specific graphic style.
+      tags:
+      - Graphic Styles
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - name: graphicStyleName
+        in: path
+        required: true
+        description: Name of the graphic style.
+        schema:
+          type: string
+        example: Example Artboard
+      responses:
+        '200':
+          description: Graphic style retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphicStyle'
+        '404':
+          description: Graphic style not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteGraphicStyle
+      summary: Adobe Illustrator Delete a Graphic Style
+      description: Removes the specified graphic style from the document.
+      tags:
+      - Graphic Styles
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - name: graphicStyleName
+        in: path
+        required: true
+        description: Name of the graphic style.
+        schema:
+          type: string
+        example: Example Artboard
+      responses:
+        '204':
+          description: Graphic style deleted successfully.
+        '404':
+          description: Graphic style not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+  schemas:
+    GraphicStyle:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the graphic style.
+          example: Example Artboard
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/

@@ -1,0 +1,178 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Symbols API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Symbols
+  description: Manage symbol definitions and symbol instances, enabling reuse of artwork across documents.
+paths:
+  /documents/{documentId}/symbols:
+    get:
+      operationId: listSymbols
+      summary: Adobe Illustrator List Symbols
+      description: Returns all symbol definitions in the document that can be instantiated as symbol items.
+      tags:
+      - Symbols
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Symbols retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Symbol'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createSymbol
+      summary: Adobe Illustrator Create a Symbol
+      description: Creates a new symbol definition from the specified artwork in the document. The symbol can then be instantiated multiple times.
+      tags:
+      - Symbols
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SymbolCreate'
+      responses:
+        '201':
+          description: Symbol created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Symbol'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/symbols/{symbolId}:
+    get:
+      operationId: getSymbol
+      summary: Adobe Illustrator Get a Symbol
+      description: Returns detailed information about a specific symbol definition.
+      tags:
+      - Symbols
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/symbolId'
+      responses:
+        '200':
+          description: Symbol retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Symbol'
+        '404':
+          description: Symbol not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteSymbol
+      summary: Adobe Illustrator Delete a Symbol
+      description: Removes the specified symbol definition from the document.
+      tags:
+      - Symbols
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/symbolId'
+      responses:
+        '204':
+          description: Symbol deleted successfully.
+        '404':
+          description: Symbol not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    symbolId:
+      name: symbolId
+      in: path
+      required: true
+      description: Unique identifier of the symbol.
+      schema:
+        type: string
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+  schemas:
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the symbol.
+          example: example_value
+        name:
+          type: string
+          description: Name of the symbol.
+          example: Example Artboard
+        registrationPoint:
+          type: string
+          description: Registration point of the symbol.
+          enum:
+          - SymbolTopLeftPoint
+          - SymbolTopMiddlePoint
+          - SymbolTopRightPoint
+          - SymbolMiddleLeftPoint
+          - SymbolCenterPoint
+          - SymbolMiddleRightPoint
+          - SymbolBottomLeftPoint
+          - SymbolBottomMiddlePoint
+          - SymbolBottomRightPoint
+          example: SymbolTopLeftPoint
+    SymbolCreate:
+      type: object
+      required:
+      - name
+      - sourceArtId
+      properties:
+        name:
+          type: string
+          description: Name of the symbol.
+          example: Example Artboard
+        sourceArtId:
+          type: string
+          description: ID of the artwork to use as the symbol source.
+          example: example_value
+        registrationPoint:
+          type: string
+          description: Registration point for the symbol.
+          enum:
+          - SymbolCenterPoint
+          - SymbolTopLeftPoint
+          - SymbolTopMiddlePoint
+          - SymbolTopRightPoint
+          - SymbolMiddleLeftPoint
+          - SymbolMiddleRightPoint
+          - SymbolBottomLeftPoint
+          - SymbolBottomMiddlePoint
+          - SymbolBottomRightPoint
+          default: SymbolCenterPoint
+          example: SymbolCenterPoint
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/

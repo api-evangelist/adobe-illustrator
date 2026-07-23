@@ -1,0 +1,305 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Layers API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Layers
+  description: Create, manage, and manipulate layers within an Illustrator document, including visibility, locking, and ordering.
+paths:
+  /documents/{documentId}/layers:
+    get:
+      operationId: listLayers
+      summary: Adobe Illustrator List Layers in a Document
+      description: Returns all layers in the specified document, including nested sublayers, with their properties and ordering.
+      tags:
+      - Layers
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Layers retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Layer'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createLayer
+      summary: Adobe Illustrator Create a New Layer
+      description: Creates a new layer in the specified document with the provided name, color, visibility, and other properties.
+      tags:
+      - Layers
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LayerCreate'
+      responses:
+        '201':
+          description: Layer created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/layers/{layerId}:
+    get:
+      operationId: getLayer
+      summary: Adobe Illustrator Get a Layer
+      description: Returns detailed information about a specific layer, including its contents, visibility, lock state, and sublayers.
+      tags:
+      - Layers
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/layerId'
+      responses:
+        '200':
+          description: Layer retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer'
+        '404':
+          description: Layer not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updateLayer
+      summary: Adobe Illustrator Update a Layer
+      description: Updates the properties of a specific layer, including name, visibility, lock state, opacity, and blend mode.
+      tags:
+      - Layers
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/layerId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LayerCreate'
+      responses:
+        '200':
+          description: Layer updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Layer'
+        '404':
+          description: Layer not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteLayer
+      summary: Adobe Illustrator Delete a Layer
+      description: Removes the specified layer and all of its contents from the document.
+      tags:
+      - Layers
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/layerId'
+      responses:
+        '204':
+          description: Layer deleted successfully.
+        '404':
+          description: Layer not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    layerId:
+      name: layerId
+      in: path
+      required: true
+      description: Unique identifier of the layer.
+      schema:
+        type: string
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+  schemas:
+    LayerCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the layer.
+          example: Example Artboard
+        visible:
+          type: boolean
+          description: Whether the layer is visible.
+          default: true
+          example: true
+        locked:
+          type: boolean
+          description: Whether the layer is locked.
+          default: false
+          example: true
+        printable:
+          type: boolean
+          description: Whether the layer is printable.
+          default: true
+          example: true
+        preview:
+          type: boolean
+          description: Whether the layer is in preview mode.
+          default: true
+          example: true
+        opacity:
+          type: number
+          description: Layer opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          default: 100
+          example: 72.0
+        blendingMode:
+          type: string
+          description: Blending mode for the layer.
+          enum:
+          - Normal
+          - Multiply
+          - Screen
+          - Overlay
+          default: Normal
+          example: Normal
+        color:
+          type: string
+          description: Layer highlight color.
+          enum:
+          - Red
+          - Orange
+          - Yellow
+          - Green
+          - Blue
+          - Violet
+          example: Red
+    Layer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the layer.
+          example: example_value
+        name:
+          type: string
+          description: Name of the layer.
+          examples:
+          - Layer 1
+          example: Example Artboard
+        visible:
+          type: boolean
+          description: Whether the layer is visible.
+          example: true
+        locked:
+          type: boolean
+          description: Whether the layer is locked.
+          example: true
+        printable:
+          type: boolean
+          description: Whether the layer is printable.
+          example: true
+        preview:
+          type: boolean
+          description: Whether the layer is in preview mode.
+          example: true
+        dimPlacedImages:
+          type: boolean
+          description: Whether to dim placed images.
+          example: true
+        color:
+          type: string
+          description: The layer highlight color.
+          enum:
+          - Red
+          - Orange
+          - Yellow
+          - Green
+          - Blue
+          - Violet
+          - Gray
+          - LightBlue
+          - LightGreen
+          - LightRed
+          example: Red
+        opacity:
+          type: number
+          description: Layer opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        blendingMode:
+          type: string
+          description: Blending mode for the layer.
+          enum:
+          - Normal
+          - Multiply
+          - Screen
+          - Overlay
+          - Darken
+          - Lighten
+          - ColorDodge
+          - ColorBurn
+          - HardLight
+          - SoftLight
+          - Difference
+          - Exclusion
+          - Hue
+          - Saturation
+          - Color
+          - Luminosity
+          example: Normal
+        isClippingMask:
+          type: boolean
+          description: Whether the layer is a clipping mask.
+          example: true
+        sliced:
+          type: boolean
+          description: Whether the layer is sliced.
+          example: true
+        hasSelectedArtwork:
+          type: boolean
+          description: Whether the layer contains selected artwork.
+          example: true
+        pathItemCount:
+          type: integer
+          description: Number of path items in the layer.
+          example: 1024
+        textFrameCount:
+          type: integer
+          description: Number of text frames in the layer.
+          example: 1024
+        sublayerCount:
+          type: integer
+          description: Number of sublayers.
+          example: 1024
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/

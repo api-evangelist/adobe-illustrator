@@ -1,0 +1,451 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Text Frames API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Text Frames
+  description: Create and manipulate text frames, including point text, area text, and text on a path, with full typography control.
+paths:
+  /documents/{documentId}/textFrames:
+    get:
+      operationId: listTextFrames
+      summary: Adobe Illustrator List Text Frames
+      description: Returns all text frames in the document, including point text, area text, and text on a path items.
+      tags:
+      - Text Frames
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - name: layerId
+        in: query
+        description: Filter text frames by layer.
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '200':
+          description: Text frames retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TextFrame'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createTextFrame
+      summary: Adobe Illustrator Create a Text Frame
+      description: Creates a new text frame in the document. Supports point text, area text, and text on a path with full typography settings.
+      tags:
+      - Text Frames
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextFrameCreate'
+      responses:
+        '201':
+          description: Text frame created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextFrame'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/textFrames/{textFrameId}:
+    get:
+      operationId: getTextFrame
+      summary: Adobe Illustrator Get a Text Frame
+      description: Returns detailed information about a specific text frame, including its contents, character attributes, paragraph attributes, and bounds.
+      tags:
+      - Text Frames
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/textFrameId'
+      responses:
+        '200':
+          description: Text frame retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextFrame'
+        '404':
+          description: Text frame not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updateTextFrame
+      summary: Adobe Illustrator Update a Text Frame
+      description: Updates the properties of a specific text frame, including its contents, character attributes, and paragraph attributes.
+      tags:
+      - Text Frames
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/textFrameId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextFrameCreate'
+      responses:
+        '200':
+          description: Text frame updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextFrame'
+        '404':
+          description: Text frame not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteTextFrame
+      summary: Adobe Illustrator Delete a Text Frame
+      description: Removes the specified text frame from the document.
+      tags:
+      - Text Frames
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/textFrameId'
+      responses:
+        '204':
+          description: Text frame deleted successfully.
+        '404':
+          description: Text frame not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TextFrame:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the text frame.
+          example: example_value
+        name:
+          type: string
+          description: Name of the text frame.
+          example: Example Artboard
+        kind:
+          type: string
+          description: Type of text frame.
+          enum:
+          - PointText
+          - AreaText
+          - PathText
+          example: PointText
+        contents:
+          type: string
+          description: The text content of the frame.
+          example: example_value
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width of the text frame in points.
+          example: 72.0
+        height:
+          type: number
+          description: Height of the text frame in points.
+          example: 72.0
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+          - Horizontal
+          - Vertical
+          example: Horizontal
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        layer:
+          type: string
+          description: Name of the containing layer.
+          example: example_value
+    TextFrameCreate:
+      type: object
+      required:
+      - contents
+      - position
+      properties:
+        name:
+          type: string
+          description: Name of the text frame.
+          example: Example Artboard
+        kind:
+          type: string
+          description: Type of text frame to create.
+          enum:
+          - PointText
+          - AreaText
+          - PathText
+          default: PointText
+          example: PointText
+        contents:
+          type: string
+          description: The text content.
+          example: example_value
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width for area text frames.
+          example: 72.0
+        height:
+          type: number
+          description: Height for area text frames.
+          example: 72.0
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+          - Horizontal
+          - Vertical
+          default: Horizontal
+          example: Horizontal
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        layer:
+          type: string
+          description: Target layer name.
+          example: example_value
+    CharacterAttributes:
+      type: object
+      properties:
+        font:
+          type: string
+          description: Font name.
+          examples:
+          - Myriad Pro
+          example: example_value
+        size:
+          type: number
+          description: Font size in points.
+          examples:
+          - 12
+          example: 72.0
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWeight:
+          type: number
+          description: Character stroke weight.
+          example: 72.0
+        tracking:
+          type: number
+          description: Tracking value.
+          example: 72.0
+        leading:
+          type: number
+          description: Leading (line spacing) in points.
+          example: 72.0
+        kerning:
+          type: number
+          description: Kerning value.
+          example: 72.0
+        horizontalScale:
+          type: number
+          description: Horizontal scale as a percentage.
+          default: 100
+          example: 72.0
+        verticalScale:
+          type: number
+          description: Vertical scale as a percentage.
+          default: 100
+          example: 72.0
+        baselineShift:
+          type: number
+          description: Baseline shift in points.
+          example: 72.0
+        rotation:
+          type: number
+          description: Character rotation in degrees.
+          example: 72.0
+        capitalization:
+          type: string
+          description: Capitalization style.
+          enum:
+          - Normal
+          - AllCaps
+          - SmallCaps
+          example: Normal
+        underline:
+          type: boolean
+          description: Whether text is underlined.
+          example: true
+        strikethrough:
+          type: boolean
+          description: Whether text has strikethrough.
+          example: true
+    Color:
+      type: object
+      properties:
+        colorType:
+          type: string
+          description: Type of color specification.
+          enum:
+          - RGB
+          - CMYK
+          - Gray
+          - Spot
+          - Pattern
+          - Gradient
+          - None
+          example: RGB
+        red:
+          type: number
+          description: Red component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        green:
+          type: number
+          description: Green component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        blue:
+          type: number
+          description: Blue component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        cyan:
+          type: number
+          description: Cyan component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        magenta:
+          type: number
+          description: Magenta component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        yellow:
+          type: number
+          description: Yellow component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        black:
+          type: number
+          description: Black component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        gray:
+          type: number
+          description: Gray value (0-100) for grayscale colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        spotName:
+          type: string
+          description: Spot color name for spot colors.
+          example: Example Artboard
+        tint:
+          type: number
+          description: Tint percentage for spot colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+    ParagraphAttributes:
+      type: object
+      properties:
+        justification:
+          type: string
+          description: Text justification.
+          enum:
+          - Left
+          - Center
+          - Right
+          - FullJustifyLastLineLeft
+          - FullJustifyLastLineCenter
+          - FullJustifyLastLineRight
+          - FullJustify
+          example: Left
+        firstLineIndent:
+          type: number
+          description: First line indent in points.
+          example: 72.0
+        leftIndent:
+          type: number
+          description: Left indent in points.
+          example: 72.0
+        rightIndent:
+          type: number
+          description: Right indent in points.
+          example: 72.0
+        spaceBefore:
+          type: number
+          description: Space before paragraph in points.
+          example: 72.0
+        spaceAfter:
+          type: number
+          description: Space after paragraph in points.
+          example: 72.0
+        hyphenation:
+          type: boolean
+          description: Whether hyphenation is enabled.
+          example: true
+  parameters:
+    textFrameId:
+      name: textFrameId
+      in: path
+      required: true
+      description: Unique identifier of the text frame.
+      schema:
+        type: string
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/

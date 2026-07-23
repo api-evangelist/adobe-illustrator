@@ -1,0 +1,210 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Artboards API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Artboards
+  description: Manage artboards within an Illustrator document, including creating, resizing, reordering, and removing artboards.
+paths:
+  /documents/{documentId}/artboards:
+    get:
+      operationId: listArtboards
+      summary: Adobe Illustrator List Artboards in a Document
+      description: Returns all artboards in the specified document with their dimensions, positions, and names.
+      tags:
+      - Artboards
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      responses:
+        '200':
+          description: Artboards retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Artboard'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createArtboard
+      summary: Adobe Illustrator Create a New Artboard
+      description: Adds a new artboard to the document with the specified dimensions and position.
+      tags:
+      - Artboards
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtboardCreate'
+      responses:
+        '201':
+          description: Artboard created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artboard'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/artboards/{artboardIndex}:
+    get:
+      operationId: getArtboard
+      summary: Adobe Illustrator Get an Artboard
+      description: Returns detailed information about a specific artboard, including its bounds, name, and ruler origin.
+      tags:
+      - Artboards
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/artboardIndex'
+      responses:
+        '200':
+          description: Artboard retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artboard'
+        '404':
+          description: Artboard not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updateArtboard
+      summary: Adobe Illustrator Update an Artboard
+      description: Updates the properties of a specific artboard, including name, bounds, and ruler origin.
+      tags:
+      - Artboards
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/artboardIndex'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtboardCreate'
+      responses:
+        '200':
+          description: Artboard updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artboard'
+        '404':
+          description: Artboard not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteArtboard
+      summary: Adobe Illustrator Delete an Artboard
+      description: Removes the specified artboard from the document.
+      tags:
+      - Artboards
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/artboardIndex'
+      responses:
+        '204':
+          description: Artboard deleted successfully.
+        '404':
+          description: Artboard not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ArtboardCreate:
+      type: object
+      required:
+      - artboardRect
+      properties:
+        name:
+          type: string
+          description: Name of the artboard.
+          example: Example Artboard
+        artboardRect:
+          type: array
+          description: Bounding rectangle [left, top, right, bottom] in points.
+          items:
+            type: number
+          minItems: 4
+          maxItems: 4
+    Artboard:
+      type: object
+      properties:
+        index:
+          type: integer
+          description: Zero-based index of the artboard.
+          example: 1024
+        name:
+          type: string
+          description: Name of the artboard.
+          examples:
+          - Artboard 1
+          example: Example Artboard
+        artboardRect:
+          type: array
+          description: Bounding rectangle [left, top, right, bottom] in points.
+          items:
+            type: number
+          minItems: 4
+          maxItems: 4
+        rulerOrigin:
+          type: array
+          description: Ruler origin point [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        rulerPAR:
+          type: number
+          description: Ruler pixel aspect ratio.
+          example: 72.0
+        showCenter:
+          type: boolean
+          description: Whether to show the center mark.
+          example: true
+        showCrossHairs:
+          type: boolean
+          description: Whether to show cross hairs.
+          example: true
+        showSafeAreas:
+          type: boolean
+          description: Whether to show safe areas.
+          example: true
+  parameters:
+    artboardIndex:
+      name: artboardIndex
+      in: path
+      required: true
+      description: Zero-based index of the artboard.
+      schema:
+        type: integer
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/

@@ -1,0 +1,453 @@
+openapi: 3.1.0
+info:
+  title: Adobe Illustrator Scripting Application Path Items API
+  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
+  version: 29.0.0
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/illustrator/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+  x-logo:
+    url: https://www.adobe.com/favicon.ico
+servers:
+- url: https://localhost
+  description: Local Illustrator Application
+tags:
+- name: Path Items
+  description: Create and manipulate vector path items, including shapes, lines, and complex paths with anchor points and control handles.
+paths:
+  /documents/{documentId}/pathItems:
+    get:
+      operationId: listPathItems
+      summary: Adobe Illustrator List Path Items
+      description: Returns all path items in the document or a specific layer, including their anchor points, fill, and stroke properties.
+      tags:
+      - Path Items
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - name: layerId
+        in: query
+        description: Filter path items by layer.
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '200':
+          description: Path items retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PathItem'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createPathItem
+      summary: Adobe Illustrator Create a Path Item
+      description: Creates a new path item in the document with the specified anchor points, fill, stroke, and other properties. Supports creating rectangles, ellipses, polygons, stars, and freeform paths.
+      tags:
+      - Path Items
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PathItemCreate'
+      responses:
+        '201':
+          description: Path item created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PathItem'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /documents/{documentId}/pathItems/{pathItemId}:
+    get:
+      operationId: getPathItem
+      summary: Adobe Illustrator Get a Path Item
+      description: Returns detailed information about a specific path item, including its anchor points, control handles, fill, stroke, and transform.
+      tags:
+      - Path Items
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/pathItemId'
+      responses:
+        '200':
+          description: Path item retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PathItem'
+        '404':
+          description: Path item not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updatePathItem
+      summary: Adobe Illustrator Update a Path Item
+      description: Updates the properties of a specific path item, including its anchor points, fill, stroke, opacity, and transform.
+      tags:
+      - Path Items
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/pathItemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PathItemCreate'
+      responses:
+        '200':
+          description: Path item updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PathItem'
+        '404':
+          description: Path item not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deletePathItem
+      summary: Adobe Illustrator Delete a Path Item
+      description: Removes the specified path item from the document.
+      tags:
+      - Path Items
+      parameters:
+      - $ref: '#/components/parameters/documentId'
+      - $ref: '#/components/parameters/pathItemId'
+      responses:
+        '204':
+          description: Path item deleted successfully.
+        '404':
+          description: Path item not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    PathItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the path item.
+          example: example_value
+        name:
+          type: string
+          description: Name of the path item.
+          example: Example Artboard
+        closed:
+          type: boolean
+          description: Whether the path is closed.
+          example: true
+        filled:
+          type: boolean
+          description: Whether the path has a fill.
+          example: true
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        stroked:
+          type: boolean
+          description: Whether the path has a stroke.
+          example: true
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWidth:
+          type: number
+          description: Stroke width in points.
+          example: 72.0
+        strokeCap:
+          type: string
+          description: Stroke cap style.
+          enum:
+          - ButtEndCap
+          - RoundEndCap
+          - ProjectingEndCap
+          example: ButtEndCap
+        strokeJoin:
+          type: string
+          description: Stroke join style.
+          enum:
+          - MiterEndJoin
+          - RoundEndJoin
+          - BevelEndJoin
+          example: MiterEndJoin
+        strokeDashes:
+          type: array
+          description: Dash pattern for the stroke.
+          items:
+            type: number
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        blendingMode:
+          type: string
+          description: Blending mode.
+          example: example_value
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width in points.
+          example: 72.0
+        height:
+          type: number
+          description: Height in points.
+          example: 72.0
+        pathPoints:
+          type: array
+          description: Array of path points defining the path shape.
+          items:
+            $ref: '#/components/schemas/PathPoint'
+        area:
+          type: number
+          description: Area of the path in square points.
+          example: 72.0
+        length:
+          type: number
+          description: Length of the path in points.
+          example: 72.0
+        guides:
+          type: boolean
+          description: Whether this path item is a guide.
+          example: true
+        clipping:
+          type: boolean
+          description: Whether this path item is a clipping path.
+          example: true
+        layer:
+          type: string
+          description: Name of the containing layer.
+          example: example_value
+    PathPoint:
+      type: object
+      properties:
+        anchor:
+          type: array
+          description: Anchor point coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        leftDirection:
+          type: array
+          description: Left control handle coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        rightDirection:
+          type: array
+          description: Right control handle coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        pointType:
+          type: string
+          description: The type of path point.
+          enum:
+          - Smooth
+          - Corner
+          example: Smooth
+      required:
+      - anchor
+    Color:
+      type: object
+      properties:
+        colorType:
+          type: string
+          description: Type of color specification.
+          enum:
+          - RGB
+          - CMYK
+          - Gray
+          - Spot
+          - Pattern
+          - Gradient
+          - None
+          example: RGB
+        red:
+          type: number
+          description: Red component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        green:
+          type: number
+          description: Green component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        blue:
+          type: number
+          description: Blue component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        cyan:
+          type: number
+          description: Cyan component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        magenta:
+          type: number
+          description: Magenta component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        yellow:
+          type: number
+          description: Yellow component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        black:
+          type: number
+          description: Black component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        gray:
+          type: number
+          description: Gray value (0-100) for grayscale colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        spotName:
+          type: string
+          description: Spot color name for spot colors.
+          example: Example Artboard
+        tint:
+          type: number
+          description: Tint percentage for spot colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+    PathItemCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the path item.
+          example: Example Artboard
+        pathType:
+          type: string
+          description: Type of path to create.
+          enum:
+          - freeform
+          - rectangle
+          - roundedRectangle
+          - ellipse
+          - polygon
+          - star
+          - line
+          default: freeform
+          example: freeform
+        pathPoints:
+          type: array
+          description: Array of path points for freeform paths. Required when pathType is "freeform".
+          items:
+            $ref: '#/components/schemas/PathPoint'
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width in points (for rectangle, ellipse).
+          example: 72.0
+        height:
+          type: number
+          description: Height in points (for rectangle, ellipse).
+          example: 72.0
+        cornerRadius:
+          type: number
+          description: Corner radius for rounded rectangle.
+          example: 72.0
+        sides:
+          type: integer
+          description: Number of sides for polygon.
+          minimum: 3
+          example: 1024
+        points:
+          type: integer
+          description: Number of points for star.
+          minimum: 3
+          example: 1024
+        innerRadius:
+          type: number
+          description: Inner radius for star.
+          example: 72.0
+        filled:
+          type: boolean
+          description: Whether the path has a fill.
+          default: true
+          example: true
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        stroked:
+          type: boolean
+          description: Whether the path has a stroke.
+          default: true
+          example: true
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWidth:
+          type: number
+          description: Stroke width in points.
+          default: 1
+          example: 72.0
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          default: 100
+          example: 72.0
+        layer:
+          type: string
+          description: Target layer name.
+          example: example_value
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    pathItemId:
+      name: pathItemId
+      in: path
+      required: true
+      description: Unique identifier of the path item.
+      schema:
+        type: string
+externalDocs:
+  description: Adobe Illustrator Scripting Guide
+  url: https://ai-scripting.docsforadobe.dev/
