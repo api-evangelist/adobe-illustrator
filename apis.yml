@@ -2,7 +2,19 @@ aid: adobe-illustrator
 url: https://raw.githubusercontent.com/api-evangelist/adobe-illustrator/refs/heads/main/apis.yml
 name: Adobe Illustrator
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/adobe-illustrator.png
 tags:
 - Creative Cloud
 - Design
@@ -14,22 +26,60 @@ created: '2025-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: adobe-illustrator:scripting-api
-  name: Adobe Illustrator Scripting API
+- aid: adobe-illustrator:plugin-sdk
+  name: Adobe Illustrator Plugin SDK
   tags:
-  - AppleScript
-  - Automation
-  - JavaScript
-  - Scripting
-  - VBScript
+  - C++
+  - Extensions
+  - Plugins
+  - SDK
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/illustrator/
   properties:
   - url: https://developer.adobe.com/illustrator/
     type: Documentation
-  - url: openapi/adobe-illustrator-scripting-openapi-original.yml
-    type: OpenAPI
+  description: >-
+    The Adobe Illustrator Plugin SDK enables developers to build native C++ plug-ins for Illustrator on
+    Windows and macOS. The SDK opens the entire application to developer control, allowing extensions
+    to add new functions, automate workflows, parse and manipulate image data, apply custom effects, add
+    custom tools to the toolbar, and extend menu functionality. It provides deep integration with Illustrator's
+    architecture for building high-performance extensions.
+- aid: adobe-illustrator:cep-extensions
+  name: Adobe Illustrator CEP Extensions API
+  tags:
+  - CEP
+  - CSS
+  - Extensions
+  - HTML
+  - JavaScript
+  - Panels
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://api.example.com
+  humanURL: https://developer.adobe.com/illustrator/
+  properties:
+  - url: https://developer.adobe.com/illustrator/
+    type: Documentation
+  description: >-
+    The Adobe Illustrator Common Extensibility Platform (CEP) allows developers to build panels and extensions
+    using HTML, CSS, and JavaScript. CEP extensions run inside Illustrator and can communicate with the
+    application through its scripting interface, enabling developers to create custom user interfaces,
+    integrate with web services, and extend Illustrator's capabilities with modern web technologies. CEP
+    provides a cross-application framework used across Adobe Creative Cloud products.
+- aid: adobe-illustrator:adobe-illustrator-application-api
+  name: Adobe Illustrator Application API
+  description: >-
+    Access to the Illustrator application object, including preferences, version information, and global
+    settings.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Application
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-application-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
   - type: X-NaftikoCapability
     url: capabilities/scripting-application.yaml
   - type: X-NaftikoCapability
@@ -48,49 +98,263 @@ apis:
     url: capabilities/scripting-symbols.yaml
   - type: X-NaftikoCapability
     url: capabilities/scripting-text-frames.yaml
-  description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript,
-    AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text,
-    generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating
-    and modifying paths and shapes to managing layers, colors, and typography, enabling efficient workflow automation for
-    designers and developers.
-- aid: adobe-illustrator:plugin-sdk
-  name: Adobe Illustrator Plugin SDK
-  tags:
-  - C++
-  - Extensions
-  - Plugins
-  - SDK
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://api.example.com
+- aid: adobe-illustrator:adobe-illustrator-artboards-api
+  name: Adobe Illustrator Artboards API
+  description: >-
+    Manage artboards within an Illustrator document, including creating, resizing, reordering, and removing
+    artboards.
   humanURL: https://developer.adobe.com/illustrator/
-  properties:
-  - url: https://developer.adobe.com/illustrator/
-    type: Documentation
-  description: The Adobe Illustrator Plugin SDK enables developers to build native C++ plug-ins for Illustrator on Windows
-    and macOS. The SDK opens the entire application to developer control, allowing extensions to add new functions, automate
-    workflows, parse and manipulate image data, apply custom effects, add custom tools to the toolbar, and extend menu functionality.
-    It provides deep integration with Illustrator's architecture for building high-performance extensions.
-- aid: adobe-illustrator:cep-extensions
-  name: Adobe Illustrator CEP Extensions API
-  tags:
-  - CEP
-  - CSS
-  - Extensions
-  - HTML
-  - JavaScript
-  - Panels
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
-  humanURL: https://developer.adobe.com/illustrator/
+  tags:
+  - Artboards
   properties:
-  - url: https://developer.adobe.com/illustrator/
-    type: Documentation
-  description: The Adobe Illustrator Common Extensibility Platform (CEP) allows developers to build panels and extensions
-    using HTML, CSS, and JavaScript. CEP extensions run inside Illustrator and can communicate with the application through
-    its scripting interface, enabling developers to create custom user interfaces, integrate with web services, and extend
-    Illustrator's capabilities with modern web technologies. CEP provides a cross-application framework used across Adobe
-    Creative Cloud products.
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-artboards-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-documents-api
+  name: Adobe Illustrator Documents API
+  description: >-
+    Manage Illustrator documents, including opening, creating, saving, closing, and exporting documents
+    in various formats.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-documents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-graphic-styles-api
+  name: Adobe Illustrator Graphic Styles API
+  description: >-
+    Manage graphic styles that can be applied to artwork for consistent appearance across multiple objects.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Graphic Styles
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-graphic-styles-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-layers-api
+  name: Adobe Illustrator Layers API
+  description: >-
+    Create, manage, and manipulate layers within an Illustrator document, including visibility, locking,
+    and ordering.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Layers
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-layers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-path-items-api
+  name: Adobe Illustrator Path Items API
+  description: >-
+    Create and manipulate vector path items, including shapes, lines, and complex paths with anchor points
+    and control handles.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Path Items
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-path-items-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-swatches-api
+  name: Adobe Illustrator Swatches API
+  description: >-
+    Manage color swatches, including spot colors, process colors, gradients, and patterns stored in the
+    document.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Swatches
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-swatches-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-symbols-api
+  name: Adobe Illustrator Symbols API
+  description: >-
+    Manage symbol definitions and symbol instances, enabling reuse of artwork across documents.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Symbols
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-symbols-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
+- aid: adobe-illustrator:adobe-illustrator-text-frames-api
+  name: Adobe Illustrator Text Frames API
+  description: >-
+    Create and manipulate text frames, including point text, area text, and text on a path, with full
+    typography control.
+  humanURL: https://developer.adobe.com/illustrator/
+  baseURL: https://api.example.com
+  tags:
+  - Text Frames
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-illustrator-text-frames-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/illustrator/
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-application.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-artboards.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-documents.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-graphic-styles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-layers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-path-items.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-swatches.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-symbols.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/scripting-text-frames.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/adobe-illustrator/overview
 - type: AgenticAccess
   url: agentic-access/adobe-illustrator-agentic-access.yml
 - type: VulnerabilityDisclosure
