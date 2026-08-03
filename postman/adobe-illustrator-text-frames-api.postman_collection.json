@@ -1,0 +1,698 @@
+{
+  "info": {
+    "_postman_id": "e58555ed-7aae-4372-93e7-0ae493e05af0",
+    "name": "Adobe Illustrator Scripting Application Text Frames API",
+    "description": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:36.000Z",
+    "updatedAt": "2026-07-28T00:28:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e58555ed-7aae-4372-93e7-0ae493e05af0"
+  },
+  "item": [
+    {
+      "name": "documents",
+      "item": [
+        {
+          "name": "{documentId}",
+          "item": [
+            {
+              "name": "textFrames",
+              "item": [
+                {
+                  "name": "{textFrameId}",
+                  "item": [
+                    {
+                      "name": "Adobe Illustrator Get a Text Frame",
+                      "id": "40b3820b-723d-4374-a4d9-8303ef8e5cf9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "textFrames",
+                            ":textFrameId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fe403945-768d-4796-a91b-08d50716c362",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "7f132a5a-f46c-4108-b205-88bf1f46ec1a",
+                              "key": "textFrameId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the text frame."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific text frame, including its contents, character attributes, paragraph attributes, and bounds."
+                      },
+                      "response": [
+                        {
+                          "id": "c1fa197d-31e5-4505-9336-3a429d43f2e4",
+                          "name": "Text frame retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "textFrames",
+                                ":textFrameId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "textFrameId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"None\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"CMYK\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustifyLastLineRight\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"opacity\": \"<number>\",\n  \"layer\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:28:37.000Z",
+                          "updatedAt": "2026-07-28T00:28:37.000Z",
+                          "uid": "35240-c1fa197d-31e5-4505-9336-3a429d43f2e4"
+                        },
+                        {
+                          "id": "0aa346b9-bbb9-4d42-8c0b-ed08d49caf96",
+                          "name": "Text frame not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "textFrames",
+                                ":textFrameId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "textFrameId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:37.000Z",
+                          "updatedAt": "2026-07-28T00:28:37.000Z",
+                          "uid": "35240-0aa346b9-bbb9-4d42-8c0b-ed08d49caf96"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:37.000Z",
+                      "updatedAt": "2026-07-28T00:28:37.000Z",
+                      "uid": "35240-40b3820b-723d-4374-a4d9-8303ef8e5cf9"
+                    },
+                    {
+                      "name": "Adobe Illustrator Update a Text Frame",
+                      "id": "ac1028d0-0b42-4aec-913f-e47e14aa9dd4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"Gray\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"Pattern\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustify\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "textFrames",
+                            ":textFrameId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fd3ec134-673c-4f86-b4da-1c3a1c21898d",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "73dc4e6e-c528-4fda-990e-4c3dfab0698b",
+                              "key": "textFrameId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the text frame."
+                            }
+                          ]
+                        },
+                        "description": "Updates the properties of a specific text frame, including its contents, character attributes, and paragraph attributes."
+                      },
+                      "response": [
+                        {
+                          "id": "97826881-7891-4ee9-83ce-cdfeb0df7eca",
+                          "name": "Text frame updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"Gray\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"Pattern\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustify\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "textFrames",
+                                ":textFrameId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "textFrameId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"None\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"CMYK\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustifyLastLineRight\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"opacity\": \"<number>\",\n  \"layer\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:28:37.000Z",
+                          "updatedAt": "2026-07-28T00:28:37.000Z",
+                          "uid": "35240-97826881-7891-4ee9-83ce-cdfeb0df7eca"
+                        },
+                        {
+                          "id": "8242929e-1b6e-42f0-a2a6-f2b27f979235",
+                          "name": "Text frame not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"Gray\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"Pattern\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustify\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "textFrames",
+                                ":textFrameId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "textFrameId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:37.000Z",
+                          "updatedAt": "2026-07-28T00:28:37.000Z",
+                          "uid": "35240-8242929e-1b6e-42f0-a2a6-f2b27f979235"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:37.000Z",
+                      "updatedAt": "2026-07-28T00:28:37.000Z",
+                      "uid": "35240-ac1028d0-0b42-4aec-913f-e47e14aa9dd4"
+                    },
+                    {
+                      "name": "Adobe Illustrator Delete a Text Frame",
+                      "id": "2eed1ab9-322b-49fd-abcb-40fbc614ff29",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "textFrames",
+                            ":textFrameId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c3951f81-9d72-4fa0-a6d4-98524bd93dfa",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "3d4c024a-2c88-4acf-a544-beb82180eabd",
+                              "key": "textFrameId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the text frame."
+                            }
+                          ]
+                        },
+                        "description": "Removes the specified text frame from the document."
+                      },
+                      "response": [
+                        {
+                          "id": "53fa6307-3bf6-4c58-b781-3488650bfd53",
+                          "name": "Text frame deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "textFrames",
+                                ":textFrameId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "textFrameId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:37.000Z",
+                          "updatedAt": "2026-07-28T00:28:37.000Z",
+                          "uid": "35240-53fa6307-3bf6-4c58-b781-3488650bfd53"
+                        },
+                        {
+                          "id": "77a556f2-2534-4423-94e3-95ace736975e",
+                          "name": "Text frame not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/textFrames/:textFrameId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "textFrames",
+                                ":textFrameId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "textFrameId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:37.000Z",
+                          "updatedAt": "2026-07-28T00:28:37.000Z",
+                          "uid": "35240-77a556f2-2534-4423-94e3-95ace736975e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:37.000Z",
+                      "updatedAt": "2026-07-28T00:28:37.000Z",
+                      "uid": "35240-2eed1ab9-322b-49fd-abcb-40fbc614ff29"
+                    }
+                  ],
+                  "id": "dbde98ed-770e-4053-ac52-150f3a633594",
+                  "createdAt": "2026-07-28T00:28:37.000Z",
+                  "updatedAt": "2026-07-28T00:28:37.000Z",
+                  "uid": "35240-dbde98ed-770e-4053-ac52-150f3a633594"
+                },
+                {
+                  "name": "Adobe Illustrator List Text Frames",
+                  "id": "4b1ceb6b-5ccd-4a11-9e7e-e2ff55a7f06f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/textFrames?layerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "textFrames"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter text frames by layer.",
+                          "key": "layerId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ef525447-fd44-484d-a61d-c0f1167aa3d4",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Returns all text frames in the document, including point text, area text, and text on a path items."
+                  },
+                  "response": [
+                    {
+                      "id": "da15c910-edfd-4498-8483-25df497cb6b4",
+                      "name": "Text frames retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/textFrames?layerId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "textFrames"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter text frames by layer.",
+                              "key": "layerId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"kind\": \"AreaText\",\n    \"contents\": \"<string>\",\n    \"position\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"orientation\": \"Horizontal\",\n    \"characterAttributes\": {\n      \"font\": \"<string>\",\n      \"size\": \"<number>\",\n      \"fillColor\": {\n        \"colorType\": \"None\",\n        \"red\": \"<number>\",\n        \"green\": \"<number>\",\n        \"blue\": \"<number>\",\n        \"cyan\": \"<number>\",\n        \"magenta\": \"<number>\",\n        \"yellow\": \"<number>\",\n        \"black\": \"<number>\",\n        \"gray\": \"<number>\",\n        \"spotName\": \"<string>\",\n        \"tint\": \"<number>\"\n      },\n      \"strokeColor\": {\n        \"colorType\": \"Pattern\",\n        \"red\": \"<number>\",\n        \"green\": \"<number>\",\n        \"blue\": \"<number>\",\n        \"cyan\": \"<number>\",\n        \"magenta\": \"<number>\",\n        \"yellow\": \"<number>\",\n        \"black\": \"<number>\",\n        \"gray\": \"<number>\",\n        \"spotName\": \"<string>\",\n        \"tint\": \"<number>\"\n      },\n      \"strokeWeight\": \"<number>\",\n      \"tracking\": \"<number>\",\n      \"leading\": \"<number>\",\n      \"kerning\": \"<number>\",\n      \"horizontalScale\": 100,\n      \"verticalScale\": 100,\n      \"baselineShift\": \"<number>\",\n      \"rotation\": \"<number>\",\n      \"capitalization\": \"SmallCaps\",\n      \"underline\": \"<boolean>\",\n      \"strikethrough\": \"<boolean>\"\n    },\n    \"paragraphAttributes\": {\n      \"justification\": \"Right\",\n      \"firstLineIndent\": \"<number>\",\n      \"leftIndent\": \"<number>\",\n      \"rightIndent\": \"<number>\",\n      \"spaceBefore\": \"<number>\",\n      \"spaceAfter\": \"<number>\",\n      \"hyphenation\": \"<boolean>\"\n    },\n    \"opacity\": \"<number>\",\n    \"layer\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"kind\": \"PathText\",\n    \"contents\": \"<string>\",\n    \"position\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"orientation\": \"Vertical\",\n    \"characterAttributes\": {\n      \"font\": \"<string>\",\n      \"size\": \"<number>\",\n      \"fillColor\": {\n        \"colorType\": \"Pattern\",\n        \"red\": \"<number>\",\n        \"green\": \"<number>\",\n        \"blue\": \"<number>\",\n        \"cyan\": \"<number>\",\n        \"magenta\": \"<number>\",\n        \"yellow\": \"<number>\",\n        \"black\": \"<number>\",\n        \"gray\": \"<number>\",\n        \"spotName\": \"<string>\",\n        \"tint\": \"<number>\"\n      },\n      \"strokeColor\": {\n        \"colorType\": \"Gradient\",\n        \"red\": \"<number>\",\n        \"green\": \"<number>\",\n        \"blue\": \"<number>\",\n        \"cyan\": \"<number>\",\n        \"magenta\": \"<number>\",\n        \"yellow\": \"<number>\",\n        \"black\": \"<number>\",\n        \"gray\": \"<number>\",\n        \"spotName\": \"<string>\",\n        \"tint\": \"<number>\"\n      },\n      \"strokeWeight\": \"<number>\",\n      \"tracking\": \"<number>\",\n      \"leading\": \"<number>\",\n      \"kerning\": \"<number>\",\n      \"horizontalScale\": 100,\n      \"verticalScale\": 100,\n      \"baselineShift\": \"<number>\",\n      \"rotation\": \"<number>\",\n      \"capitalization\": \"AllCaps\",\n      \"underline\": \"<boolean>\",\n      \"strikethrough\": \"<boolean>\"\n    },\n    \"paragraphAttributes\": {\n      \"justification\": \"FullJustifyLastLineCenter\",\n      \"firstLineIndent\": \"<number>\",\n      \"leftIndent\": \"<number>\",\n      \"rightIndent\": \"<number>\",\n      \"spaceBefore\": \"<number>\",\n      \"spaceAfter\": \"<number>\",\n      \"hyphenation\": \"<boolean>\"\n    },\n    \"opacity\": \"<number>\",\n    \"layer\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T00:28:37.000Z",
+                      "updatedAt": "2026-07-28T00:28:37.000Z",
+                      "uid": "35240-da15c910-edfd-4498-8483-25df497cb6b4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:37.000Z",
+                  "updatedAt": "2026-07-28T00:28:37.000Z",
+                  "uid": "35240-4b1ceb6b-5ccd-4a11-9e7e-e2ff55a7f06f"
+                },
+                {
+                  "name": "Adobe Illustrator Create a Text Frame",
+                  "id": "913a2452-0a11-4c88-b35b-729a15f802b6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"Gray\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"Pattern\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustify\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/textFrames",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "textFrames"
+                      ],
+                      "variable": [
+                        {
+                          "id": "46fcebb2-be0f-4e6d-b036-acdab04adf7f",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Creates a new text frame in the document. Supports point text, area text, and text on a path with full typography settings."
+                  },
+                  "response": [
+                    {
+                      "id": "452f8346-be2d-47e5-8ac0-ad792c303b35",
+                      "name": "Text frame created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"Gray\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"Pattern\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustify\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/textFrames",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "textFrames"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"None\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"CMYK\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"SmallCaps\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"FullJustifyLastLineRight\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"opacity\": \"<number>\",\n  \"layer\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:28:37.000Z",
+                      "updatedAt": "2026-07-28T00:28:37.000Z",
+                      "uid": "35240-452f8346-be2d-47e5-8ac0-ad792c303b35"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:37.000Z",
+                  "updatedAt": "2026-07-28T00:28:37.000Z",
+                  "uid": "35240-913a2452-0a11-4c88-b35b-729a15f802b6"
+                }
+              ],
+              "id": "c9198ccf-ebdf-4aad-b720-3cfd5704df37",
+              "createdAt": "2026-07-28T00:28:37.000Z",
+              "updatedAt": "2026-07-28T00:28:37.000Z",
+              "uid": "35240-c9198ccf-ebdf-4aad-b720-3cfd5704df37"
+            }
+          ],
+          "id": "94e96680-d81e-4613-8e43-dd01bd9d67ae",
+          "createdAt": "2026-07-28T00:28:37.000Z",
+          "updatedAt": "2026-07-28T00:28:37.000Z",
+          "uid": "35240-94e96680-d81e-4613-8e43-dd01bd9d67ae"
+        }
+      ],
+      "id": "e273cdc7-24b7-4b08-a521-cba6c8b2cc72",
+      "createdAt": "2026-07-28T00:28:37.000Z",
+      "updatedAt": "2026-07-28T00:28:37.000Z",
+      "uid": "35240-e273cdc7-24b7-4b08-a521-cba6c8b2cc72"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost"
+    }
+  ]
+}

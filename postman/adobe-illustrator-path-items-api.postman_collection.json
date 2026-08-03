@@ -1,0 +1,698 @@
+{
+  "info": {
+    "_postman_id": "440f0d72-0cb2-467a-8aaf-25ba3ff55dd0",
+    "name": "Adobe Illustrator Scripting Application Path Items API",
+    "description": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:33.000Z",
+    "updatedAt": "2026-07-28T00:28:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-440f0d72-0cb2-467a-8aaf-25ba3ff55dd0"
+  },
+  "item": [
+    {
+      "name": "documents",
+      "item": [
+        {
+          "name": "{documentId}",
+          "item": [
+            {
+              "name": "pathItems",
+              "item": [
+                {
+                  "name": "{pathItemId}",
+                  "item": [
+                    {
+                      "name": "Adobe Illustrator Get a Path Item",
+                      "id": "6433d72c-eb7b-4401-be1c-703af4e552cd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "pathItems",
+                            ":pathItemId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9331d4a6-7344-4901-be2a-fcb61dc70555",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "b5a5d94a-495e-4a42-b139-508bfce64e6b",
+                              "key": "pathItemId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the path item."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific path item, including its anchor points, control handles, fill, stroke, and transform."
+                      },
+                      "response": [
+                        {
+                          "id": "435ebcfd-b5ab-4ac1-93e5-e55b6f1340be",
+                          "name": "Path item retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "pathItems",
+                                ":pathItemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "pathItemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"closed\": \"<boolean>\",\n  \"filled\": \"<boolean>\",\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": \"<boolean>\",\n  \"strokeColor\": {\n    \"colorType\": \"CMYK\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": \"<number>\",\n  \"strokeCap\": \"RoundEndCap\",\n  \"strokeJoin\": \"BevelEndJoin\",\n  \"strokeDashes\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"opacity\": \"<number>\",\n  \"blendingMode\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"area\": \"<number>\",\n  \"length\": \"<number>\",\n  \"guides\": \"<boolean>\",\n  \"clipping\": \"<boolean>\",\n  \"layer\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:28:34.000Z",
+                          "updatedAt": "2026-07-28T00:28:34.000Z",
+                          "uid": "35240-435ebcfd-b5ab-4ac1-93e5-e55b6f1340be"
+                        },
+                        {
+                          "id": "1d35c35c-f4ef-4159-ae13-dd73a715f364",
+                          "name": "Path item not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "pathItems",
+                                ":pathItemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "pathItemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:34.000Z",
+                          "updatedAt": "2026-07-28T00:28:34.000Z",
+                          "uid": "35240-1d35c35c-f4ef-4159-ae13-dd73a715f364"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:34.000Z",
+                      "updatedAt": "2026-07-28T00:28:34.000Z",
+                      "uid": "35240-6433d72c-eb7b-4401-be1c-703af4e552cd"
+                    },
+                    {
+                      "name": "Adobe Illustrator Update a Path Item",
+                      "id": "00e271d1-e372-4ba3-a0ad-f03511fcbdbb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"Gradient\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "pathItems",
+                            ":pathItemId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d61dd223-fa34-4ac8-9581-b88b30c4838c",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "d382abbc-23ea-4e81-b766-29ce6390d060",
+                              "key": "pathItemId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the path item."
+                            }
+                          ]
+                        },
+                        "description": "Updates the properties of a specific path item, including its anchor points, fill, stroke, opacity, and transform."
+                      },
+                      "response": [
+                        {
+                          "id": "dd918e40-53f7-4191-af89-4199a785f3e6",
+                          "name": "Path item updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"Gradient\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "pathItems",
+                                ":pathItemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "pathItemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"closed\": \"<boolean>\",\n  \"filled\": \"<boolean>\",\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": \"<boolean>\",\n  \"strokeColor\": {\n    \"colorType\": \"CMYK\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": \"<number>\",\n  \"strokeCap\": \"RoundEndCap\",\n  \"strokeJoin\": \"BevelEndJoin\",\n  \"strokeDashes\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"opacity\": \"<number>\",\n  \"blendingMode\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"area\": \"<number>\",\n  \"length\": \"<number>\",\n  \"guides\": \"<boolean>\",\n  \"clipping\": \"<boolean>\",\n  \"layer\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:28:34.000Z",
+                          "updatedAt": "2026-07-28T00:28:34.000Z",
+                          "uid": "35240-dd918e40-53f7-4191-af89-4199a785f3e6"
+                        },
+                        {
+                          "id": "96af4451-dddc-411f-894a-099eb421f71f",
+                          "name": "Path item not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"Gradient\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "pathItems",
+                                ":pathItemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "pathItemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:34.000Z",
+                          "updatedAt": "2026-07-28T00:28:34.000Z",
+                          "uid": "35240-96af4451-dddc-411f-894a-099eb421f71f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:34.000Z",
+                      "updatedAt": "2026-07-28T00:28:34.000Z",
+                      "uid": "35240-00e271d1-e372-4ba3-a0ad-f03511fcbdbb"
+                    },
+                    {
+                      "name": "Adobe Illustrator Delete a Path Item",
+                      "id": "c1aec5a7-e64e-4347-b122-63addc9dce1c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "pathItems",
+                            ":pathItemId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4aa2c00c-5fda-47c2-91ba-36c304ea8636",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "78be68e9-35d0-4226-827e-72b5550e78e9",
+                              "key": "pathItemId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the path item."
+                            }
+                          ]
+                        },
+                        "description": "Removes the specified path item from the document."
+                      },
+                      "response": [
+                        {
+                          "id": "f0a65730-723a-46a3-8e6b-51f446cd92d7",
+                          "name": "Path item deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "pathItems",
+                                ":pathItemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "pathItemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:34.000Z",
+                          "updatedAt": "2026-07-28T00:28:34.000Z",
+                          "uid": "35240-f0a65730-723a-46a3-8e6b-51f446cd92d7"
+                        },
+                        {
+                          "id": "7d00d596-2b42-4646-894d-ae987c505985",
+                          "name": "Path item not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/pathItems/:pathItemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "pathItems",
+                                ":pathItemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "pathItemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:34.000Z",
+                          "updatedAt": "2026-07-28T00:28:34.000Z",
+                          "uid": "35240-7d00d596-2b42-4646-894d-ae987c505985"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:34.000Z",
+                      "updatedAt": "2026-07-28T00:28:34.000Z",
+                      "uid": "35240-c1aec5a7-e64e-4347-b122-63addc9dce1c"
+                    }
+                  ],
+                  "id": "5bc16106-d367-4944-a350-acb62351a991",
+                  "createdAt": "2026-07-28T00:28:34.000Z",
+                  "updatedAt": "2026-07-28T00:28:34.000Z",
+                  "uid": "35240-5bc16106-d367-4944-a350-acb62351a991"
+                },
+                {
+                  "name": "Adobe Illustrator List Path Items",
+                  "id": "3f1fae65-04de-4496-9d55-d16e3456e394",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/pathItems?layerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "pathItems"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter path items by layer.",
+                          "key": "layerId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "19431ec0-71d2-4e20-a72e-188247d00eff",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Returns all path items in the document or a specific layer, including their anchor points, fill, and stroke properties."
+                  },
+                  "response": [
+                    {
+                      "id": "5819eb5c-663e-4369-b495-974110d719ab",
+                      "name": "Path items retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/pathItems?layerId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "pathItems"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter path items by layer.",
+                              "key": "layerId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"closed\": \"<boolean>\",\n    \"filled\": \"<boolean>\",\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"stroked\": \"<boolean>\",\n    \"strokeColor\": {\n      \"colorType\": \"Gradient\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWidth\": \"<number>\",\n    \"strokeCap\": \"ButtEndCap\",\n    \"strokeJoin\": \"RoundEndJoin\",\n    \"strokeDashes\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"opacity\": \"<number>\",\n    \"blendingMode\": \"<string>\",\n    \"position\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"pathPoints\": [\n      {\n        \"anchor\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"leftDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"rightDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"pointType\": \"Corner\"\n      },\n      {\n        \"anchor\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"leftDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"rightDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"pointType\": \"Corner\"\n      }\n    ],\n    \"area\": \"<number>\",\n    \"length\": \"<number>\",\n    \"guides\": \"<boolean>\",\n    \"clipping\": \"<boolean>\",\n    \"layer\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"closed\": \"<boolean>\",\n    \"filled\": \"<boolean>\",\n    \"fillColor\": {\n      \"colorType\": \"CMYK\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"stroked\": \"<boolean>\",\n    \"strokeColor\": {\n      \"colorType\": \"Gray\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWidth\": \"<number>\",\n    \"strokeCap\": \"ProjectingEndCap\",\n    \"strokeJoin\": \"MiterEndJoin\",\n    \"strokeDashes\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"opacity\": \"<number>\",\n    \"blendingMode\": \"<string>\",\n    \"position\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"pathPoints\": [\n      {\n        \"anchor\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"leftDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"rightDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"pointType\": \"Smooth\"\n      },\n      {\n        \"anchor\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"leftDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"rightDirection\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"pointType\": \"Smooth\"\n      }\n    ],\n    \"area\": \"<number>\",\n    \"length\": \"<number>\",\n    \"guides\": \"<boolean>\",\n    \"clipping\": \"<boolean>\",\n    \"layer\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T00:28:34.000Z",
+                      "updatedAt": "2026-07-28T00:28:34.000Z",
+                      "uid": "35240-5819eb5c-663e-4369-b495-974110d719ab"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:34.000Z",
+                  "updatedAt": "2026-07-28T00:28:34.000Z",
+                  "uid": "35240-3f1fae65-04de-4496-9d55-d16e3456e394"
+                },
+                {
+                  "name": "Adobe Illustrator Create a Path Item",
+                  "id": "d9ba1add-a07c-45e4-93ad-d95f58501945",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"Gradient\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/pathItems",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "pathItems"
+                      ],
+                      "variable": [
+                        {
+                          "id": "56e289e6-4ba0-444a-b2cf-5d819bcea245",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Creates a new path item in the document with the specified anchor points, fill, stroke, and other properties. Supports creating rectangles, ellipses, polygons, stars, and freeform paths."
+                  },
+                  "response": [
+                    {
+                      "id": "3c0f9661-343e-4c56-907d-057ba92d8645",
+                      "name": "Path item created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"Gradient\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/pathItems",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "pathItems"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"closed\": \"<boolean>\",\n  \"filled\": \"<boolean>\",\n  \"fillColor\": {\n    \"colorType\": \"Gray\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": \"<boolean>\",\n  \"strokeColor\": {\n    \"colorType\": \"CMYK\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": \"<number>\",\n  \"strokeCap\": \"RoundEndCap\",\n  \"strokeJoin\": \"BevelEndJoin\",\n  \"strokeDashes\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"opacity\": \"<number>\",\n  \"blendingMode\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"Corner\"\n    }\n  ],\n  \"area\": \"<number>\",\n  \"length\": \"<number>\",\n  \"guides\": \"<boolean>\",\n  \"clipping\": \"<boolean>\",\n  \"layer\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:28:34.000Z",
+                      "updatedAt": "2026-07-28T00:28:34.000Z",
+                      "uid": "35240-3c0f9661-343e-4c56-907d-057ba92d8645"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:34.000Z",
+                  "updatedAt": "2026-07-28T00:28:34.000Z",
+                  "uid": "35240-d9ba1add-a07c-45e4-93ad-d95f58501945"
+                }
+              ],
+              "id": "091e49ff-d7eb-4a96-9d84-d830d745f11e",
+              "createdAt": "2026-07-28T00:28:34.000Z",
+              "updatedAt": "2026-07-28T00:28:34.000Z",
+              "uid": "35240-091e49ff-d7eb-4a96-9d84-d830d745f11e"
+            }
+          ],
+          "id": "0dcac535-0985-4ed5-9095-68bc08a7dae0",
+          "createdAt": "2026-07-28T00:28:34.000Z",
+          "updatedAt": "2026-07-28T00:28:34.000Z",
+          "uid": "35240-0dcac535-0985-4ed5-9095-68bc08a7dae0"
+        }
+      ],
+      "id": "a9d811da-20e4-4223-b676-431d32debf3a",
+      "createdAt": "2026-07-28T00:28:34.000Z",
+      "updatedAt": "2026-07-28T00:28:34.000Z",
+      "uid": "35240-a9d811da-20e4-4223-b676-431d32debf3a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost"
+    }
+  ]
+}

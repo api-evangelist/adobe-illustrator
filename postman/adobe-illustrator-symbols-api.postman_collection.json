@@ -1,0 +1,507 @@
+{
+  "info": {
+    "_postman_id": "b9867bef-f1ba-42b8-94af-8d5e96939bf8",
+    "name": "Adobe Illustrator Scripting Application Symbols API",
+    "description": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:35.000Z",
+    "updatedAt": "2026-07-28T00:28:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b9867bef-f1ba-42b8-94af-8d5e96939bf8"
+  },
+  "item": [
+    {
+      "name": "documents",
+      "item": [
+        {
+          "name": "{documentId}",
+          "item": [
+            {
+              "name": "symbols",
+              "item": [
+                {
+                  "name": "{symbolId}",
+                  "item": [
+                    {
+                      "name": "Adobe Illustrator Get a Symbol",
+                      "id": "0eafcafc-ce68-487f-931b-dfd42f2494d3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/symbols/:symbolId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "symbols",
+                            ":symbolId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f242554c-9cea-4164-9914-ff169d07d3c2",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "cb43f2ea-bafc-4e53-8699-e17fb51975c0",
+                              "key": "symbolId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the symbol."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific symbol definition."
+                      },
+                      "response": [
+                        {
+                          "id": "df5d7440-c508-4a5f-9124-97282f7383d8",
+                          "name": "Symbol retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/symbols/:symbolId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "symbols",
+                                ":symbolId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "symbolId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"registrationPoint\": \"SymbolTopRightPoint\"\n}",
+                          "createdAt": "2026-07-28T00:28:36.000Z",
+                          "updatedAt": "2026-07-28T00:28:36.000Z",
+                          "uid": "35240-df5d7440-c508-4a5f-9124-97282f7383d8"
+                        },
+                        {
+                          "id": "f85950c5-2583-4130-8018-73c1103ad253",
+                          "name": "Symbol not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/symbols/:symbolId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "symbols",
+                                ":symbolId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "symbolId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:36.000Z",
+                          "updatedAt": "2026-07-28T00:28:36.000Z",
+                          "uid": "35240-f85950c5-2583-4130-8018-73c1103ad253"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:36.000Z",
+                      "updatedAt": "2026-07-28T00:28:36.000Z",
+                      "uid": "35240-0eafcafc-ce68-487f-931b-dfd42f2494d3"
+                    },
+                    {
+                      "name": "Adobe Illustrator Delete a Symbol",
+                      "id": "84dc55f6-95cd-452b-8311-90bbc566b761",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/symbols/:symbolId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "symbols",
+                            ":symbolId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4a04ebe8-22f3-43ee-872b-585db8172a27",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "3c604c1f-45eb-4e89-8a16-f8f382c9f766",
+                              "key": "symbolId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the symbol."
+                            }
+                          ]
+                        },
+                        "description": "Removes the specified symbol definition from the document."
+                      },
+                      "response": [
+                        {
+                          "id": "f87fbf8a-785c-4cc6-98a6-18fb31d3f54b",
+                          "name": "Symbol deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/symbols/:symbolId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "symbols",
+                                ":symbolId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "symbolId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:36.000Z",
+                          "updatedAt": "2026-07-28T00:28:36.000Z",
+                          "uid": "35240-f87fbf8a-785c-4cc6-98a6-18fb31d3f54b"
+                        },
+                        {
+                          "id": "02cb13ff-2e57-4d1f-be06-d4681bd774ed",
+                          "name": "Symbol not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/symbols/:symbolId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "symbols",
+                                ":symbolId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "symbolId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:36.000Z",
+                          "updatedAt": "2026-07-28T00:28:36.000Z",
+                          "uid": "35240-02cb13ff-2e57-4d1f-be06-d4681bd774ed"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:36.000Z",
+                      "updatedAt": "2026-07-28T00:28:36.000Z",
+                      "uid": "35240-84dc55f6-95cd-452b-8311-90bbc566b761"
+                    }
+                  ],
+                  "id": "33fb8c8a-da74-4944-984e-b876490c54b2",
+                  "createdAt": "2026-07-28T00:28:36.000Z",
+                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                  "uid": "35240-33fb8c8a-da74-4944-984e-b876490c54b2"
+                },
+                {
+                  "name": "Adobe Illustrator List Symbols",
+                  "id": "4b2d4a76-0039-4724-90d1-48657d981081",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/symbols",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "symbols"
+                      ],
+                      "variable": [
+                        {
+                          "id": "67e33fb0-c7ed-4bbd-a1f7-dc2e88b5ca7b",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Returns all symbol definitions in the document that can be instantiated as symbol items."
+                  },
+                  "response": [
+                    {
+                      "id": "90574ede-9b9c-4190-aff1-b0dee9e53163",
+                      "name": "Symbols retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"registrationPoint\": \"SymbolMiddleLeftPoint\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"registrationPoint\": \"SymbolTopMiddlePoint\"\n  }\n]",
+                      "createdAt": "2026-07-28T00:28:36.000Z",
+                      "updatedAt": "2026-07-28T00:28:36.000Z",
+                      "uid": "35240-90574ede-9b9c-4190-aff1-b0dee9e53163"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:36.000Z",
+                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                  "uid": "35240-4b2d4a76-0039-4724-90d1-48657d981081"
+                },
+                {
+                  "name": "Adobe Illustrator Create a Symbol",
+                  "id": "a54cc2b5-0717-478e-83fa-9b998842f498",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"sourceArtId\": \"<string>\",\n  \"registrationPoint\": \"SymbolCenterPoint\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/symbols",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "symbols"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2edfdef7-0e40-4999-8c2f-13ae0d1c73d7",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Creates a new symbol definition from the specified artwork in the document. The symbol can then be instantiated multiple times."
+                  },
+                  "response": [
+                    {
+                      "id": "6a1876e8-689b-4ce1-9330-ca6aff80e880",
+                      "name": "Symbol created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"sourceArtId\": \"<string>\",\n  \"registrationPoint\": \"SymbolCenterPoint\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"registrationPoint\": \"SymbolTopRightPoint\"\n}",
+                      "createdAt": "2026-07-28T00:28:36.000Z",
+                      "updatedAt": "2026-07-28T00:28:36.000Z",
+                      "uid": "35240-6a1876e8-689b-4ce1-9330-ca6aff80e880"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:36.000Z",
+                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                  "uid": "35240-a54cc2b5-0717-478e-83fa-9b998842f498"
+                }
+              ],
+              "id": "d8e39813-d144-4467-89ac-9661d1f428a0",
+              "createdAt": "2026-07-28T00:28:36.000Z",
+              "updatedAt": "2026-07-28T00:28:36.000Z",
+              "uid": "35240-d8e39813-d144-4467-89ac-9661d1f428a0"
+            }
+          ],
+          "id": "97721c32-cf51-4164-b84f-b53c01b3b2a4",
+          "createdAt": "2026-07-28T00:28:36.000Z",
+          "updatedAt": "2026-07-28T00:28:36.000Z",
+          "uid": "35240-97721c32-cf51-4164-b84f-b53c01b3b2a4"
+        }
+      ],
+      "id": "64a6298c-7c83-43be-b576-2e74d4e84748",
+      "createdAt": "2026-07-28T00:28:36.000Z",
+      "updatedAt": "2026-07-28T00:28:36.000Z",
+      "uid": "35240-64a6298c-7c83-43be-b576-2e74d4e84748"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost"
+    }
+  ]
+}

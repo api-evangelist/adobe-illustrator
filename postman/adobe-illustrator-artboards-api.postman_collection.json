@@ -1,0 +1,684 @@
+{
+  "info": {
+    "_postman_id": "7a4ef967-223c-42b2-8100-dfcff6ae7e2f",
+    "name": "Adobe Illustrator Scripting Application Artboards API",
+    "description": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:12.000Z",
+    "updatedAt": "2026-07-28T00:28:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7a4ef967-223c-42b2-8100-dfcff6ae7e2f"
+  },
+  "item": [
+    {
+      "name": "documents",
+      "item": [
+        {
+          "name": "{documentId}",
+          "item": [
+            {
+              "name": "artboards",
+              "item": [
+                {
+                  "name": "{artboardIndex}",
+                  "item": [
+                    {
+                      "name": "Adobe Illustrator Get an Artboard",
+                      "id": "f05464ba-fdac-4cbe-b522-334808e7365c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "artboards",
+                            ":artboardIndex"
+                          ],
+                          "variable": [
+                            {
+                              "id": "eac38b69-76fc-44b2-947a-d62e446601b7",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "e4e8b279-bf5e-422b-a8df-c31406e93881",
+                              "key": "artboardIndex",
+                              "value": "<integer>",
+                              "description": "(Required) Zero-based index of the artboard."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific artboard, including its bounds, name, and ruler origin."
+                      },
+                      "response": [
+                        {
+                          "id": "f77e9635-c506-45b5-9088-e6f171b68e56",
+                          "name": "Artboard retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "artboards",
+                                ":artboardIndex"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "artboardIndex"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"index\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"rulerOrigin\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"rulerPAR\": \"<number>\",\n  \"showCenter\": \"<boolean>\",\n  \"showCrossHairs\": \"<boolean>\",\n  \"showSafeAreas\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T00:28:13.000Z",
+                          "updatedAt": "2026-07-28T00:28:13.000Z",
+                          "uid": "35240-f77e9635-c506-45b5-9088-e6f171b68e56"
+                        },
+                        {
+                          "id": "5f3013da-f325-4df7-85b4-fecfef6733c8",
+                          "name": "Artboard not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "artboards",
+                                ":artboardIndex"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "artboardIndex"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:13.000Z",
+                          "updatedAt": "2026-07-28T00:28:13.000Z",
+                          "uid": "35240-5f3013da-f325-4df7-85b4-fecfef6733c8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:13.000Z",
+                      "updatedAt": "2026-07-28T00:28:13.000Z",
+                      "uid": "35240-f05464ba-fdac-4cbe-b522-334808e7365c"
+                    },
+                    {
+                      "name": "Adobe Illustrator Update an Artboard",
+                      "id": "b9fb43de-5bca-442c-a5ab-b5631cc204e4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "artboards",
+                            ":artboardIndex"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a2ba757c-c347-4736-9024-dcec529003b5",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "5f1ce5d1-a08a-404d-a2c9-506ceeec225a",
+                              "key": "artboardIndex",
+                              "value": "<integer>",
+                              "description": "(Required) Zero-based index of the artboard."
+                            }
+                          ]
+                        },
+                        "description": "Updates the properties of a specific artboard, including name, bounds, and ruler origin."
+                      },
+                      "response": [
+                        {
+                          "id": "dc61d2b2-1c06-4bda-b495-2025c4af1653",
+                          "name": "Artboard updated successfully.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "artboards",
+                                ":artboardIndex"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "artboardIndex"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"index\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"rulerOrigin\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"rulerPAR\": \"<number>\",\n  \"showCenter\": \"<boolean>\",\n  \"showCrossHairs\": \"<boolean>\",\n  \"showSafeAreas\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T00:28:13.000Z",
+                          "updatedAt": "2026-07-28T00:28:13.000Z",
+                          "uid": "35240-dc61d2b2-1c06-4bda-b495-2025c4af1653"
+                        },
+                        {
+                          "id": "4dc22251-ca0f-4426-aa2c-29927881fe98",
+                          "name": "Artboard not found.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "artboards",
+                                ":artboardIndex"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "artboardIndex"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:13.000Z",
+                          "updatedAt": "2026-07-28T00:28:13.000Z",
+                          "uid": "35240-4dc22251-ca0f-4426-aa2c-29927881fe98"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:13.000Z",
+                      "updatedAt": "2026-07-28T00:28:13.000Z",
+                      "uid": "35240-b9fb43de-5bca-442c-a5ab-b5631cc204e4"
+                    },
+                    {
+                      "name": "Adobe Illustrator Delete an Artboard",
+                      "id": "6e0c35d1-20b9-4d8b-902d-9d66b504370e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "artboards",
+                            ":artboardIndex"
+                          ],
+                          "variable": [
+                            {
+                              "id": "29cd1f6d-c366-467f-872e-d24c21a754a0",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "98326758-1197-439e-95c7-f0455fb0cbde",
+                              "key": "artboardIndex",
+                              "value": "<integer>",
+                              "description": "(Required) Zero-based index of the artboard."
+                            }
+                          ]
+                        },
+                        "description": "Removes the specified artboard from the document."
+                      },
+                      "response": [
+                        {
+                          "id": "85e235c9-04de-43ed-a532-abca09704798",
+                          "name": "Artboard deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "artboards",
+                                ":artboardIndex"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "artboardIndex"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:13.000Z",
+                          "updatedAt": "2026-07-28T00:28:13.000Z",
+                          "uid": "35240-85e235c9-04de-43ed-a532-abca09704798"
+                        },
+                        {
+                          "id": "f66b8990-b345-4aaf-a900-5d362d3594c6",
+                          "name": "Artboard not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/artboards/:artboardIndex",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "artboards",
+                                ":artboardIndex"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "artboardIndex"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:13.000Z",
+                          "updatedAt": "2026-07-28T00:28:13.000Z",
+                          "uid": "35240-f66b8990-b345-4aaf-a900-5d362d3594c6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:13.000Z",
+                      "updatedAt": "2026-07-28T00:28:13.000Z",
+                      "uid": "35240-6e0c35d1-20b9-4d8b-902d-9d66b504370e"
+                    }
+                  ],
+                  "id": "343b78eb-74b2-48ae-b0b6-9419c21c2b20",
+                  "createdAt": "2026-07-28T00:28:13.000Z",
+                  "updatedAt": "2026-07-28T00:28:13.000Z",
+                  "uid": "35240-343b78eb-74b2-48ae-b0b6-9419c21c2b20"
+                },
+                {
+                  "name": "Adobe Illustrator List Artboards in a Document",
+                  "id": "8af6455a-c4bc-4d39-b107-60679e1f19b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/artboards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "artboards"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2094b749-436b-4885-828c-8b7b9ecdf831",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Returns all artboards in the specified document with their dimensions, positions, and names."
+                  },
+                  "response": [
+                    {
+                      "id": "978d1cda-dec8-49f0-bd65-8db876aae53e",
+                      "name": "Artboards retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/artboards",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "artboards"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"index\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"artboardRect\": [\n      \"<number>\",\n      \"<number>\",\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"rulerOrigin\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"rulerPAR\": \"<number>\",\n    \"showCenter\": \"<boolean>\",\n    \"showCrossHairs\": \"<boolean>\",\n    \"showSafeAreas\": \"<boolean>\"\n  },\n  {\n    \"index\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"artboardRect\": [\n      \"<number>\",\n      \"<number>\",\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"rulerOrigin\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"rulerPAR\": \"<number>\",\n    \"showCenter\": \"<boolean>\",\n    \"showCrossHairs\": \"<boolean>\",\n    \"showSafeAreas\": \"<boolean>\"\n  }\n]",
+                      "createdAt": "2026-07-28T00:28:13.000Z",
+                      "updatedAt": "2026-07-28T00:28:13.000Z",
+                      "uid": "35240-978d1cda-dec8-49f0-bd65-8db876aae53e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:13.000Z",
+                  "updatedAt": "2026-07-28T00:28:13.000Z",
+                  "uid": "35240-8af6455a-c4bc-4d39-b107-60679e1f19b7"
+                },
+                {
+                  "name": "Adobe Illustrator Create a New Artboard",
+                  "id": "9b285b59-bd1a-4f0d-9e46-19807b33525d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/artboards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "artboards"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5d2ec2d9-8bac-4c2a-9ce7-d2bb11e7a417",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Adds a new artboard to the document with the specified dimensions and position."
+                  },
+                  "response": [
+                    {
+                      "id": "d42e690d-8676-48cc-8d29-6af96b4f4d70",
+                      "name": "Artboard created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/artboards",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "artboards"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"index\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"rulerOrigin\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"rulerPAR\": \"<number>\",\n  \"showCenter\": \"<boolean>\",\n  \"showCrossHairs\": \"<boolean>\",\n  \"showSafeAreas\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T00:28:13.000Z",
+                      "updatedAt": "2026-07-28T00:28:13.000Z",
+                      "uid": "35240-d42e690d-8676-48cc-8d29-6af96b4f4d70"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:13.000Z",
+                  "updatedAt": "2026-07-28T00:28:13.000Z",
+                  "uid": "35240-9b285b59-bd1a-4f0d-9e46-19807b33525d"
+                }
+              ],
+              "id": "cf46d046-7118-40d7-95c7-2ded7b89ef6c",
+              "createdAt": "2026-07-28T00:28:13.000Z",
+              "updatedAt": "2026-07-28T00:28:13.000Z",
+              "uid": "35240-cf46d046-7118-40d7-95c7-2ded7b89ef6c"
+            }
+          ],
+          "id": "550a8a4d-b68d-40ab-a2ac-585f8794ca9c",
+          "createdAt": "2026-07-28T00:28:13.000Z",
+          "updatedAt": "2026-07-28T00:28:13.000Z",
+          "uid": "35240-550a8a4d-b68d-40ab-a2ac-585f8794ca9c"
+        }
+      ],
+      "id": "c393ac8e-8736-464b-a3de-c5e6600843ac",
+      "createdAt": "2026-07-28T00:28:13.000Z",
+      "updatedAt": "2026-07-28T00:28:13.000Z",
+      "uid": "35240-c393ac8e-8736-464b-a3de-c5e6600843ac"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost"
+    }
+  ]
+}

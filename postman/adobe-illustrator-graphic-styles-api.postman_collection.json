@@ -1,0 +1,394 @@
+{
+  "info": {
+    "_postman_id": "1f62feac-fe91-4db0-8208-2113b4a9d6e8",
+    "name": "Adobe Illustrator Scripting Application Graphic Styles API",
+    "description": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:15.000Z",
+    "updatedAt": "2026-07-28T00:28:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1f62feac-fe91-4db0-8208-2113b4a9d6e8"
+  },
+  "item": [
+    {
+      "name": "documents",
+      "item": [
+        {
+          "name": "{documentId}",
+          "item": [
+            {
+              "name": "graphicStyles",
+              "item": [
+                {
+                  "name": "{graphicStyleName}",
+                  "item": [
+                    {
+                      "name": "Adobe Illustrator Get a Graphic Style",
+                      "id": "baa224fd-42f6-4523-b8f4-76d0cfd6b943",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/graphicStyles/:graphicStyleName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "graphicStyles",
+                            ":graphicStyleName"
+                          ],
+                          "variable": [
+                            {
+                              "id": "32673987-1dee-4335-acd7-8dacfa2054cb",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "2b572723-f74f-46d5-ae53-ebb801121eda",
+                              "key": "graphicStyleName",
+                              "value": "<string>",
+                              "description": "(Required) Name of the graphic style."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed information about a specific graphic style."
+                      },
+                      "response": [
+                        {
+                          "id": "e46361ca-b6b2-4678-8e94-91445883d3a8",
+                          "name": "Graphic style retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/graphicStyles/:graphicStyleName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "graphicStyles",
+                                ":graphicStyleName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "graphicStyleName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:28:15.000Z",
+                          "updatedAt": "2026-07-28T00:28:15.000Z",
+                          "uid": "35240-e46361ca-b6b2-4678-8e94-91445883d3a8"
+                        },
+                        {
+                          "id": "808e4c35-40e4-4b7d-ad3c-e8dae395456b",
+                          "name": "Graphic style not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/graphicStyles/:graphicStyleName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "graphicStyles",
+                                ":graphicStyleName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "graphicStyleName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:15.000Z",
+                          "updatedAt": "2026-07-28T00:28:15.000Z",
+                          "uid": "35240-808e4c35-40e4-4b7d-ad3c-e8dae395456b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:15.000Z",
+                      "updatedAt": "2026-07-28T00:28:15.000Z",
+                      "uid": "35240-baa224fd-42f6-4523-b8f4-76d0cfd6b943"
+                    },
+                    {
+                      "name": "Adobe Illustrator Delete a Graphic Style",
+                      "id": "964bd4de-fdbf-4246-8bb0-f3036ae93c2d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/graphicStyles/:graphicStyleName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "graphicStyles",
+                            ":graphicStyleName"
+                          ],
+                          "variable": [
+                            {
+                              "id": "55698815-a1e6-4b43-8d6d-afc2cff0e9de",
+                              "key": "documentId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the document."
+                            },
+                            {
+                              "id": "db26eb76-bb84-4c38-9c30-2146a611b1cc",
+                              "key": "graphicStyleName",
+                              "value": "<string>",
+                              "description": "(Required) Name of the graphic style."
+                            }
+                          ]
+                        },
+                        "description": "Removes the specified graphic style from the document."
+                      },
+                      "response": [
+                        {
+                          "id": "bc7e79c2-08ed-4c08-9d6c-360e08f75b29",
+                          "name": "Graphic style deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/graphicStyles/:graphicStyleName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "graphicStyles",
+                                ":graphicStyleName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "graphicStyleName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:15.000Z",
+                          "updatedAt": "2026-07-28T00:28:15.000Z",
+                          "uid": "35240-bc7e79c2-08ed-4c08-9d6c-360e08f75b29"
+                        },
+                        {
+                          "id": "dd55afae-9dfc-4bde-9e2f-dbb7080059f0",
+                          "name": "Graphic style not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/documents/:documentId/graphicStyles/:graphicStyleName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "documents",
+                                ":documentId",
+                                "graphicStyles",
+                                ":graphicStyleName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "documentId"
+                                },
+                                {
+                                  "key": "graphicStyleName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:28:15.000Z",
+                          "updatedAt": "2026-07-28T00:28:15.000Z",
+                          "uid": "35240-dd55afae-9dfc-4bde-9e2f-dbb7080059f0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:28:15.000Z",
+                      "updatedAt": "2026-07-28T00:28:15.000Z",
+                      "uid": "35240-964bd4de-fdbf-4246-8bb0-f3036ae93c2d"
+                    }
+                  ],
+                  "id": "4dd07705-61e4-49b0-ba96-e6f082c729d5",
+                  "createdAt": "2026-07-28T00:28:15.000Z",
+                  "updatedAt": "2026-07-28T00:28:15.000Z",
+                  "uid": "35240-4dd07705-61e4-49b0-ba96-e6f082c729d5"
+                },
+                {
+                  "name": "Adobe Illustrator List Graphic Styles",
+                  "id": "bbe083a0-638b-4bc2-a86f-beed2f01c550",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/documents/:documentId/graphicStyles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "documents",
+                        ":documentId",
+                        "graphicStyles"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9e5a1007-4964-43f3-9d61-8b1b5300f626",
+                          "key": "documentId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the document."
+                        }
+                      ]
+                    },
+                    "description": "Returns all graphic styles defined in the document."
+                  },
+                  "response": [
+                    {
+                      "id": "a414b79a-7526-4dbd-a4d1-23647847bc5a",
+                      "name": "Graphic styles retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/documents/:documentId/graphicStyles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "documents",
+                            ":documentId",
+                            "graphicStyles"
+                          ],
+                          "variable": [
+                            {
+                              "key": "documentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"name\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T00:28:15.000Z",
+                      "updatedAt": "2026-07-28T00:28:15.000Z",
+                      "uid": "35240-a414b79a-7526-4dbd-a4d1-23647847bc5a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:28:15.000Z",
+                  "updatedAt": "2026-07-28T00:28:15.000Z",
+                  "uid": "35240-bbe083a0-638b-4bc2-a86f-beed2f01c550"
+                }
+              ],
+              "id": "2cf5be82-0f0a-4381-a3bd-b1c05a54c001",
+              "createdAt": "2026-07-28T00:28:15.000Z",
+              "updatedAt": "2026-07-28T00:28:15.000Z",
+              "uid": "35240-2cf5be82-0f0a-4381-a3bd-b1c05a54c001"
+            }
+          ],
+          "id": "eba5d2d6-0802-4a89-b248-d80b610faf91",
+          "createdAt": "2026-07-28T00:28:15.000Z",
+          "updatedAt": "2026-07-28T00:28:15.000Z",
+          "uid": "35240-eba5d2d6-0802-4a89-b248-d80b610faf91"
+        }
+      ],
+      "id": "43e2c320-fcde-4b59-848a-564554470165",
+      "createdAt": "2026-07-28T00:28:15.000Z",
+      "updatedAt": "2026-07-28T00:28:15.000Z",
+      "uid": "35240-43e2c320-fcde-4b59-848a-564554470165"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost"
+    }
+  ]
+}

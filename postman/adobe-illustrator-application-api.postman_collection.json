@@ -1,0 +1,274 @@
+{
+  "info": {
+    "_postman_id": "112ade7c-7249-4847-9679-0199143c81b3",
+    "name": "Adobe Illustrator Scripting Application API",
+    "description": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:12.000Z",
+    "updatedAt": "2026-07-28T00:28:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-112ade7c-7249-4847-9679-0199143c81b3"
+  },
+  "item": [
+    {
+      "name": "application",
+      "item": [
+        {
+          "name": "preferences",
+          "item": [
+            {
+              "name": "Adobe Illustrator Get Application Preferences",
+              "id": "9f56bc7e-2b22-4082-be5c-6828e9780384",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application/preferences",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application",
+                    "preferences"
+                  ]
+                },
+                "description": "Returns the current application preferences, including general, type, units, guides, and smart guides preferences."
+              },
+              "response": [
+                {
+                  "id": "22438914-8ac0-477c-a0df-2500784f6f9d",
+                  "name": "Preferences retrieved successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application/preferences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application",
+                        "preferences"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": \"<number>\",\n    \"constrainAngle\": \"<number>\",\n    \"useAreaSelect\": \"<boolean>\"\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": \"<boolean>\",\n    \"useSmartQuotes\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T00:28:12.000Z",
+                  "updatedAt": "2026-07-28T00:28:12.000Z",
+                  "uid": "35240-22438914-8ac0-477c-a0df-2500784f6f9d"
+                }
+              ],
+              "createdAt": "2026-07-28T00:28:12.000Z",
+              "updatedAt": "2026-07-28T00:28:12.000Z",
+              "uid": "35240-9f56bc7e-2b22-4082-be5c-6828e9780384"
+            },
+            {
+              "name": "Adobe Illustrator Update Application Preferences",
+              "id": "77ed1da1-8fb7-4645-bbab-0740abb84aa8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": \"<number>\",\n    \"constrainAngle\": \"<number>\",\n    \"useAreaSelect\": \"<boolean>\"\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": \"<boolean>\",\n    \"useSmartQuotes\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application/preferences",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application",
+                    "preferences"
+                  ]
+                },
+                "description": "Updates the application preferences with the provided values."
+              },
+              "response": [
+                {
+                  "id": "e0c8ccc5-9d49-4ba4-b8d5-aec214609de1",
+                  "name": "Preferences updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": \"<number>\",\n    \"constrainAngle\": \"<number>\",\n    \"useAreaSelect\": \"<boolean>\"\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": \"<boolean>\",\n    \"useSmartQuotes\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/application/preferences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application",
+                        "preferences"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": \"<number>\",\n    \"constrainAngle\": \"<number>\",\n    \"useAreaSelect\": \"<boolean>\"\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": \"<boolean>\",\n    \"useSmartQuotes\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T00:28:12.000Z",
+                  "updatedAt": "2026-07-28T00:28:12.000Z",
+                  "uid": "35240-e0c8ccc5-9d49-4ba4-b8d5-aec214609de1"
+                }
+              ],
+              "createdAt": "2026-07-28T00:28:12.000Z",
+              "updatedAt": "2026-07-28T00:28:12.000Z",
+              "uid": "35240-77ed1da1-8fb7-4645-bbab-0740abb84aa8"
+            }
+          ],
+          "id": "a788c127-3e5c-4271-8ea4-0374ed0e8f0d",
+          "createdAt": "2026-07-28T00:28:12.000Z",
+          "updatedAt": "2026-07-28T00:28:12.000Z",
+          "uid": "35240-a788c127-3e5c-4271-8ea4-0374ed0e8f0d"
+        },
+        {
+          "name": "Adobe Illustrator Get Application Information",
+          "id": "5d4fc06b-bcf9-43bc-a255-ab323f683d60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/application",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application"
+              ]
+            },
+            "description": "Returns information about the Illustrator application, including the version, build number, locale, and current preferences."
+          },
+          "response": [
+            {
+              "id": "3b90c513-0d62-4ea0-acf4-bd3f605f2f92",
+              "name": "Application information retrieved successfully.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"buildNumber\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"scriptingVersion\": \"<string>\",\n  \"freeMemory\": \"<integer>\",\n  \"activeDocument\": \"<string>\",\n  \"documents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userInteractionLevel\": \"DISPLAYALERTS\"\n}",
+              "createdAt": "2026-07-28T00:28:12.000Z",
+              "updatedAt": "2026-07-28T00:28:12.000Z",
+              "uid": "35240-3b90c513-0d62-4ea0-acf4-bd3f605f2f92"
+            }
+          ],
+          "createdAt": "2026-07-28T00:28:12.000Z",
+          "updatedAt": "2026-07-28T00:28:12.000Z",
+          "uid": "35240-5d4fc06b-bcf9-43bc-a255-ab323f683d60"
+        }
+      ],
+      "id": "8acf07df-13c8-4153-b324-65957049c022",
+      "createdAt": "2026-07-28T00:28:12.000Z",
+      "updatedAt": "2026-07-28T00:28:12.000Z",
+      "uid": "35240-8acf07df-13c8-4153-b324-65957049c022"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost"
+    }
+  ]
+}

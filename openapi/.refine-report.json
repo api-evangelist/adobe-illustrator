@@ -1,0 +1,30 @@
+{
+  "provider": "adobe-illustrator",
+  "sources": [
+    "adobe-illustrator-application-api-openapi.yml",
+    "adobe-illustrator-artboards-api-openapi.yml",
+    "adobe-illustrator-documents-api-openapi.yml",
+    "adobe-illustrator-graphic-styles-api-openapi.yml",
+    "adobe-illustrator-layers-api-openapi.yml",
+    "adobe-illustrator-path-items-api-openapi.yml",
+    "adobe-illustrator-swatches-api-openapi.yml",
+    "adobe-illustrator-symbols-api-openapi.yml",
+    "adobe-illustrator-text-frames-api-openapi.yml"
+  ],
+  "outputs": [
+    "adobe-illustrator-application-api-openapi.yml",
+    "adobe-illustrator-artboards-api-openapi.yml",
+    "adobe-illustrator-documents-api-openapi.yml",
+    "adobe-illustrator-graphic-styles-api-openapi.yml",
+    "adobe-illustrator-layers-api-openapi.yml",
+    "adobe-illustrator-path-items-api-openapi.yml",
+    "adobe-illustrator-swatches-api-openapi.yml",
+    "adobe-illustrator-symbols-api-openapi.yml",
+    "adobe-illustrator-text-frames-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
