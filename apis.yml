@@ -80,24 +80,6 @@ apis:
     url: openapi/adobe-illustrator-application-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-artboards-api
   name: Adobe Illustrator Artboards API
   description: >-
@@ -112,24 +94,6 @@ apis:
     url: openapi/adobe-illustrator-artboards-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-documents-api
   name: Adobe Illustrator Documents API
   description: >-
@@ -144,24 +108,6 @@ apis:
     url: openapi/adobe-illustrator-documents-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-graphic-styles-api
   name: Adobe Illustrator Graphic Styles API
   description: >-
@@ -175,24 +121,6 @@ apis:
     url: openapi/adobe-illustrator-graphic-styles-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-layers-api
   name: Adobe Illustrator Layers API
   description: >-
@@ -207,24 +135,6 @@ apis:
     url: openapi/adobe-illustrator-layers-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-path-items-api
   name: Adobe Illustrator Path Items API
   description: >-
@@ -239,24 +149,6 @@ apis:
     url: openapi/adobe-illustrator-path-items-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-swatches-api
   name: Adobe Illustrator Swatches API
   description: >-
@@ -271,24 +163,6 @@ apis:
     url: openapi/adobe-illustrator-swatches-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-symbols-api
   name: Adobe Illustrator Symbols API
   description: >-
@@ -302,24 +176,6 @@ apis:
     url: openapi/adobe-illustrator-symbols-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 - aid: adobe-illustrator:adobe-illustrator-text-frames-api
   name: Adobe Illustrator Text Frames API
   description: >-
@@ -334,24 +190,6 @@ apis:
     url: openapi/adobe-illustrator-text-frames-api-openapi.yml
   - type: Documentation
     url: https://developer.adobe.com/illustrator/
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-application.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-artboards.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-documents.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-graphic-styles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-layers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-path-items.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-swatches.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-symbols.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/scripting-text-frames.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/adobe-illustrator/overview
