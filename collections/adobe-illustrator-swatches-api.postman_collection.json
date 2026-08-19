@@ -1,0 +1,527 @@
+{
+  "item": [
+    {
+      "id": "100674cf-b5ea-44a3-a8c2-cc318dc5aa57",
+      "name": "Swatches",
+      "description": {
+        "content": "Manage color swatches, including spot colors, process colors, gradients, and patterns stored in the document.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dff922c4-9f42-4686-9f16-434926a2fc2d",
+          "name": "Adobe Illustrator List Swatches",
+          "request": {
+            "name": "Adobe Illustrator List Swatches",
+            "description": {
+              "content": "Returns all color swatches defined in the document, including process colors, spot colors, gradients, and patterns.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "swatches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e96b78a-4119-47af-a986-e961714df841",
+              "name": "Swatches retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "swatches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Example Artboard\",\n    \"color\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    }\n  },\n  {\n    \"name\": \"Example Artboard\",\n    \"color\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b2be50c-7f77-41b6-bf5c-a90d860a2147",
+          "name": "Adobe Illustrator Create a Swatch",
+          "request": {
+            "name": "Adobe Illustrator Create a Swatch",
+            "description": {
+              "content": "Creates a new color swatch in the document with the specified color values and properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "swatches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"color\": {\n    \"colorType\": \"<string>\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9dec3608-91c2-4d89-8d92-92c1ea865589",
+              "name": "Swatch created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "swatches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"color\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Example Artboard\",\n  \"color\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dec5703-dd7b-4fba-a52d-4dd508d6ef10",
+          "name": "Adobe Illustrator Get a Swatch",
+          "request": {
+            "name": "Adobe Illustrator Get a Swatch",
+            "description": {
+              "content": "Returns detailed information about a specific swatch by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "swatches",
+                ":swatchName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "swatchName",
+                  "description": "(Required) Name of the swatch."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f42e2d1-bbe9-4b65-93d5-4f59f108877b",
+              "name": "Swatch retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "swatches",
+                    ":swatchName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "swatchName",
+                      "description": "(Required) Name of the swatch."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Example Artboard\",\n  \"color\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0096dbca-3a28-436c-a2f5-aa32e412f038",
+              "name": "Swatch not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "swatches",
+                    ":swatchName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "swatchName",
+                      "description": "(Required) Name of the swatch."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e1d9848-66d2-4c37-a6e1-335dd0d70461",
+          "name": "Adobe Illustrator Delete a Swatch",
+          "request": {
+            "name": "Adobe Illustrator Delete a Swatch",
+            "description": {
+              "content": "Removes the specified swatch from the document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "swatches",
+                ":swatchName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "swatchName",
+                  "description": "(Required) Name of the swatch."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f0e29b9-3ad5-45dd-a917-d661b4ab36bb",
+              "name": "Swatch deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "swatches",
+                    ":swatchName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "swatchName",
+                      "description": "(Required) Name of the swatch."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74b206b7-cc96-4395-b54d-41ab134908e3",
+              "name": "Swatch not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "swatches",
+                    ":swatchName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "swatchName",
+                      "description": "(Required) Name of the swatch."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "93771dcc-fe05-4ee6-b29c-1656b76f7293",
+    "name": "Adobe Illustrator Scripting Application Swatches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,709 @@
+{
+  "item": [
+    {
+      "id": "e102c323-c7a0-4b83-ab0c-dc8cbed69093",
+      "name": "Layers",
+      "description": {
+        "content": "Create, manage, and manipulate layers within an Illustrator document, including visibility, locking, and ordering.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "816ed6bc-8794-459c-9a2b-eeba8c11e316",
+          "name": "Adobe Illustrator List Layers in a Document",
+          "request": {
+            "name": "Adobe Illustrator List Layers in a Document",
+            "description": {
+              "content": "Returns all layers in the specified document, including nested sublayers, with their properties and ordering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "layers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "095d3343-f650-41b7-b952-6803fb9e34cc",
+              "name": "Layers retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Layer 1\",\n    \"visible\": true,\n    \"locked\": true,\n    \"printable\": true,\n    \"preview\": true,\n    \"dimPlacedImages\": true,\n    \"color\": \"Red\",\n    \"opacity\": 72,\n    \"blendingMode\": \"Normal\",\n    \"isClippingMask\": true,\n    \"sliced\": true,\n    \"hasSelectedArtwork\": true,\n    \"pathItemCount\": 1024,\n    \"textFrameCount\": 1024,\n    \"sublayerCount\": 1024\n  },\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Layer 1\",\n    \"visible\": true,\n    \"locked\": true,\n    \"printable\": true,\n    \"preview\": true,\n    \"dimPlacedImages\": true,\n    \"color\": \"Red\",\n    \"opacity\": 72,\n    \"blendingMode\": \"Normal\",\n    \"isClippingMask\": true,\n    \"sliced\": true,\n    \"hasSelectedArtwork\": true,\n    \"pathItemCount\": 1024,\n    \"textFrameCount\": 1024,\n    \"sublayerCount\": 1024\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf59e779-8fc1-4596-a9cc-fa7c0c57fb0d",
+          "name": "Adobe Illustrator Create a New Layer",
+          "request": {
+            "name": "Adobe Illustrator Create a New Layer",
+            "description": {
+              "content": "Creates a new layer in the specified document with the provided name, color, visibility, and other properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "layers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"visible\": true,\n  \"locked\": false,\n  \"printable\": true,\n  \"preview\": true,\n  \"opacity\": 100,\n  \"blendingMode\": \"Normal\",\n  \"color\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b91454f9-ad9d-4201-b055-da06d927f11b",
+              "name": "Layer created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"visible\": true,\n  \"locked\": true,\n  \"printable\": true,\n  \"preview\": true,\n  \"opacity\": 72,\n  \"blendingMode\": \"Normal\",\n  \"color\": \"Red\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Layer 1\",\n  \"visible\": true,\n  \"locked\": true,\n  \"printable\": true,\n  \"preview\": true,\n  \"dimPlacedImages\": true,\n  \"color\": \"Red\",\n  \"opacity\": 72,\n  \"blendingMode\": \"Normal\",\n  \"isClippingMask\": true,\n  \"sliced\": true,\n  \"hasSelectedArtwork\": true,\n  \"pathItemCount\": 1024,\n  \"textFrameCount\": 1024,\n  \"sublayerCount\": 1024\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a529d64-8224-41bf-aad2-0baa19b8978a",
+          "name": "Adobe Illustrator Get a Layer",
+          "request": {
+            "name": "Adobe Illustrator Get a Layer",
+            "description": {
+              "content": "Returns detailed information about a specific layer, including its contents, visibility, lock state, and sublayers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "layers",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) Unique identifier of the layer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac6302fb-9dc8-45e0-aeeb-73f23ea390b2",
+              "name": "Layer retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) Unique identifier of the layer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Layer 1\",\n  \"visible\": true,\n  \"locked\": true,\n  \"printable\": true,\n  \"preview\": true,\n  \"dimPlacedImages\": true,\n  \"color\": \"Red\",\n  \"opacity\": 72,\n  \"blendingMode\": \"Normal\",\n  \"isClippingMask\": true,\n  \"sliced\": true,\n  \"hasSelectedArtwork\": true,\n  \"pathItemCount\": 1024,\n  \"textFrameCount\": 1024,\n  \"sublayerCount\": 1024\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93118ba0-4d07-4da7-b7e8-8606ec86af56",
+              "name": "Layer not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) Unique identifier of the layer."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16135266-9bfb-48bb-91d7-bdf9f40e3064",
+          "name": "Adobe Illustrator Update a Layer",
+          "request": {
+            "name": "Adobe Illustrator Update a Layer",
+            "description": {
+              "content": "Updates the properties of a specific layer, including name, visibility, lock state, opacity, and blend mode.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "layers",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) Unique identifier of the layer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"visible\": true,\n  \"locked\": false,\n  \"printable\": true,\n  \"preview\": true,\n  \"opacity\": 100,\n  \"blendingMode\": \"Normal\",\n  \"color\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa754d2c-fed5-4ff4-b2df-5522d79b9b09",
+              "name": "Layer updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) Unique identifier of the layer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"visible\": true,\n  \"locked\": true,\n  \"printable\": true,\n  \"preview\": true,\n  \"opacity\": 72,\n  \"blendingMode\": \"Normal\",\n  \"color\": \"Red\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Layer 1\",\n  \"visible\": true,\n  \"locked\": true,\n  \"printable\": true,\n  \"preview\": true,\n  \"dimPlacedImages\": true,\n  \"color\": \"Red\",\n  \"opacity\": 72,\n  \"blendingMode\": \"Normal\",\n  \"isClippingMask\": true,\n  \"sliced\": true,\n  \"hasSelectedArtwork\": true,\n  \"pathItemCount\": 1024,\n  \"textFrameCount\": 1024,\n  \"sublayerCount\": 1024\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9eb1e217-d86f-48e0-81e6-59fc64064d24",
+              "name": "Layer not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) Unique identifier of the layer."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"visible\": true,\n  \"locked\": true,\n  \"printable\": true,\n  \"preview\": true,\n  \"opacity\": 72,\n  \"blendingMode\": \"Normal\",\n  \"color\": \"Red\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "052f278a-e6c6-4189-ac17-0e1b82548def",
+          "name": "Adobe Illustrator Delete a Layer",
+          "request": {
+            "name": "Adobe Illustrator Delete a Layer",
+            "description": {
+              "content": "Removes the specified layer and all of its contents from the document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "layers",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "layerId",
+                  "description": "(Required) Unique identifier of the layer."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "093700cc-92c9-424a-81f4-9958f5946069",
+              "name": "Layer deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) Unique identifier of the layer."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c0d196c-7f25-4941-9388-381bd5e26352",
+              "name": "Layer not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "layers",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "layerId",
+                      "description": "(Required) Unique identifier of the layer."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cd638837-8dae-43e4-b9cd-e622aa06dbbd",
+    "name": "Adobe Illustrator Scripting Application Layers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Layers API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Layers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Layers in a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/layers",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ]
+          },
+          "docs": "Returns all layers in the specified document, including nested sublayers, with their properties and ordering."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a New Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/layers",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new layer in the specified document with the provided name, color, visibility, and other properties."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/layers/:layerId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the layer."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific layer, including its contents, visibility, lock state, and sublayers."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Update a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://localhost/documents/:documentId/layers/:layerId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the layer."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the properties of a specific layer, including name, visibility, lock state, opacity, and blend mode."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/layers/:layerId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the layer."
+              }
+            ]
+          },
+          "docs": "Removes the specified layer and all of its contents from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

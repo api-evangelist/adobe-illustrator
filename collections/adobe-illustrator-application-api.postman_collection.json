@@ -1,0 +1,267 @@
+{
+  "item": [
+    {
+      "id": "740a909f-ef06-4576-bb09-48631b55db17",
+      "name": "Application",
+      "description": {
+        "content": "Access to the Illustrator application object, including preferences, version information, and global settings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02c51f25-57e4-4b22-ad0e-41ee8a4ff0c8",
+          "name": "Adobe Illustrator Get Application Information",
+          "request": {
+            "name": "Adobe Illustrator Get Application Information",
+            "description": {
+              "content": "Returns information about the Illustrator application, including the version, build number, locale, and current preferences.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c7eb467-dcae-4d93-a4fd-0894ad8882f7",
+              "name": "Application information retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Adobe Illustrator\",\n  \"version\": \"string\",\n  \"buildNumber\": \"example_value\",\n  \"locale\": \"en_US\",\n  \"scriptingVersion\": \"example_value\",\n  \"freeMemory\": 1024,\n  \"activeDocument\": \"example_value\",\n  \"documents\": [\n    \"string\",\n    \"string\"\n  ],\n  \"userInteractionLevel\": \"DISPLAYALERTS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7d8f34c-d89c-4314-a46f-5f66acdbe998",
+          "name": "Adobe Illustrator Get Application Preferences",
+          "request": {
+            "name": "Adobe Illustrator Get Application Preferences",
+            "description": {
+              "content": "Returns the current application preferences, including general, type, units, guides, and smart guides preferences.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea009a34-59a8-4f58-8bcc-bc8205317a1d",
+              "name": "Preferences retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": 1540.8904425770475,\n    \"constrainAngle\": 3483.617578549665,\n    \"useAreaSelect\": true\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": false,\n    \"useSmartQuotes\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65e409ed-fa63-4293-9b6b-ad99bbe053de",
+          "name": "Adobe Illustrator Update Application Preferences",
+          "request": {
+            "name": "Adobe Illustrator Update Application Preferences",
+            "description": {
+              "content": "Updates the application preferences with the provided values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rulerUnits\": \"<string>\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": \"<number>\",\n    \"constrainAngle\": \"<number>\",\n    \"useAreaSelect\": \"<boolean>\"\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": \"<boolean>\",\n    \"useSmartQuotes\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a863921-afaf-46a7-a15a-dc1453a0db54",
+              "name": "Preferences updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": \"<number>\",\n    \"constrainAngle\": \"<number>\",\n    \"useAreaSelect\": \"<boolean>\"\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": \"<boolean>\",\n    \"useSmartQuotes\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rulerUnits\": \"Points\",\n  \"generalPreferences\": {\n    \"keyboardIncrement\": 1540.8904425770475,\n    \"constrainAngle\": 3483.617578549665,\n    \"useAreaSelect\": true\n  },\n  \"typePreferences\": {\n    \"showHiddenCharacters\": false,\n    \"useSmartQuotes\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8f99471c-6fef-4ba9-8712-ab95072c213d",
+    "name": "Adobe Illustrator Scripting Application API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Documents API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Open Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents"
+          },
+          "docs": "Returns a list of all currently open Illustrator documents."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a New Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Illustrator document with the specified settings, including document color mode, dimensions, and artboard configuration."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific open document, including its layers, artboards, and document properties."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Close a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "saveChanges",
+                "value": "save",
+                "type": "query",
+                "description": "Whether to save changes before closing."
+              }
+            ]
+          },
+          "docs": "Closes the specified document. Optionally saves changes before closing."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Save a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/save",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Saves the specified document. If the document has not been saved before, a file path must be provided."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Export a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/export",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exports the document to a specified format, including PNG, JPEG, SVG, PDF, TIFF, and other supported formats."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

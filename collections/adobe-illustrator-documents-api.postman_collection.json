@@ -1,0 +1,756 @@
+{
+  "item": [
+    {
+      "id": "42d04c94-771c-45da-bcc7-c1908dec56f0",
+      "name": "Documents",
+      "description": {
+        "content": "Manage Illustrator documents, including opening, creating, saving, closing, and exporting documents in various formats.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ea9bb87-d5f5-4d8a-8da2-192e7bff9c39",
+          "name": "Adobe Illustrator List Open Documents",
+          "request": {
+            "name": "Adobe Illustrator List Open Documents",
+            "description": {
+              "content": "Returns a list of all currently open Illustrator documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7991b972-84a1-4c8d-8128-a5c56829584d",
+              "name": "List of open documents retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Untitled-1\",\n    \"fullName\": \"Example Artboard\",\n    \"saved\": true,\n    \"documentColorSpace\": \"CMYK\",\n    \"width\": 72,\n    \"height\": 72,\n    \"rulerUnits\": \"Points\",\n    \"rulerOrigin\": [\n      3230.7574854127975,\n      718.8937288064179\n    ],\n    \"layerCount\": 1024,\n    \"artboardCount\": 1024,\n    \"activeLayer\": \"example_value\"\n  },\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Untitled-1\",\n    \"fullName\": \"Example Artboard\",\n    \"saved\": true,\n    \"documentColorSpace\": \"CMYK\",\n    \"width\": 72,\n    \"height\": 72,\n    \"rulerUnits\": \"Points\",\n    \"rulerOrigin\": [\n      9800.739640282492,\n      1250.4203805584145\n    ],\n    \"layerCount\": 1024,\n    \"artboardCount\": 1024,\n    \"activeLayer\": \"example_value\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b47a3d7f-9525-4027-8678-58fbad414259",
+          "name": "Adobe Illustrator Create a New Document",
+          "request": {
+            "name": "Adobe Illustrator Create a New Document",
+            "description": {
+              "content": "Creates a new Illustrator document with the specified settings, including document color mode, dimensions, and artboard configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"documentColorSpace\": \"RGB\",\n  \"width\": 612,\n  \"height\": 792,\n  \"numArtboards\": 1,\n  \"artboardLayout\": \"<string>\",\n  \"rasterResolution\": \"HighResolution\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d90f1b8-4b49-4156-aa8d-a0b6c96bf879",
+              "name": "Document created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"documentColorSpace\": \"CMYK\",\n  \"width\": 72,\n  \"height\": 72,\n  \"numArtboards\": 1024,\n  \"artboardLayout\": \"GridByRow\",\n  \"rasterResolution\": \"ScreenResolution\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Untitled-1\",\n  \"fullName\": \"Example Artboard\",\n  \"saved\": true,\n  \"documentColorSpace\": \"CMYK\",\n  \"width\": 72,\n  \"height\": 72,\n  \"rulerUnits\": \"Points\",\n  \"rulerOrigin\": [\n    4879.337300805775,\n    4962.581448710614\n  ],\n  \"layerCount\": 1024,\n  \"artboardCount\": 1024,\n  \"activeLayer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "928f6570-1a37-4469-8f2c-9644c4ef957c",
+          "name": "Adobe Illustrator Get a Document",
+          "request": {
+            "name": "Adobe Illustrator Get a Document",
+            "description": {
+              "content": "Returns detailed information about a specific open document, including its layers, artboards, and document properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9885f1ad-6127-4ea9-acb5-500f54aeb693",
+              "name": "Document retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Untitled-1\",\n  \"fullName\": \"Example Artboard\",\n  \"saved\": true,\n  \"documentColorSpace\": \"CMYK\",\n  \"width\": 72,\n  \"height\": 72,\n  \"rulerUnits\": \"Points\",\n  \"rulerOrigin\": [\n    4879.337300805775,\n    4962.581448710614\n  ],\n  \"layerCount\": 1024,\n  \"artboardCount\": 1024,\n  \"activeLayer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfd96ea0-9d22-4d0c-8b37-940384b54884",
+              "name": "Document not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1656b450-3bac-465e-97a1-64058321ca88",
+          "name": "Adobe Illustrator Close a Document",
+          "request": {
+            "name": "Adobe Illustrator Close a Document",
+            "description": {
+              "content": "Closes the specified document. Optionally saves changes before closing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "saveChanges",
+                  "value": "prompt",
+                  "description": "Whether to save changes before closing."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b253b74-d89e-4560-abc3-fe093ecbd392",
+              "name": "Document closed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "saveChanges",
+                      "value": "save"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6fb1023-9dd2-4c76-938b-8c9746b4cf50",
+              "name": "Document not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "saveChanges",
+                      "value": "save"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51bb20a7-0ac9-44bb-91cc-36276cb6bed8",
+          "name": "Adobe Illustrator Save a Document",
+          "request": {
+            "name": "Adobe Illustrator Save a Document",
+            "description": {
+              "content": "Saves the specified document. If the document has not been saved before, a file path must be provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "save"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filePath\": \"<string>\",\n  \"format\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c76794f1-a519-4a78-a958-636cd677face",
+              "name": "Document saved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "save"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filePath\": \"<string>\",\n  \"format\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "887262b1-656b-426c-8402-9b1d368cbedf",
+              "name": "Document not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "save"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filePath\": \"<string>\",\n  \"format\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "718d3c6b-44f7-4821-a313-80f88c590586",
+          "name": "Adobe Illustrator Export a Document",
+          "request": {
+            "name": "Adobe Illustrator Export a Document",
+            "description": {
+              "content": "Exports the document to a specified format, including PNG, JPEG, SVG, PDF, TIFF, and other supported formats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filePath\": \"<string>\",\n  \"format\": \"<string>\",\n  \"artboardRange\": \"\",\n  \"horizontalScale\": 100,\n  \"verticalScale\": 100,\n  \"resolution\": 72,\n  \"antiAliasing\": true,\n  \"transparency\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b90d967e-18f7-4b16-b288-86f2626d2893",
+              "name": "Document exported successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filePath\": \"/path/to/file.ai\",\n  \"format\": \"PNG8\",\n  \"artboardRange\": \"example_value\",\n  \"horizontalScale\": 72,\n  \"verticalScale\": 72,\n  \"resolution\": 72,\n  \"antiAliasing\": true,\n  \"transparency\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filePath\": \"string\",\n  \"format\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d9aea84-9513-479d-bb1c-4ade9ca100c4",
+              "name": "Document not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filePath\": \"/path/to/file.ai\",\n  \"format\": \"PNG8\",\n  \"artboardRange\": \"example_value\",\n  \"horizontalScale\": 72,\n  \"verticalScale\": 72,\n  \"resolution\": 72,\n  \"antiAliasing\": true,\n  \"transparency\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a51a33f8-3ad9-4ec9-898f-874dbd58fc4f",
+    "name": "Adobe Illustrator Scripting Application Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

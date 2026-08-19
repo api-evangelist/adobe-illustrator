@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator Get Application Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/application"
+          },
+          "docs": "Returns information about the Illustrator application, including the version, build number, locale, and current preferences."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get Application Preferences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/application/preferences"
+          },
+          "docs": "Returns the current application preferences, including general, type, units, guides, and smart guides preferences."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Update Application Preferences",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://localhost/application/preferences",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the application preferences with the provided values."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

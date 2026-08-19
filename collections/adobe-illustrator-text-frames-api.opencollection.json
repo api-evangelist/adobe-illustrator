@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Text Frames API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Text Frames",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Text Frames",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/textFrames",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "layerId",
+                "value": "example_value",
+                "type": "query",
+                "description": "Filter text frames by layer."
+              }
+            ]
+          },
+          "docs": "Returns all text frames in the document, including point text, area text, and text on a path items."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a Text Frame",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/textFrames",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new text frame in the document. Supports point text, area text, and text on a path with full typography settings."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Text Frame",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/textFrames/:textFrameId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "textFrameId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the text frame."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific text frame, including its contents, character attributes, paragraph attributes, and bounds."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Update a Text Frame",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://localhost/documents/:documentId/textFrames/:textFrameId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "textFrameId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the text frame."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the properties of a specific text frame, including its contents, character attributes, and paragraph attributes."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete a Text Frame",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/textFrames/:textFrameId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "textFrameId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the text frame."
+              }
+            ]
+          },
+          "docs": "Removes the specified text frame from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

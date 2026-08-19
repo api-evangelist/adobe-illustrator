@@ -1,0 +1,709 @@
+{
+  "item": [
+    {
+      "id": "dec0d46f-ef23-4503-a9be-979607e8364e",
+      "name": "Artboards",
+      "description": {
+        "content": "Manage artboards within an Illustrator document, including creating, resizing, reordering, and removing artboards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "457d14b2-18c5-4baa-9475-f573e47e13f3",
+          "name": "Adobe Illustrator List Artboards in a Document",
+          "request": {
+            "name": "Adobe Illustrator List Artboards in a Document",
+            "description": {
+              "content": "Returns all artboards in the specified document with their dimensions, positions, and names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "artboards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9acba5b2-25be-4ac6-8c13-43d6ebcb52c1",
+              "name": "Artboards retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"index\": 1024,\n    \"name\": \"Artboard 1\",\n    \"artboardRect\": [\n      4045.793080872847,\n      1347.6442420258927,\n      491.89853741591685,\n      84.25417750515862\n    ],\n    \"rulerOrigin\": [\n      3922.950597824221,\n      8402.860411764676\n    ],\n    \"rulerPAR\": 72,\n    \"showCenter\": true,\n    \"showCrossHairs\": true,\n    \"showSafeAreas\": true\n  },\n  {\n    \"index\": 1024,\n    \"name\": \"Artboard 1\",\n    \"artboardRect\": [\n      9309.871419394269,\n      1391.2089498227465,\n      8860.605880973335,\n      8975.153472213979\n    ],\n    \"rulerOrigin\": [\n      7537.064773173539,\n      1741.807997595881\n    ],\n    \"rulerPAR\": 72,\n    \"showCenter\": true,\n    \"showCrossHairs\": true,\n    \"showSafeAreas\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d20e026d-0b48-4aec-bfb7-d98df1904aff",
+          "name": "Adobe Illustrator Create a New Artboard",
+          "request": {
+            "name": "Adobe Illustrator Create a New Artboard",
+            "description": {
+              "content": "Adds a new artboard to the document with the specified dimensions and position.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "artboards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2fca9953-6129-4d3e-9a84-73aaf8e14f2c",
+              "name": "Artboard created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"Example Artboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"index\": 1024,\n  \"name\": \"Artboard 1\",\n  \"artboardRect\": [\n    9016.079504254105,\n    2513.778087819817,\n    2058.351055139038,\n    3896.683366524586\n  ],\n  \"rulerOrigin\": [\n    151.3331598193246,\n    4506.805223780433\n  ],\n  \"rulerPAR\": 72,\n  \"showCenter\": true,\n  \"showCrossHairs\": true,\n  \"showSafeAreas\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed65a23b-8f9c-4f32-a1c1-41136030d356",
+          "name": "Adobe Illustrator Get an Artboard",
+          "request": {
+            "name": "Adobe Illustrator Get an Artboard",
+            "description": {
+              "content": "Returns detailed information about a specific artboard, including its bounds, name, and ruler origin.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "artboards",
+                ":artboardIndex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "artboardIndex",
+                  "description": "(Required) Zero-based index of the artboard."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18936a41-1aaf-4695-a587-257358d61318",
+              "name": "Artboard retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards",
+                    ":artboardIndex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "artboardIndex",
+                      "description": "(Required) Zero-based index of the artboard."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"index\": 1024,\n  \"name\": \"Artboard 1\",\n  \"artboardRect\": [\n    9016.079504254105,\n    2513.778087819817,\n    2058.351055139038,\n    3896.683366524586\n  ],\n  \"rulerOrigin\": [\n    151.3331598193246,\n    4506.805223780433\n  ],\n  \"rulerPAR\": 72,\n  \"showCenter\": true,\n  \"showCrossHairs\": true,\n  \"showSafeAreas\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eaa9b4ed-ae74-4f74-ae65-73836f69d6aa",
+              "name": "Artboard not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards",
+                    ":artboardIndex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "artboardIndex",
+                      "description": "(Required) Zero-based index of the artboard."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0540ff4f-db54-4104-b960-72ffa72fe4d9",
+          "name": "Adobe Illustrator Update an Artboard",
+          "request": {
+            "name": "Adobe Illustrator Update an Artboard",
+            "description": {
+              "content": "Updates the properties of a specific artboard, including name, bounds, and ruler origin.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "artboards",
+                ":artboardIndex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "artboardIndex",
+                  "description": "(Required) Zero-based index of the artboard."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9c2022ee-d15b-43a6-8f8f-1799e34582e5",
+              "name": "Artboard updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards",
+                    ":artboardIndex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "artboardIndex",
+                      "description": "(Required) Zero-based index of the artboard."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"Example Artboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"index\": 1024,\n  \"name\": \"Artboard 1\",\n  \"artboardRect\": [\n    9016.079504254105,\n    2513.778087819817,\n    2058.351055139038,\n    3896.683366524586\n  ],\n  \"rulerOrigin\": [\n    151.3331598193246,\n    4506.805223780433\n  ],\n  \"rulerPAR\": 72,\n  \"showCenter\": true,\n  \"showCrossHairs\": true,\n  \"showSafeAreas\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cd5014f-c165-47f6-a54f-bfc04e9092a9",
+              "name": "Artboard not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards",
+                    ":artboardIndex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "artboardIndex",
+                      "description": "(Required) Zero-based index of the artboard."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"artboardRect\": [\n    \"<number>\",\n    \"<number>\",\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"Example Artboard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59331b0e-d15a-4c63-b97b-e66304252c55",
+          "name": "Adobe Illustrator Delete an Artboard",
+          "request": {
+            "name": "Adobe Illustrator Delete an Artboard",
+            "description": {
+              "content": "Removes the specified artboard from the document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "artboards",
+                ":artboardIndex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "artboardIndex",
+                  "description": "(Required) Zero-based index of the artboard."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19177b82-c905-40a3-aa94-1530d79cd153",
+              "name": "Artboard deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards",
+                    ":artboardIndex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "artboardIndex",
+                      "description": "(Required) Zero-based index of the artboard."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92c20238-6cf9-40df-bd1e-08a5ad84aa73",
+              "name": "Artboard not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "artboards",
+                    ":artboardIndex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "artboardIndex",
+                      "description": "(Required) Zero-based index of the artboard."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "42969222-84e0-4b4e-a36a-974e9e3dc001",
+    "name": "Adobe Illustrator Scripting Application Artboards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

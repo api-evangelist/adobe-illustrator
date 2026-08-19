@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Graphic Styles API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Graphic Styles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Graphic Styles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/graphicStyles",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ]
+          },
+          "docs": "Returns all graphic styles defined in the document."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Graphic Style",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/graphicStyles/:graphicStyleName",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "graphicStyleName",
+                "value": "Example Artboard",
+                "type": "path",
+                "description": "Name of the graphic style."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific graphic style."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete a Graphic Style",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/graphicStyles/:graphicStyleName",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "graphicStyleName",
+                "value": "Example Artboard",
+                "type": "path",
+                "description": "Name of the graphic style."
+              }
+            ]
+          },
+          "docs": "Removes the specified graphic style from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

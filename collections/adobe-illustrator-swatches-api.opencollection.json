@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Swatches API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Swatches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Swatches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/swatches",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ]
+          },
+          "docs": "Returns all color swatches defined in the document, including process colors, spot colors, gradients, and patterns."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a Swatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/swatches",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new color swatch in the document with the specified color values and properties."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Swatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/swatches/:swatchName",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "swatchName",
+                "value": "Example Artboard",
+                "type": "path",
+                "description": "Name of the swatch."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific swatch by name."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete a Swatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/swatches/:swatchName",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "swatchName",
+                "value": "Example Artboard",
+                "type": "path",
+                "description": "Name of the swatch."
+              }
+            ]
+          },
+          "docs": "Removes the specified swatch from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

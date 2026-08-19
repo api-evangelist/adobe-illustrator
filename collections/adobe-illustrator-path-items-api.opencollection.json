@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Path Items API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Path Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Path Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/pathItems",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "layerId",
+                "value": "example_value",
+                "type": "query",
+                "description": "Filter path items by layer."
+              }
+            ]
+          },
+          "docs": "Returns all path items in the document or a specific layer, including their anchor points, fill, and stroke properties."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a Path Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/pathItems",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new path item in the document with the specified anchor points, fill, stroke, and other properties. Supports creating rectangles, ellipses, polygons, stars, and freeform paths."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Path Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/pathItems/:pathItemId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "pathItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the path item."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific path item, including its anchor points, control handles, fill, stroke, and transform."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Update a Path Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://localhost/documents/:documentId/pathItems/:pathItemId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "pathItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the path item."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the properties of a specific path item, including its anchor points, fill, stroke, opacity, and transform."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete a Path Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/pathItems/:pathItemId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "pathItemId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the path item."
+              }
+            ]
+          },
+          "docs": "Removes the specified path item from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

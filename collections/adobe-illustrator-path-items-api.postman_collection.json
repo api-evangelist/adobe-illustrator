@@ -1,0 +1,721 @@
+{
+  "item": [
+    {
+      "id": "1c583e84-a65b-4f37-a374-ceb462354195",
+      "name": "Path Items",
+      "description": {
+        "content": "Create and manipulate vector path items, including shapes, lines, and complex paths with anchor points and control handles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e3666ac-8f85-4739-a064-2ccadd9de18d",
+          "name": "Adobe Illustrator List Path Items",
+          "request": {
+            "name": "Adobe Illustrator List Path Items",
+            "description": {
+              "content": "Returns all path items in the document or a specific layer, including their anchor points, fill, and stroke properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "pathItems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "layerId",
+                  "value": "<string>",
+                  "description": "Filter path items by layer."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b84367dc-1c46-43c6-8dcd-17dba45754eb",
+              "name": "Path items retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layerId",
+                      "value": "example_value"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Example Artboard\",\n    \"closed\": true,\n    \"filled\": true,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"stroked\": true,\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWidth\": 72,\n    \"strokeCap\": \"ButtEndCap\",\n    \"strokeJoin\": \"MiterEndJoin\",\n    \"strokeDashes\": [\n      816.8042457713798,\n      7011.817535876955\n    ],\n    \"opacity\": 72,\n    \"blendingMode\": \"example_value\",\n    \"position\": [\n      1300.0159636357544,\n      4657.638832031438\n    ],\n    \"width\": 72,\n    \"height\": 72,\n    \"pathPoints\": [\n      {\n        \"anchor\": [\n          7494.802535703684,\n          2978.4971501244386\n        ],\n        \"leftDirection\": [\n          3227.123385474937,\n          8517.717589835367\n        ],\n        \"rightDirection\": [\n          9763.672300798326,\n          9435.785361267266\n        ],\n        \"pointType\": \"Smooth\"\n      },\n      {\n        \"anchor\": [\n          317.93482149295784,\n          916.8951054324881\n        ],\n        \"leftDirection\": [\n          7736.488785578641,\n          285.2112571596555\n        ],\n        \"rightDirection\": [\n          676.3290179021353,\n          6108.715909090356\n        ],\n        \"pointType\": \"Smooth\"\n      }\n    ],\n    \"area\": 72,\n    \"length\": 72,\n    \"guides\": true,\n    \"clipping\": true,\n    \"layer\": \"example_value\"\n  },\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Example Artboard\",\n    \"closed\": true,\n    \"filled\": true,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"stroked\": true,\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWidth\": 72,\n    \"strokeCap\": \"ButtEndCap\",\n    \"strokeJoin\": \"MiterEndJoin\",\n    \"strokeDashes\": [\n      8442.967193934757,\n      3957.082064157048\n    ],\n    \"opacity\": 72,\n    \"blendingMode\": \"example_value\",\n    \"position\": [\n      4530.076021317786,\n      5684.696521455411\n    ],\n    \"width\": 72,\n    \"height\": 72,\n    \"pathPoints\": [\n      {\n        \"anchor\": [\n          2953.877802308015,\n          5102.632928748406\n        ],\n        \"leftDirection\": [\n          1569.0427728032441,\n          5849.3325189199595\n        ],\n        \"rightDirection\": [\n          4454.480192797605,\n          8723.86882160912\n        ],\n        \"pointType\": \"Smooth\"\n      },\n      {\n        \"anchor\": [\n          1998.0116959426175,\n          193.95612659668936\n        ],\n        \"leftDirection\": [\n          7314.545273228632,\n          8909.076334018535\n        ],\n        \"rightDirection\": [\n          6396.481203616297,\n          2460.2343556836727\n        ],\n        \"pointType\": \"Smooth\"\n      }\n    ],\n    \"area\": 72,\n    \"length\": 72,\n    \"guides\": true,\n    \"clipping\": true,\n    \"layer\": \"example_value\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ec82f73-76e8-484d-a594-241111ae032b",
+          "name": "Adobe Illustrator Create a Path Item",
+          "request": {
+            "name": "Adobe Illustrator Create a Path Item",
+            "description": {
+              "content": "Creates a new path item in the document with the specified anchor points, fill, stroke, and other properties. Supports creating rectangles, ellipses, polygons, stars, and freeform paths.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "pathItems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"<string>\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"<string>\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"<string>\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"<string>\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d12346d-f014-4e83-a283-95409685b903",
+              "name": "Path item created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        5461.43031946168,\n        5667.396645782627\n      ],\n      \"leftDirection\": [\n        7440.265002456203,\n        1119.1575538519694\n      ],\n      \"rightDirection\": [\n        158.15674862890927,\n        8673.190439145581\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        7511.564815398199,\n        4912.433013347141\n      ],\n      \"leftDirection\": [\n        7472.528493344561,\n        1708.4160324088693\n      ],\n      \"rightDirection\": [\n        8558.026042827865,\n        9414.075330612339\n      ],\n      \"pointType\": \"Smooth\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"cornerRadius\": 72,\n  \"sides\": 1024,\n  \"points\": 1024,\n  \"innerRadius\": 72,\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"strokeWidth\": 72,\n  \"opacity\": 72,\n  \"layer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Example Artboard\",\n  \"closed\": true,\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"strokeWidth\": 72,\n  \"strokeCap\": \"ButtEndCap\",\n  \"strokeJoin\": \"MiterEndJoin\",\n  \"strokeDashes\": [\n    9087.494283799982,\n    8627.898595317005\n  ],\n  \"opacity\": 72,\n  \"blendingMode\": \"example_value\",\n  \"position\": [\n    8551.69429327976,\n    3250.4684832385446\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        4005.349473481904,\n        5970.780916807839\n      ],\n      \"leftDirection\": [\n        2431.3046435233023,\n        5369.20221753529\n      ],\n      \"rightDirection\": [\n        8632.597522332193,\n        9492.372068025752\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        9080.964628402633,\n        4715.9036828463\n      ],\n      \"leftDirection\": [\n        5542.697100268362,\n        7668.478714363588\n      ],\n      \"rightDirection\": [\n        1378.6419726868849,\n        763.7097535067716\n      ],\n      \"pointType\": \"Smooth\"\n    }\n  ],\n  \"area\": 72,\n  \"length\": 72,\n  \"guides\": true,\n  \"clipping\": true,\n  \"layer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c9165cd-0dd6-489c-9eb0-e7dc9f7f725f",
+          "name": "Adobe Illustrator Get a Path Item",
+          "request": {
+            "name": "Adobe Illustrator Get a Path Item",
+            "description": {
+              "content": "Returns detailed information about a specific path item, including its anchor points, control handles, fill, stroke, and transform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "pathItems",
+                ":pathItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathItemId",
+                  "description": "(Required) Unique identifier of the path item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40933e18-af68-4a28-93b3-3fd4a561ecfb",
+              "name": "Path item retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems",
+                    ":pathItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathItemId",
+                      "description": "(Required) Unique identifier of the path item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Example Artboard\",\n  \"closed\": true,\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"strokeWidth\": 72,\n  \"strokeCap\": \"ButtEndCap\",\n  \"strokeJoin\": \"MiterEndJoin\",\n  \"strokeDashes\": [\n    9087.494283799982,\n    8627.898595317005\n  ],\n  \"opacity\": 72,\n  \"blendingMode\": \"example_value\",\n  \"position\": [\n    8551.69429327976,\n    3250.4684832385446\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        4005.349473481904,\n        5970.780916807839\n      ],\n      \"leftDirection\": [\n        2431.3046435233023,\n        5369.20221753529\n      ],\n      \"rightDirection\": [\n        8632.597522332193,\n        9492.372068025752\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        9080.964628402633,\n        4715.9036828463\n      ],\n      \"leftDirection\": [\n        5542.697100268362,\n        7668.478714363588\n      ],\n      \"rightDirection\": [\n        1378.6419726868849,\n        763.7097535067716\n      ],\n      \"pointType\": \"Smooth\"\n    }\n  ],\n  \"area\": 72,\n  \"length\": 72,\n  \"guides\": true,\n  \"clipping\": true,\n  \"layer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca35ccc9-b705-4020-81b0-d6ce5d7c2d00",
+              "name": "Path item not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems",
+                    ":pathItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathItemId",
+                      "description": "(Required) Unique identifier of the path item."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15de94f5-bdac-4623-b13a-79d5c2f7ba65",
+          "name": "Adobe Illustrator Update a Path Item",
+          "request": {
+            "name": "Adobe Illustrator Update a Path Item",
+            "description": {
+              "content": "Updates the properties of a specific path item, including its anchor points, fill, stroke, opacity, and transform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "pathItems",
+                ":pathItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathItemId",
+                  "description": "(Required) Unique identifier of the path item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"<string>\"\n    },\n    {\n      \"anchor\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"leftDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"rightDirection\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"pointType\": \"<string>\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"cornerRadius\": \"<number>\",\n  \"sides\": \"<integer>\",\n  \"points\": \"<integer>\",\n  \"innerRadius\": \"<number>\",\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"<string>\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"<string>\",\n    \"red\": \"<number>\",\n    \"green\": \"<number>\",\n    \"blue\": \"<number>\",\n    \"cyan\": \"<number>\",\n    \"magenta\": \"<number>\",\n    \"yellow\": \"<number>\",\n    \"black\": \"<number>\",\n    \"gray\": \"<number>\",\n    \"spotName\": \"<string>\",\n    \"tint\": \"<number>\"\n  },\n  \"strokeWidth\": 1,\n  \"opacity\": 100,\n  \"layer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d800060-c6fd-4cfc-8f26-c9dc1f019865",
+              "name": "Path item updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems",
+                    ":pathItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathItemId",
+                      "description": "(Required) Unique identifier of the path item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        5461.43031946168,\n        5667.396645782627\n      ],\n      \"leftDirection\": [\n        7440.265002456203,\n        1119.1575538519694\n      ],\n      \"rightDirection\": [\n        158.15674862890927,\n        8673.190439145581\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        7511.564815398199,\n        4912.433013347141\n      ],\n      \"leftDirection\": [\n        7472.528493344561,\n        1708.4160324088693\n      ],\n      \"rightDirection\": [\n        8558.026042827865,\n        9414.075330612339\n      ],\n      \"pointType\": \"Smooth\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"cornerRadius\": 72,\n  \"sides\": 1024,\n  \"points\": 1024,\n  \"innerRadius\": 72,\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"strokeWidth\": 72,\n  \"opacity\": 72,\n  \"layer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Example Artboard\",\n  \"closed\": true,\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"strokeWidth\": 72,\n  \"strokeCap\": \"ButtEndCap\",\n  \"strokeJoin\": \"MiterEndJoin\",\n  \"strokeDashes\": [\n    9087.494283799982,\n    8627.898595317005\n  ],\n  \"opacity\": 72,\n  \"blendingMode\": \"example_value\",\n  \"position\": [\n    8551.69429327976,\n    3250.4684832385446\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        4005.349473481904,\n        5970.780916807839\n      ],\n      \"leftDirection\": [\n        2431.3046435233023,\n        5369.20221753529\n      ],\n      \"rightDirection\": [\n        8632.597522332193,\n        9492.372068025752\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        9080.964628402633,\n        4715.9036828463\n      ],\n      \"leftDirection\": [\n        5542.697100268362,\n        7668.478714363588\n      ],\n      \"rightDirection\": [\n        1378.6419726868849,\n        763.7097535067716\n      ],\n      \"pointType\": \"Smooth\"\n    }\n  ],\n  \"area\": 72,\n  \"length\": 72,\n  \"guides\": true,\n  \"clipping\": true,\n  \"layer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa027972-2287-453d-809e-047afdf04a1a",
+              "name": "Path item not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems",
+                    ":pathItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathItemId",
+                      "description": "(Required) Unique identifier of the path item."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Artboard\",\n  \"pathType\": \"freeform\",\n  \"pathPoints\": [\n    {\n      \"anchor\": [\n        5461.43031946168,\n        5667.396645782627\n      ],\n      \"leftDirection\": [\n        7440.265002456203,\n        1119.1575538519694\n      ],\n      \"rightDirection\": [\n        158.15674862890927,\n        8673.190439145581\n      ],\n      \"pointType\": \"Smooth\"\n    },\n    {\n      \"anchor\": [\n        7511.564815398199,\n        4912.433013347141\n      ],\n      \"leftDirection\": [\n        7472.528493344561,\n        1708.4160324088693\n      ],\n      \"rightDirection\": [\n        8558.026042827865,\n        9414.075330612339\n      ],\n      \"pointType\": \"Smooth\"\n    }\n  ],\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"cornerRadius\": 72,\n  \"sides\": 1024,\n  \"points\": 1024,\n  \"innerRadius\": 72,\n  \"filled\": true,\n  \"fillColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"stroked\": true,\n  \"strokeColor\": {\n    \"colorType\": \"RGB\",\n    \"red\": 72,\n    \"green\": 72,\n    \"blue\": 72,\n    \"cyan\": 72,\n    \"magenta\": 72,\n    \"yellow\": 72,\n    \"black\": 72,\n    \"gray\": 72,\n    \"spotName\": \"Example Artboard\",\n    \"tint\": 72\n  },\n  \"strokeWidth\": 72,\n  \"opacity\": 72,\n  \"layer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4819b506-1b99-45fb-bece-61cd38a24afb",
+          "name": "Adobe Illustrator Delete a Path Item",
+          "request": {
+            "name": "Adobe Illustrator Delete a Path Item",
+            "description": {
+              "content": "Removes the specified path item from the document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "pathItems",
+                ":pathItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pathItemId",
+                  "description": "(Required) Unique identifier of the path item."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc1a21cd-e1ad-405b-af8a-067aff221a45",
+              "name": "Path item deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems",
+                    ":pathItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathItemId",
+                      "description": "(Required) Unique identifier of the path item."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "567bcbca-1d29-4b4c-9240-401efb41c09e",
+              "name": "Path item not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "pathItems",
+                    ":pathItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pathItemId",
+                      "description": "(Required) Unique identifier of the path item."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b304b7e-ac17-4345-a1cc-0725b0d411b0",
+    "name": "Adobe Illustrator Scripting Application Path Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

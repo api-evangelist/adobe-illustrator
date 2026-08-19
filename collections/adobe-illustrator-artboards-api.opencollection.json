@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Artboards API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Artboards in a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/artboards",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ]
+          },
+          "docs": "Returns all artboards in the specified document with their dimensions, positions, and names."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a New Artboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/artboards",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a new artboard to the document with the specified dimensions and position."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get an Artboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/artboards/:artboardIndex",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "artboardIndex",
+                "value": "",
+                "type": "path",
+                "description": "Zero-based index of the artboard."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific artboard, including its bounds, name, and ruler origin."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Update an Artboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://localhost/documents/:documentId/artboards/:artboardIndex",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "artboardIndex",
+                "value": "",
+                "type": "path",
+                "description": "Zero-based index of the artboard."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the properties of a specific artboard, including name, bounds, and ruler origin."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete an Artboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/artboards/:artboardIndex",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "artboardIndex",
+                "value": "",
+                "type": "path",
+                "description": "Zero-based index of the artboard."
+              }
+            ]
+          },
+          "docs": "Removes the specified artboard from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

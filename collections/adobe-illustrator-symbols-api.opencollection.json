@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Illustrator Scripting Application Symbols API",
+    "version": "29.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Symbols",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Illustrator List Symbols",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/symbols",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ]
+          },
+          "docs": "Returns all symbol definitions in the document that can be instantiated as symbol items."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Create a Symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://localhost/documents/:documentId/symbols",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new symbol definition from the specified artwork in the document. The symbol can then be instantiated multiple times."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Get a Symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://localhost/documents/:documentId/symbols/:symbolId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "symbolId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the symbol."
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific symbol definition."
+        },
+        {
+          "info": {
+            "name": "Adobe Illustrator Delete a Symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://localhost/documents/:documentId/symbols/:symbolId",
+            "params": [
+              {
+                "name": "documentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "symbolId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the symbol."
+              }
+            ]
+          },
+          "docs": "Removes the specified symbol definition from the document."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

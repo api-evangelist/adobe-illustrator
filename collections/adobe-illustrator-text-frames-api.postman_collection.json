@@ -1,0 +1,721 @@
+{
+  "item": [
+    {
+      "id": "984d6e6c-0e1e-4e45-a8e5-20fbc6611e4b",
+      "name": "Text Frames",
+      "description": {
+        "content": "Create and manipulate text frames, including point text, area text, and text on a path, with full typography control.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aa55032c-ded8-4959-b965-c030734fdb30",
+          "name": "Adobe Illustrator List Text Frames",
+          "request": {
+            "name": "Adobe Illustrator List Text Frames",
+            "description": {
+              "content": "Returns all text frames in the document, including point text, area text, and text on a path items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "textFrames"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "layerId",
+                  "value": "<string>",
+                  "description": "Filter text frames by layer."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21ffa89f-a047-4d5e-b880-930fa529a8a3",
+              "name": "Text frames retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "layerId",
+                      "value": "example_value"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Example Artboard\",\n    \"kind\": \"PointText\",\n    \"contents\": \"example_value\",\n    \"position\": [\n      9445.957963860652,\n      3964.0286772468035\n    ],\n    \"width\": 72,\n    \"height\": 72,\n    \"orientation\": \"Horizontal\",\n    \"characterAttributes\": {\n      \"font\": \"Myriad Pro\",\n      \"size\": 12,\n      \"fillColor\": {\n        \"colorType\": \"RGB\",\n        \"red\": 72,\n        \"green\": 72,\n        \"blue\": 72,\n        \"cyan\": 72,\n        \"magenta\": 72,\n        \"yellow\": 72,\n        \"black\": 72,\n        \"gray\": 72,\n        \"spotName\": \"Example Artboard\",\n        \"tint\": 72\n      },\n      \"strokeColor\": {\n        \"colorType\": \"RGB\",\n        \"red\": 72,\n        \"green\": 72,\n        \"blue\": 72,\n        \"cyan\": 72,\n        \"magenta\": 72,\n        \"yellow\": 72,\n        \"black\": 72,\n        \"gray\": 72,\n        \"spotName\": \"Example Artboard\",\n        \"tint\": 72\n      },\n      \"strokeWeight\": 72,\n      \"tracking\": 72,\n      \"leading\": 72,\n      \"kerning\": 72,\n      \"horizontalScale\": 72,\n      \"verticalScale\": 72,\n      \"baselineShift\": 72,\n      \"rotation\": 72,\n      \"capitalization\": \"Normal\",\n      \"underline\": true,\n      \"strikethrough\": true\n    },\n    \"paragraphAttributes\": {\n      \"justification\": \"Left\",\n      \"firstLineIndent\": 72,\n      \"leftIndent\": 72,\n      \"rightIndent\": 72,\n      \"spaceBefore\": 72,\n      \"spaceAfter\": 72,\n      \"hyphenation\": true\n    },\n    \"opacity\": 72,\n    \"layer\": \"example_value\"\n  },\n  {\n    \"id\": \"example_value\",\n    \"name\": \"Example Artboard\",\n    \"kind\": \"PointText\",\n    \"contents\": \"example_value\",\n    \"position\": [\n      8919.62824053052,\n      9202.132801998207\n    ],\n    \"width\": 72,\n    \"height\": 72,\n    \"orientation\": \"Horizontal\",\n    \"characterAttributes\": {\n      \"font\": \"Myriad Pro\",\n      \"size\": 12,\n      \"fillColor\": {\n        \"colorType\": \"RGB\",\n        \"red\": 72,\n        \"green\": 72,\n        \"blue\": 72,\n        \"cyan\": 72,\n        \"magenta\": 72,\n        \"yellow\": 72,\n        \"black\": 72,\n        \"gray\": 72,\n        \"spotName\": \"Example Artboard\",\n        \"tint\": 72\n      },\n      \"strokeColor\": {\n        \"colorType\": \"RGB\",\n        \"red\": 72,\n        \"green\": 72,\n        \"blue\": 72,\n        \"cyan\": 72,\n        \"magenta\": 72,\n        \"yellow\": 72,\n        \"black\": 72,\n        \"gray\": 72,\n        \"spotName\": \"Example Artboard\",\n        \"tint\": 72\n      },\n      \"strokeWeight\": 72,\n      \"tracking\": 72,\n      \"leading\": 72,\n      \"kerning\": 72,\n      \"horizontalScale\": 72,\n      \"verticalScale\": 72,\n      \"baselineShift\": 72,\n      \"rotation\": 72,\n      \"capitalization\": \"Normal\",\n      \"underline\": true,\n      \"strikethrough\": true\n    },\n    \"paragraphAttributes\": {\n      \"justification\": \"Left\",\n      \"firstLineIndent\": 72,\n      \"leftIndent\": 72,\n      \"rightIndent\": 72,\n      \"spaceBefore\": 72,\n      \"spaceAfter\": 72,\n      \"hyphenation\": true\n    },\n    \"opacity\": 72,\n    \"layer\": \"example_value\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8d15639-27b8-4b61-b863-8e1d8c91b760",
+          "name": "Adobe Illustrator Create a Text Frame",
+          "request": {
+            "name": "Adobe Illustrator Create a Text Frame",
+            "description": {
+              "content": "Creates a new text frame in the document. Supports point text, area text, and text on a path with full typography settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "textFrames"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"<string>\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"<string>\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"<string>\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"<string>\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ec37fed-6180-48d3-bb96-bc0126e5a9d9",
+              "name": "Text frame created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"example_value\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"Example Artboard\",\n  \"kind\": \"PointText\",\n  \"width\": 72,\n  \"height\": 72,\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"Myriad Pro\",\n    \"size\": 12,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWeight\": 72,\n    \"tracking\": 72,\n    \"leading\": 72,\n    \"kerning\": 72,\n    \"horizontalScale\": 72,\n    \"verticalScale\": 72,\n    \"baselineShift\": 72,\n    \"rotation\": 72,\n    \"capitalization\": \"Normal\",\n    \"underline\": true,\n    \"strikethrough\": true\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"Left\",\n    \"firstLineIndent\": 72,\n    \"leftIndent\": 72,\n    \"rightIndent\": 72,\n    \"spaceBefore\": 72,\n    \"spaceAfter\": 72,\n    \"hyphenation\": true\n  },\n  \"layer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Example Artboard\",\n  \"kind\": \"PointText\",\n  \"contents\": \"example_value\",\n  \"position\": [\n    9565.443407184228,\n    6176.79954276853\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"Myriad Pro\",\n    \"size\": 12,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWeight\": 72,\n    \"tracking\": 72,\n    \"leading\": 72,\n    \"kerning\": 72,\n    \"horizontalScale\": 72,\n    \"verticalScale\": 72,\n    \"baselineShift\": 72,\n    \"rotation\": 72,\n    \"capitalization\": \"Normal\",\n    \"underline\": true,\n    \"strikethrough\": true\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"Left\",\n    \"firstLineIndent\": 72,\n    \"leftIndent\": 72,\n    \"rightIndent\": 72,\n    \"spaceBefore\": 72,\n    \"spaceAfter\": 72,\n    \"hyphenation\": true\n  },\n  \"opacity\": 72,\n  \"layer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17fdce9d-45de-41d7-9c2e-bfba3cce6bce",
+          "name": "Adobe Illustrator Get a Text Frame",
+          "request": {
+            "name": "Adobe Illustrator Get a Text Frame",
+            "description": {
+              "content": "Returns detailed information about a specific text frame, including its contents, character attributes, paragraph attributes, and bounds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "textFrames",
+                ":textFrameId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "textFrameId",
+                  "description": "(Required) Unique identifier of the text frame."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e67b43f-1aef-4c0b-a1a6-702ad598b1c1",
+              "name": "Text frame retrieved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames",
+                    ":textFrameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "textFrameId",
+                      "description": "(Required) Unique identifier of the text frame."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Example Artboard\",\n  \"kind\": \"PointText\",\n  \"contents\": \"example_value\",\n  \"position\": [\n    9565.443407184228,\n    6176.79954276853\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"Myriad Pro\",\n    \"size\": 12,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWeight\": 72,\n    \"tracking\": 72,\n    \"leading\": 72,\n    \"kerning\": 72,\n    \"horizontalScale\": 72,\n    \"verticalScale\": 72,\n    \"baselineShift\": 72,\n    \"rotation\": 72,\n    \"capitalization\": \"Normal\",\n    \"underline\": true,\n    \"strikethrough\": true\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"Left\",\n    \"firstLineIndent\": 72,\n    \"leftIndent\": 72,\n    \"rightIndent\": 72,\n    \"spaceBefore\": 72,\n    \"spaceAfter\": 72,\n    \"hyphenation\": true\n  },\n  \"opacity\": 72,\n  \"layer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1884fd9-4d2a-42d0-bffa-a2c4b6551de9",
+              "name": "Text frame not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames",
+                    ":textFrameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "textFrameId",
+                      "description": "(Required) Unique identifier of the text frame."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52c16e74-7bc5-4cbb-98ad-c1a653972ee3",
+          "name": "Adobe Illustrator Update a Text Frame",
+          "request": {
+            "name": "Adobe Illustrator Update a Text Frame",
+            "description": {
+              "content": "Updates the properties of a specific text frame, including its contents, character attributes, and paragraph attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "textFrames",
+                ":textFrameId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "textFrameId",
+                  "description": "(Required) Unique identifier of the text frame."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": \"<string>\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"<string>\",\n  \"kind\": \"PointText\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"<string>\",\n    \"size\": \"<number>\",\n    \"fillColor\": {\n      \"colorType\": \"<string>\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeColor\": {\n      \"colorType\": \"<string>\",\n      \"red\": \"<number>\",\n      \"green\": \"<number>\",\n      \"blue\": \"<number>\",\n      \"cyan\": \"<number>\",\n      \"magenta\": \"<number>\",\n      \"yellow\": \"<number>\",\n      \"black\": \"<number>\",\n      \"gray\": \"<number>\",\n      \"spotName\": \"<string>\",\n      \"tint\": \"<number>\"\n    },\n    \"strokeWeight\": \"<number>\",\n    \"tracking\": \"<number>\",\n    \"leading\": \"<number>\",\n    \"kerning\": \"<number>\",\n    \"horizontalScale\": 100,\n    \"verticalScale\": 100,\n    \"baselineShift\": \"<number>\",\n    \"rotation\": \"<number>\",\n    \"capitalization\": \"<string>\",\n    \"underline\": \"<boolean>\",\n    \"strikethrough\": \"<boolean>\"\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"<string>\",\n    \"firstLineIndent\": \"<number>\",\n    \"leftIndent\": \"<number>\",\n    \"rightIndent\": \"<number>\",\n    \"spaceBefore\": \"<number>\",\n    \"spaceAfter\": \"<number>\",\n    \"hyphenation\": \"<boolean>\"\n  },\n  \"layer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a38f8c36-1a1c-4680-9218-b279237d4487",
+              "name": "Text frame updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames",
+                    ":textFrameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "textFrameId",
+                      "description": "(Required) Unique identifier of the text frame."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"example_value\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"Example Artboard\",\n  \"kind\": \"PointText\",\n  \"width\": 72,\n  \"height\": 72,\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"Myriad Pro\",\n    \"size\": 12,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWeight\": 72,\n    \"tracking\": 72,\n    \"leading\": 72,\n    \"kerning\": 72,\n    \"horizontalScale\": 72,\n    \"verticalScale\": 72,\n    \"baselineShift\": 72,\n    \"rotation\": 72,\n    \"capitalization\": \"Normal\",\n    \"underline\": true,\n    \"strikethrough\": true\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"Left\",\n    \"firstLineIndent\": 72,\n    \"leftIndent\": 72,\n    \"rightIndent\": 72,\n    \"spaceBefore\": 72,\n    \"spaceAfter\": 72,\n    \"hyphenation\": true\n  },\n  \"layer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"example_value\",\n  \"name\": \"Example Artboard\",\n  \"kind\": \"PointText\",\n  \"contents\": \"example_value\",\n  \"position\": [\n    9565.443407184228,\n    6176.79954276853\n  ],\n  \"width\": 72,\n  \"height\": 72,\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"Myriad Pro\",\n    \"size\": 12,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWeight\": 72,\n    \"tracking\": 72,\n    \"leading\": 72,\n    \"kerning\": 72,\n    \"horizontalScale\": 72,\n    \"verticalScale\": 72,\n    \"baselineShift\": 72,\n    \"rotation\": 72,\n    \"capitalization\": \"Normal\",\n    \"underline\": true,\n    \"strikethrough\": true\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"Left\",\n    \"firstLineIndent\": 72,\n    \"leftIndent\": 72,\n    \"rightIndent\": 72,\n    \"spaceBefore\": 72,\n    \"spaceAfter\": 72,\n    \"hyphenation\": true\n  },\n  \"opacity\": 72,\n  \"layer\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0df62c1f-53ae-42d9-ad08-6ca265afb042",
+              "name": "Text frame not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames",
+                    ":textFrameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "textFrameId",
+                      "description": "(Required) Unique identifier of the text frame."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": \"example_value\",\n  \"position\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"name\": \"Example Artboard\",\n  \"kind\": \"PointText\",\n  \"width\": 72,\n  \"height\": 72,\n  \"orientation\": \"Horizontal\",\n  \"characterAttributes\": {\n    \"font\": \"Myriad Pro\",\n    \"size\": 12,\n    \"fillColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeColor\": {\n      \"colorType\": \"RGB\",\n      \"red\": 72,\n      \"green\": 72,\n      \"blue\": 72,\n      \"cyan\": 72,\n      \"magenta\": 72,\n      \"yellow\": 72,\n      \"black\": 72,\n      \"gray\": 72,\n      \"spotName\": \"Example Artboard\",\n      \"tint\": 72\n    },\n    \"strokeWeight\": 72,\n    \"tracking\": 72,\n    \"leading\": 72,\n    \"kerning\": 72,\n    \"horizontalScale\": 72,\n    \"verticalScale\": 72,\n    \"baselineShift\": 72,\n    \"rotation\": 72,\n    \"capitalization\": \"Normal\",\n    \"underline\": true,\n    \"strikethrough\": true\n  },\n  \"paragraphAttributes\": {\n    \"justification\": \"Left\",\n    \"firstLineIndent\": 72,\n    \"leftIndent\": 72,\n    \"rightIndent\": 72,\n    \"spaceBefore\": 72,\n    \"spaceAfter\": 72,\n    \"hyphenation\": true\n  },\n  \"layer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c323e21c-f1d9-426f-8d01-a70692e8cca0",
+          "name": "Adobe Illustrator Delete a Text Frame",
+          "request": {
+            "name": "Adobe Illustrator Delete a Text Frame",
+            "description": {
+              "content": "Removes the specified text frame from the document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":documentId",
+                "textFrames",
+                ":textFrameId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) Unique identifier of the document."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "textFrameId",
+                  "description": "(Required) Unique identifier of the text frame."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3a0fd5b-7937-466c-8ddf-b40c4ae808a1",
+              "name": "Text frame deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames",
+                    ":textFrameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "textFrameId",
+                      "description": "(Required) Unique identifier of the text frame."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4fda3f30-fe39-49bc-bde5-2f45a3a6dc08",
+              "name": "Text frame not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":documentId",
+                    "textFrames",
+                    ":textFrameId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "documentId",
+                      "description": "(Required) Unique identifier of the document."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "textFrameId",
+                      "description": "(Required) Unique identifier of the text frame."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://localhost",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7d21f57-39d1-4c7a-b87c-5b3d0b9dec6b",
+    "name": "Adobe Illustrator Scripting Application Text Frames API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
