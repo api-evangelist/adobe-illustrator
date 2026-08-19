@@ -24,7 +24,7 @@ description: Adobe Illustrator is the industry-standard vector graphics applicat
   APIs, UXP plugins, CEP extensions, and a C++ SDK for building custom integrations and automating workflows.
 created: '2025-01-01'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: adobe-illustrator:plugin-sdk
   name: Adobe Illustrator Plugin SDK
