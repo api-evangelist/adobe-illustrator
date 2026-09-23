@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Illustrator Scripting Application Swatches API
+  title: Adobe Illustrator Scripting Swatches API
   description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
   version: 29.0.0
   contact:
@@ -115,16 +115,15 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
   schemas:
-    Swatch:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the swatch.
-          example: Example Artboard
-        color:
-          $ref: '#/components/schemas/Color'
     Color:
       type: object
       properties:
@@ -198,6 +197,15 @@ components:
           minimum: 0
           maximum: 100
           example: 72.0
+    Swatch:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+          example: Example Artboard
+        color:
+          $ref: '#/components/schemas/Color'
     SwatchCreate:
       type: object
       required:
@@ -210,14 +218,6 @@ components:
           example: Example Artboard
         color:
           $ref: '#/components/schemas/Color'
-  parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

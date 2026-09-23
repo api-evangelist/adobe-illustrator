@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Illustrator Scripting Application Documents API
+  title: Adobe Illustrator Scripting Documents API
   description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
   version: 29.0.0
   contact:
@@ -177,6 +177,57 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    DocumentCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the new document.
+          example: Example Artboard
+        documentColorSpace:
+          type: string
+          description: Color mode of the document.
+          enum:
+          - CMYK
+          - RGB
+          default: RGB
+          example: CMYK
+        width:
+          type: number
+          description: Document width in points.
+          default: 612
+          example: 72.0
+        height:
+          type: number
+          description: Document height in points.
+          default: 792
+          example: 72.0
+        numArtboards:
+          type: integer
+          description: Number of artboards to create.
+          default: 1
+          example: 1024
+        artboardLayout:
+          type: string
+          description: Layout for multiple artboards.
+          enum:
+          - GridByRow
+          - GridByCol
+          - Row
+          - Column
+          - RLGridByRow
+          - RLGridByCol
+          - RLRow
+          example: GridByRow
+        rasterResolution:
+          type: string
+          description: Raster effects resolution.
+          enum:
+          - ScreenResolution
+          - MediumResolution
+          - HighResolution
+          default: HighResolution
+          example: ScreenResolution
     Document:
       type: object
       properties:
@@ -243,57 +294,6 @@ components:
           type: string
           description: Name of the currently active layer.
           example: example_value
-    DocumentCreate:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the new document.
-          example: Example Artboard
-        documentColorSpace:
-          type: string
-          description: Color mode of the document.
-          enum:
-          - CMYK
-          - RGB
-          default: RGB
-          example: CMYK
-        width:
-          type: number
-          description: Document width in points.
-          default: 612
-          example: 72.0
-        height:
-          type: number
-          description: Document height in points.
-          default: 792
-          example: 72.0
-        numArtboards:
-          type: integer
-          description: Number of artboards to create.
-          default: 1
-          example: 1024
-        artboardLayout:
-          type: string
-          description: Layout for multiple artboards.
-          enum:
-          - GridByRow
-          - GridByCol
-          - Row
-          - Column
-          - RLGridByRow
-          - RLGridByCol
-          - RLRow
-          example: GridByRow
-        rasterResolution:
-          type: string
-          description: Raster effects resolution.
-          enum:
-          - ScreenResolution
-          - MediumResolution
-          - HighResolution
-          default: HighResolution
-          example: ScreenResolution
     ExportOptions:
       type: object
       required:

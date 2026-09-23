@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Illustrator Scripting Application Text Frames API
+  title: Adobe Illustrator Scripting Text Frames API
   description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
   version: 29.0.0
   contact:
@@ -250,75 +250,6 @@ components:
           type: string
           description: Target layer name.
           example: example_value
-    CharacterAttributes:
-      type: object
-      properties:
-        font:
-          type: string
-          description: Font name.
-          examples:
-          - Myriad Pro
-          example: example_value
-        size:
-          type: number
-          description: Font size in points.
-          examples:
-          - 12
-          example: 72.0
-        fillColor:
-          $ref: '#/components/schemas/Color'
-        strokeColor:
-          $ref: '#/components/schemas/Color'
-        strokeWeight:
-          type: number
-          description: Character stroke weight.
-          example: 72.0
-        tracking:
-          type: number
-          description: Tracking value.
-          example: 72.0
-        leading:
-          type: number
-          description: Leading (line spacing) in points.
-          example: 72.0
-        kerning:
-          type: number
-          description: Kerning value.
-          example: 72.0
-        horizontalScale:
-          type: number
-          description: Horizontal scale as a percentage.
-          default: 100
-          example: 72.0
-        verticalScale:
-          type: number
-          description: Vertical scale as a percentage.
-          default: 100
-          example: 72.0
-        baselineShift:
-          type: number
-          description: Baseline shift in points.
-          example: 72.0
-        rotation:
-          type: number
-          description: Character rotation in degrees.
-          example: 72.0
-        capitalization:
-          type: string
-          description: Capitalization style.
-          enum:
-          - Normal
-          - AllCaps
-          - SmallCaps
-          example: Normal
-        underline:
-          type: boolean
-          description: Whether text is underlined.
-          example: true
-        strikethrough:
-          type: boolean
-          description: Whether text has strikethrough.
-          example: true
     Color:
       type: object
       properties:
@@ -392,6 +323,75 @@ components:
           minimum: 0
           maximum: 100
           example: 72.0
+    CharacterAttributes:
+      type: object
+      properties:
+        font:
+          type: string
+          description: Font name.
+          examples:
+          - Myriad Pro
+          example: example_value
+        size:
+          type: number
+          description: Font size in points.
+          examples:
+          - 12
+          example: 72.0
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWeight:
+          type: number
+          description: Character stroke weight.
+          example: 72.0
+        tracking:
+          type: number
+          description: Tracking value.
+          example: 72.0
+        leading:
+          type: number
+          description: Leading (line spacing) in points.
+          example: 72.0
+        kerning:
+          type: number
+          description: Kerning value.
+          example: 72.0
+        horizontalScale:
+          type: number
+          description: Horizontal scale as a percentage.
+          default: 100
+          example: 72.0
+        verticalScale:
+          type: number
+          description: Vertical scale as a percentage.
+          default: 100
+          example: 72.0
+        baselineShift:
+          type: number
+          description: Baseline shift in points.
+          example: 72.0
+        rotation:
+          type: number
+          description: Character rotation in degrees.
+          example: 72.0
+        capitalization:
+          type: string
+          description: Capitalization style.
+          enum:
+          - Normal
+          - AllCaps
+          - SmallCaps
+          example: Normal
+        underline:
+          type: boolean
+          description: Whether text is underlined.
+          example: true
+        strikethrough:
+          type: boolean
+          description: Whether text has strikethrough.
+          example: true
     ParagraphAttributes:
       type: object
       properties:

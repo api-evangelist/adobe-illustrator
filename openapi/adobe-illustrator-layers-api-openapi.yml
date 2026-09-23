@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Illustrator Scripting Application Layers API
+  title: Adobe Illustrator Scripting Layers API
   description: The Adobe Illustrator Scripting API provides programmatic access to Illustrator's functionality through JavaScript, AppleScript, and VBScript. It allows developers to automate repetitive tasks, manipulate documents, select and edit text, generate art from data, and batch process files. Scripts can control nearly every aspect of Illustrator, from creating and modifying paths and shapes to managing layers, colors, and typography.
   version: 29.0.0
   contact:
@@ -130,21 +130,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    layerId:
-      name: layerId
-      in: path
-      required: true
-      description: Unique identifier of the layer.
-      schema:
-        type: string
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
   schemas:
     LayerCreate:
       type: object
@@ -300,6 +285,21 @@ components:
           type: integer
           description: Number of sublayers.
           example: 1024
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    layerId:
+      name: layerId
+      in: path
+      required: true
+      description: Unique identifier of the layer.
+      schema:
+        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/
