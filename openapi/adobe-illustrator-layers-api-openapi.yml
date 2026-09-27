@@ -130,6 +130,21 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    layerId:
+      name: layerId
+      in: path
+      required: true
+      description: Unique identifier of the layer.
+      schema:
+        type: string
   schemas:
     LayerCreate:
       type: object
@@ -285,21 +300,6 @@ components:
           type: integer
           description: Number of sublayers.
           example: 1024
-  parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
-    layerId:
-      name: layerId
-      in: path
-      required: true
-      description: Unique identifier of the layer.
-      schema:
-        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

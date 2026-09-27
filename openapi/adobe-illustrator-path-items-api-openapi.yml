@@ -136,22 +136,80 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    pathItemId:
-      name: pathItemId
-      in: path
-      required: true
-      description: Unique identifier of the path item.
-      schema:
-        type: string
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
   schemas:
+    Color:
+      type: object
+      properties:
+        colorType:
+          type: string
+          description: Type of color specification.
+          enum:
+          - RGB
+          - CMYK
+          - Gray
+          - Spot
+          - Pattern
+          - Gradient
+          - None
+          example: RGB
+        red:
+          type: number
+          description: Red component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        green:
+          type: number
+          description: Green component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        blue:
+          type: number
+          description: Blue component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        cyan:
+          type: number
+          description: Cyan component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        magenta:
+          type: number
+          description: Magenta component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        yellow:
+          type: number
+          description: Yellow component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        black:
+          type: number
+          description: Black component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        gray:
+          type: number
+          description: Gray value (0-100) for grayscale colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        spotName:
+          type: string
+          description: Spot color name for spot colors.
+          example: Example Artboard
+        tint:
+          type: number
+          description: Tint percentage for spot colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
     PathItemCreate:
       type: object
       properties:
@@ -240,79 +298,6 @@ components:
           type: string
           description: Target layer name.
           example: example_value
-    Color:
-      type: object
-      properties:
-        colorType:
-          type: string
-          description: Type of color specification.
-          enum:
-          - RGB
-          - CMYK
-          - Gray
-          - Spot
-          - Pattern
-          - Gradient
-          - None
-          example: RGB
-        red:
-          type: number
-          description: Red component (0-255) for RGB colors.
-          minimum: 0
-          maximum: 255
-          example: 72.0
-        green:
-          type: number
-          description: Green component (0-255) for RGB colors.
-          minimum: 0
-          maximum: 255
-          example: 72.0
-        blue:
-          type: number
-          description: Blue component (0-255) for RGB colors.
-          minimum: 0
-          maximum: 255
-          example: 72.0
-        cyan:
-          type: number
-          description: Cyan component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        magenta:
-          type: number
-          description: Magenta component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        yellow:
-          type: number
-          description: Yellow component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        black:
-          type: number
-          description: Black component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        gray:
-          type: number
-          description: Gray value (0-100) for grayscale colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        spotName:
-          type: string
-          description: Spot color name for spot colors.
-          example: Example Artboard
-        tint:
-          type: number
-          description: Tint percentage for spot colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
     PathItem:
       type: object
       properties:
@@ -448,6 +433,21 @@ components:
           example: Smooth
       required:
       - anchor
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    pathItemId:
+      name: pathItemId
+      in: path
+      required: true
+      description: Unique identifier of the path item.
+      schema:
+        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/
