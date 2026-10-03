@@ -130,21 +130,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
-    artboardIndex:
-      name: artboardIndex
-      in: path
-      required: true
-      description: Zero-based index of the artboard.
-      schema:
-        type: integer
   schemas:
     Artboard:
       type: object
@@ -205,6 +190,21 @@ components:
             type: number
           minItems: 4
           maxItems: 4
+  parameters:
+    artboardIndex:
+      name: artboardIndex
+      in: path
+      required: true
+      description: Zero-based index of the artboard.
+      schema:
+        type: integer
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

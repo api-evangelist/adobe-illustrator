@@ -103,21 +103,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    symbolId:
-      name: symbolId
-      in: path
-      required: true
-      description: Unique identifier of the symbol.
-      schema:
-        type: string
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
   schemas:
     SymbolCreate:
       type: object
@@ -173,6 +158,21 @@ components:
           - SymbolBottomMiddlePoint
           - SymbolBottomRightPoint
           example: SymbolTopLeftPoint
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    symbolId:
+      name: symbolId
+      in: path
+      required: true
+      description: Unique identifier of the symbol.
+      schema:
+        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

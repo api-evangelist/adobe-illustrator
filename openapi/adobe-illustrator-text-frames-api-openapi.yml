@@ -137,13 +137,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    textFrameId:
-      name: textFrameId
-      in: path
-      required: true
-      description: Unique identifier of the text frame.
-      schema:
-        type: string
     documentId:
       name: documentId
       in: path
@@ -151,7 +144,68 @@ components:
       description: Unique identifier of the document.
       schema:
         type: string
+    textFrameId:
+      name: textFrameId
+      in: path
+      required: true
+      description: Unique identifier of the text frame.
+      schema:
+        type: string
   schemas:
+    TextFrameCreate:
+      type: object
+      required:
+      - contents
+      - position
+      properties:
+        name:
+          type: string
+          description: Name of the text frame.
+          example: Example Artboard
+        kind:
+          type: string
+          description: Type of text frame to create.
+          enum:
+          - PointText
+          - AreaText
+          - PathText
+          default: PointText
+          example: PointText
+        contents:
+          type: string
+          description: The text content.
+          example: example_value
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width for area text frames.
+          example: 72.0
+        height:
+          type: number
+          description: Height for area text frames.
+          example: 72.0
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+          - Horizontal
+          - Vertical
+          default: Horizontal
+          example: Horizontal
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        layer:
+          type: string
+          description: Target layer name.
+          example: example_value
     Color:
       type: object
       properties:
@@ -225,119 +279,6 @@ components:
           minimum: 0
           maximum: 100
           example: 72.0
-    TextFrame:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the text frame.
-          example: example_value
-        name:
-          type: string
-          description: Name of the text frame.
-          example: Example Artboard
-        kind:
-          type: string
-          description: Type of text frame.
-          enum:
-          - PointText
-          - AreaText
-          - PathText
-          example: PointText
-        contents:
-          type: string
-          description: The text content of the frame.
-          example: example_value
-        position:
-          type: array
-          description: Position [x, y] in points.
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        width:
-          type: number
-          description: Width of the text frame in points.
-          example: 72.0
-        height:
-          type: number
-          description: Height of the text frame in points.
-          example: 72.0
-        orientation:
-          type: string
-          description: Text orientation.
-          enum:
-          - Horizontal
-          - Vertical
-          example: Horizontal
-        characterAttributes:
-          $ref: '#/components/schemas/CharacterAttributes'
-        paragraphAttributes:
-          $ref: '#/components/schemas/ParagraphAttributes'
-        opacity:
-          type: number
-          description: Opacity as a percentage (0-100).
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        layer:
-          type: string
-          description: Name of the containing layer.
-          example: example_value
-    TextFrameCreate:
-      type: object
-      required:
-      - contents
-      - position
-      properties:
-        name:
-          type: string
-          description: Name of the text frame.
-          example: Example Artboard
-        kind:
-          type: string
-          description: Type of text frame to create.
-          enum:
-          - PointText
-          - AreaText
-          - PathText
-          default: PointText
-          example: PointText
-        contents:
-          type: string
-          description: The text content.
-          example: example_value
-        position:
-          type: array
-          description: Position [x, y] in points.
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        width:
-          type: number
-          description: Width for area text frames.
-          example: 72.0
-        height:
-          type: number
-          description: Height for area text frames.
-          example: 72.0
-        orientation:
-          type: string
-          description: Text orientation.
-          enum:
-          - Horizontal
-          - Vertical
-          default: Horizontal
-          example: Horizontal
-        characterAttributes:
-          $ref: '#/components/schemas/CharacterAttributes'
-        paragraphAttributes:
-          $ref: '#/components/schemas/ParagraphAttributes'
-        layer:
-          type: string
-          description: Target layer name.
-          example: example_value
     CharacterAttributes:
       type: object
       properties:
@@ -446,6 +387,65 @@ components:
           type: boolean
           description: Whether hyphenation is enabled.
           example: true
+    TextFrame:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the text frame.
+          example: example_value
+        name:
+          type: string
+          description: Name of the text frame.
+          example: Example Artboard
+        kind:
+          type: string
+          description: Type of text frame.
+          enum:
+          - PointText
+          - AreaText
+          - PathText
+          example: PointText
+        contents:
+          type: string
+          description: The text content of the frame.
+          example: example_value
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width of the text frame in points.
+          example: 72.0
+        height:
+          type: number
+          description: Height of the text frame in points.
+          example: 72.0
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+          - Horizontal
+          - Vertical
+          example: Horizontal
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        layer:
+          type: string
+          description: Name of the containing layer.
+          example: example_value
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

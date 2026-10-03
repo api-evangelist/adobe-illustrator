@@ -91,14 +91,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
   schemas:
     GraphicStyle:
       type: object
@@ -107,6 +99,14 @@ components:
           type: string
           description: Name of the graphic style.
           example: Example Artboard
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

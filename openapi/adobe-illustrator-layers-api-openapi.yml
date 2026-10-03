@@ -131,13 +131,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
     layerId:
       name: layerId
       in: path
@@ -145,62 +138,14 @@ components:
       description: Unique identifier of the layer.
       schema:
         type: string
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
   schemas:
-    LayerCreate:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the layer.
-          example: Example Artboard
-        visible:
-          type: boolean
-          description: Whether the layer is visible.
-          default: true
-          example: true
-        locked:
-          type: boolean
-          description: Whether the layer is locked.
-          default: false
-          example: true
-        printable:
-          type: boolean
-          description: Whether the layer is printable.
-          default: true
-          example: true
-        preview:
-          type: boolean
-          description: Whether the layer is in preview mode.
-          default: true
-          example: true
-        opacity:
-          type: number
-          description: Layer opacity as a percentage (0-100).
-          minimum: 0
-          maximum: 100
-          default: 100
-          example: 72.0
-        blendingMode:
-          type: string
-          description: Blending mode for the layer.
-          enum:
-          - Normal
-          - Multiply
-          - Screen
-          - Overlay
-          default: Normal
-          example: Normal
-        color:
-          type: string
-          description: Layer highlight color.
-          enum:
-          - Red
-          - Orange
-          - Yellow
-          - Green
-          - Blue
-          - Violet
-          example: Red
     Layer:
       type: object
       properties:
@@ -300,6 +245,61 @@ components:
           type: integer
           description: Number of sublayers.
           example: 1024
+    LayerCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the layer.
+          example: Example Artboard
+        visible:
+          type: boolean
+          description: Whether the layer is visible.
+          default: true
+          example: true
+        locked:
+          type: boolean
+          description: Whether the layer is locked.
+          default: false
+          example: true
+        printable:
+          type: boolean
+          description: Whether the layer is printable.
+          default: true
+          example: true
+        preview:
+          type: boolean
+          description: Whether the layer is in preview mode.
+          default: true
+          example: true
+        opacity:
+          type: number
+          description: Layer opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          default: 100
+          example: 72.0
+        blendingMode:
+          type: string
+          description: Blending mode for the layer.
+          enum:
+          - Normal
+          - Multiply
+          - Screen
+          - Overlay
+          default: Normal
+          example: Normal
+        color:
+          type: string
+          description: Layer highlight color.
+          enum:
+          - Red
+          - Orange
+          - Yellow
+          - Green
+          - Blue
+          - Violet
+          example: Red
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/
