@@ -115,28 +115,15 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
   schemas:
-    Swatch:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the swatch.
-          example: Example Artboard
-        color:
-          $ref: '#/components/schemas/Color'
-    SwatchCreate:
-      type: object
-      required:
-      - name
-      - color
-      properties:
-        name:
-          type: string
-          description: Name of the swatch.
-          example: Example Artboard
-        color:
-          $ref: '#/components/schemas/Color'
     Color:
       type: object
       properties:
@@ -210,14 +197,27 @@ components:
           minimum: 0
           maximum: 100
           example: 72.0
-  parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
+    SwatchCreate:
+      type: object
+      required:
+      - name
+      - color
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+          example: Example Artboard
+        color:
+          $ref: '#/components/schemas/Color'
+    Swatch:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the swatch.
+          example: Example Artboard
+        color:
+          $ref: '#/components/schemas/Color'
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

@@ -103,7 +103,47 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    symbolId:
+      name: symbolId
+      in: path
+      required: true
+      description: Unique identifier of the symbol.
+      schema:
+        type: string
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
   schemas:
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the symbol.
+          example: example_value
+        name:
+          type: string
+          description: Name of the symbol.
+          example: Example Artboard
+        registrationPoint:
+          type: string
+          description: Registration point of the symbol.
+          enum:
+          - SymbolTopLeftPoint
+          - SymbolTopMiddlePoint
+          - SymbolTopRightPoint
+          - SymbolMiddleLeftPoint
+          - SymbolCenterPoint
+          - SymbolMiddleRightPoint
+          - SymbolBottomLeftPoint
+          - SymbolBottomMiddlePoint
+          - SymbolBottomRightPoint
+          example: SymbolTopLeftPoint
     SymbolCreate:
       type: object
       required:
@@ -133,46 +173,6 @@ components:
           - SymbolBottomRightPoint
           default: SymbolCenterPoint
           example: SymbolCenterPoint
-    Symbol:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the symbol.
-          example: example_value
-        name:
-          type: string
-          description: Name of the symbol.
-          example: Example Artboard
-        registrationPoint:
-          type: string
-          description: Registration point of the symbol.
-          enum:
-          - SymbolTopLeftPoint
-          - SymbolTopMiddlePoint
-          - SymbolTopRightPoint
-          - SymbolMiddleLeftPoint
-          - SymbolCenterPoint
-          - SymbolMiddleRightPoint
-          - SymbolBottomLeftPoint
-          - SymbolBottomMiddlePoint
-          - SymbolBottomRightPoint
-          example: SymbolTopLeftPoint
-  parameters:
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
-    symbolId:
-      name: symbolId
-      in: path
-      required: true
-      description: Unique identifier of the symbol.
-      schema:
-        type: string
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/

@@ -137,200 +137,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PathItemCreate:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the path item.
-          example: Example Artboard
-        pathType:
-          type: string
-          description: Type of path to create.
-          enum:
-          - freeform
-          - rectangle
-          - roundedRectangle
-          - ellipse
-          - polygon
-          - star
-          - line
-          default: freeform
-          example: freeform
-        pathPoints:
-          type: array
-          description: Array of path points for freeform paths. Required when pathType is "freeform".
-          items:
-            $ref: '#/components/schemas/PathPoint'
-        position:
-          type: array
-          description: Position [x, y] in points.
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        width:
-          type: number
-          description: Width in points (for rectangle, ellipse).
-          example: 72.0
-        height:
-          type: number
-          description: Height in points (for rectangle, ellipse).
-          example: 72.0
-        cornerRadius:
-          type: number
-          description: Corner radius for rounded rectangle.
-          example: 72.0
-        sides:
-          type: integer
-          description: Number of sides for polygon.
-          minimum: 3
-          example: 1024
-        points:
-          type: integer
-          description: Number of points for star.
-          minimum: 3
-          example: 1024
-        innerRadius:
-          type: number
-          description: Inner radius for star.
-          example: 72.0
-        filled:
-          type: boolean
-          description: Whether the path has a fill.
-          default: true
-          example: true
-        fillColor:
-          $ref: '#/components/schemas/Color'
-        stroked:
-          type: boolean
-          description: Whether the path has a stroke.
-          default: true
-          example: true
-        strokeColor:
-          $ref: '#/components/schemas/Color'
-        strokeWidth:
-          type: number
-          description: Stroke width in points.
-          default: 1
-          example: 72.0
-        opacity:
-          type: number
-          description: Opacity as a percentage (0-100).
-          minimum: 0
-          maximum: 100
-          default: 100
-          example: 72.0
-        layer:
-          type: string
-          description: Target layer name.
-          example: example_value
-    Color:
-      type: object
-      properties:
-        colorType:
-          type: string
-          description: Type of color specification.
-          enum:
-          - RGB
-          - CMYK
-          - Gray
-          - Spot
-          - Pattern
-          - Gradient
-          - None
-          example: RGB
-        red:
-          type: number
-          description: Red component (0-255) for RGB colors.
-          minimum: 0
-          maximum: 255
-          example: 72.0
-        green:
-          type: number
-          description: Green component (0-255) for RGB colors.
-          minimum: 0
-          maximum: 255
-          example: 72.0
-        blue:
-          type: number
-          description: Blue component (0-255) for RGB colors.
-          minimum: 0
-          maximum: 255
-          example: 72.0
-        cyan:
-          type: number
-          description: Cyan component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        magenta:
-          type: number
-          description: Magenta component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        yellow:
-          type: number
-          description: Yellow component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        black:
-          type: number
-          description: Black component (0-100) for CMYK colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        gray:
-          type: number
-          description: Gray value (0-100) for grayscale colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-        spotName:
-          type: string
-          description: Spot color name for spot colors.
-          example: Example Artboard
-        tint:
-          type: number
-          description: Tint percentage for spot colors.
-          minimum: 0
-          maximum: 100
-          example: 72.0
-    PathPoint:
-      type: object
-      properties:
-        anchor:
-          type: array
-          description: Anchor point coordinates [x, y].
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        leftDirection:
-          type: array
-          description: Left control handle coordinates [x, y].
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        rightDirection:
-          type: array
-          description: Right control handle coordinates [x, y].
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        pointType:
-          type: string
-          description: The type of path point.
-          enum:
-          - Smooth
-          - Corner
-          example: Smooth
-      required:
-      - anchor
     PathItem:
       type: object
       properties:
@@ -433,6 +239,200 @@ components:
           type: string
           description: Name of the containing layer.
           example: example_value
+    PathItemCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the path item.
+          example: Example Artboard
+        pathType:
+          type: string
+          description: Type of path to create.
+          enum:
+          - freeform
+          - rectangle
+          - roundedRectangle
+          - ellipse
+          - polygon
+          - star
+          - line
+          default: freeform
+          example: freeform
+        pathPoints:
+          type: array
+          description: Array of path points for freeform paths. Required when pathType is "freeform".
+          items:
+            $ref: '#/components/schemas/PathPoint'
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width in points (for rectangle, ellipse).
+          example: 72.0
+        height:
+          type: number
+          description: Height in points (for rectangle, ellipse).
+          example: 72.0
+        cornerRadius:
+          type: number
+          description: Corner radius for rounded rectangle.
+          example: 72.0
+        sides:
+          type: integer
+          description: Number of sides for polygon.
+          minimum: 3
+          example: 1024
+        points:
+          type: integer
+          description: Number of points for star.
+          minimum: 3
+          example: 1024
+        innerRadius:
+          type: number
+          description: Inner radius for star.
+          example: 72.0
+        filled:
+          type: boolean
+          description: Whether the path has a fill.
+          default: true
+          example: true
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        stroked:
+          type: boolean
+          description: Whether the path has a stroke.
+          default: true
+          example: true
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWidth:
+          type: number
+          description: Stroke width in points.
+          default: 1
+          example: 72.0
+        opacity:
+          type: number
+          description: Opacity as a percentage (0-100).
+          minimum: 0
+          maximum: 100
+          default: 100
+          example: 72.0
+        layer:
+          type: string
+          description: Target layer name.
+          example: example_value
+    PathPoint:
+      type: object
+      properties:
+        anchor:
+          type: array
+          description: Anchor point coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        leftDirection:
+          type: array
+          description: Left control handle coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        rightDirection:
+          type: array
+          description: Right control handle coordinates [x, y].
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        pointType:
+          type: string
+          description: The type of path point.
+          enum:
+          - Smooth
+          - Corner
+          example: Smooth
+      required:
+      - anchor
+    Color:
+      type: object
+      properties:
+        colorType:
+          type: string
+          description: Type of color specification.
+          enum:
+          - RGB
+          - CMYK
+          - Gray
+          - Spot
+          - Pattern
+          - Gradient
+          - None
+          example: RGB
+        red:
+          type: number
+          description: Red component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        green:
+          type: number
+          description: Green component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        blue:
+          type: number
+          description: Blue component (0-255) for RGB colors.
+          minimum: 0
+          maximum: 255
+          example: 72.0
+        cyan:
+          type: number
+          description: Cyan component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        magenta:
+          type: number
+          description: Magenta component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        yellow:
+          type: number
+          description: Yellow component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        black:
+          type: number
+          description: Black component (0-100) for CMYK colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        gray:
+          type: number
+          description: Gray value (0-100) for grayscale colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
+        spotName:
+          type: string
+          description: Spot color name for spot colors.
+          example: Example Artboard
+        tint:
+          type: number
+          description: Tint percentage for spot colors.
+          minimum: 0
+          maximum: 100
+          example: 72.0
   parameters:
     documentId:
       name: documentId
