@@ -136,7 +136,76 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    documentId:
+      name: documentId
+      in: path
+      required: true
+      description: Unique identifier of the document.
+      schema:
+        type: string
+    textFrameId:
+      name: textFrameId
+      in: path
+      required: true
+      description: Unique identifier of the text frame.
+      schema:
+        type: string
   schemas:
+    TextFrameCreate:
+      type: object
+      required:
+      - contents
+      - position
+      properties:
+        name:
+          type: string
+          description: Name of the text frame.
+          example: Example Artboard
+        kind:
+          type: string
+          description: Type of text frame to create.
+          enum:
+          - PointText
+          - AreaText
+          - PathText
+          default: PointText
+          example: PointText
+        contents:
+          type: string
+          description: The text content.
+          example: example_value
+        position:
+          type: array
+          description: Position [x, y] in points.
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
+        width:
+          type: number
+          description: Width for area text frames.
+          example: 72.0
+        height:
+          type: number
+          description: Height for area text frames.
+          example: 72.0
+        orientation:
+          type: string
+          description: Text orientation.
+          enum:
+          - Horizontal
+          - Vertical
+          default: Horizontal
+          example: Horizontal
+        characterAttributes:
+          $ref: '#/components/schemas/CharacterAttributes'
+        paragraphAttributes:
+          $ref: '#/components/schemas/ParagraphAttributes'
+        layer:
+          type: string
+          description: Target layer name.
+          example: example_value
     TextFrame:
       type: object
       properties:
@@ -196,168 +265,6 @@ components:
           type: string
           description: Name of the containing layer.
           example: example_value
-    TextFrameCreate:
-      type: object
-      required:
-      - contents
-      - position
-      properties:
-        name:
-          type: string
-          description: Name of the text frame.
-          example: Example Artboard
-        kind:
-          type: string
-          description: Type of text frame to create.
-          enum:
-          - PointText
-          - AreaText
-          - PathText
-          default: PointText
-          example: PointText
-        contents:
-          type: string
-          description: The text content.
-          example: example_value
-        position:
-          type: array
-          description: Position [x, y] in points.
-          items:
-            type: number
-          minItems: 2
-          maxItems: 2
-        width:
-          type: number
-          description: Width for area text frames.
-          example: 72.0
-        height:
-          type: number
-          description: Height for area text frames.
-          example: 72.0
-        orientation:
-          type: string
-          description: Text orientation.
-          enum:
-          - Horizontal
-          - Vertical
-          default: Horizontal
-          example: Horizontal
-        characterAttributes:
-          $ref: '#/components/schemas/CharacterAttributes'
-        paragraphAttributes:
-          $ref: '#/components/schemas/ParagraphAttributes'
-        layer:
-          type: string
-          description: Target layer name.
-          example: example_value
-    CharacterAttributes:
-      type: object
-      properties:
-        font:
-          type: string
-          description: Font name.
-          examples:
-          - Myriad Pro
-          example: example_value
-        size:
-          type: number
-          description: Font size in points.
-          examples:
-          - 12
-          example: 72.0
-        fillColor:
-          $ref: '#/components/schemas/Color'
-        strokeColor:
-          $ref: '#/components/schemas/Color'
-        strokeWeight:
-          type: number
-          description: Character stroke weight.
-          example: 72.0
-        tracking:
-          type: number
-          description: Tracking value.
-          example: 72.0
-        leading:
-          type: number
-          description: Leading (line spacing) in points.
-          example: 72.0
-        kerning:
-          type: number
-          description: Kerning value.
-          example: 72.0
-        horizontalScale:
-          type: number
-          description: Horizontal scale as a percentage.
-          default: 100
-          example: 72.0
-        verticalScale:
-          type: number
-          description: Vertical scale as a percentage.
-          default: 100
-          example: 72.0
-        baselineShift:
-          type: number
-          description: Baseline shift in points.
-          example: 72.0
-        rotation:
-          type: number
-          description: Character rotation in degrees.
-          example: 72.0
-        capitalization:
-          type: string
-          description: Capitalization style.
-          enum:
-          - Normal
-          - AllCaps
-          - SmallCaps
-          example: Normal
-        underline:
-          type: boolean
-          description: Whether text is underlined.
-          example: true
-        strikethrough:
-          type: boolean
-          description: Whether text has strikethrough.
-          example: true
-    ParagraphAttributes:
-      type: object
-      properties:
-        justification:
-          type: string
-          description: Text justification.
-          enum:
-          - Left
-          - Center
-          - Right
-          - FullJustifyLastLineLeft
-          - FullJustifyLastLineCenter
-          - FullJustifyLastLineRight
-          - FullJustify
-          example: Left
-        firstLineIndent:
-          type: number
-          description: First line indent in points.
-          example: 72.0
-        leftIndent:
-          type: number
-          description: Left indent in points.
-          example: 72.0
-        rightIndent:
-          type: number
-          description: Right indent in points.
-          example: 72.0
-        spaceBefore:
-          type: number
-          description: Space before paragraph in points.
-          example: 72.0
-        spaceAfter:
-          type: number
-          description: Space after paragraph in points.
-          example: 72.0
-        hyphenation:
-          type: boolean
-          description: Whether hyphenation is enabled.
-          example: true
     Color:
       type: object
       properties:
@@ -431,21 +338,114 @@ components:
           minimum: 0
           maximum: 100
           example: 72.0
-  parameters:
-    textFrameId:
-      name: textFrameId
-      in: path
-      required: true
-      description: Unique identifier of the text frame.
-      schema:
-        type: string
-    documentId:
-      name: documentId
-      in: path
-      required: true
-      description: Unique identifier of the document.
-      schema:
-        type: string
+    ParagraphAttributes:
+      type: object
+      properties:
+        justification:
+          type: string
+          description: Text justification.
+          enum:
+          - Left
+          - Center
+          - Right
+          - FullJustifyLastLineLeft
+          - FullJustifyLastLineCenter
+          - FullJustifyLastLineRight
+          - FullJustify
+          example: Left
+        firstLineIndent:
+          type: number
+          description: First line indent in points.
+          example: 72.0
+        leftIndent:
+          type: number
+          description: Left indent in points.
+          example: 72.0
+        rightIndent:
+          type: number
+          description: Right indent in points.
+          example: 72.0
+        spaceBefore:
+          type: number
+          description: Space before paragraph in points.
+          example: 72.0
+        spaceAfter:
+          type: number
+          description: Space after paragraph in points.
+          example: 72.0
+        hyphenation:
+          type: boolean
+          description: Whether hyphenation is enabled.
+          example: true
+    CharacterAttributes:
+      type: object
+      properties:
+        font:
+          type: string
+          description: Font name.
+          examples:
+          - Myriad Pro
+          example: example_value
+        size:
+          type: number
+          description: Font size in points.
+          examples:
+          - 12
+          example: 72.0
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        strokeColor:
+          $ref: '#/components/schemas/Color'
+        strokeWeight:
+          type: number
+          description: Character stroke weight.
+          example: 72.0
+        tracking:
+          type: number
+          description: Tracking value.
+          example: 72.0
+        leading:
+          type: number
+          description: Leading (line spacing) in points.
+          example: 72.0
+        kerning:
+          type: number
+          description: Kerning value.
+          example: 72.0
+        horizontalScale:
+          type: number
+          description: Horizontal scale as a percentage.
+          default: 100
+          example: 72.0
+        verticalScale:
+          type: number
+          description: Vertical scale as a percentage.
+          default: 100
+          example: 72.0
+        baselineShift:
+          type: number
+          description: Baseline shift in points.
+          example: 72.0
+        rotation:
+          type: number
+          description: Character rotation in degrees.
+          example: 72.0
+        capitalization:
+          type: string
+          description: Capitalization style.
+          enum:
+          - Normal
+          - AllCaps
+          - SmallCaps
+          example: Normal
+        underline:
+          type: boolean
+          description: Whether text is underlined.
+          example: true
+        strikethrough:
+          type: boolean
+          description: Whether text has strikethrough.
+          example: true
 externalDocs:
   description: Adobe Illustrator Scripting Guide
   url: https://ai-scripting.docsforadobe.dev/
